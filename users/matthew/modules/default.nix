@@ -1,6 +1,6 @@
 {
   imports =
     [
-      ./tmux.nix # mpv config
+      ./tmux.nix # tmux config
     ];
 }
