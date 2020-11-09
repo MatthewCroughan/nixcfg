@@ -13,7 +13,33 @@ self:
 
   programs.home-manager.enable = true;
 
+  xdg.enable = true;
+
   home.file."scripts".source = "${self}/scripts"; # pass 'self' in order to allow ./users/default.nix -> ./users/matthew/default.nix to access ${self}, to provide a path relative to flake.nix.
+
+  # Set cursor theme
+  home.file.".icons/default".source = "${pkgs.gnome3.adwaita-icon-theme}/share/icons/Adwaita";
+  xsession.pointerCursor = {
+    package = pkgs.gnome3.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 24;
+  };
+
+  home = { 
+    extraOutputsToInstall = [ "man" ]; # Additionally installs the manpages for each pkg
+
+    packages = with pkgs;
+      [
+        ## tools
+
+        # latest.firefox-nightly-bin
+        firefox-bin
+
+        ## misc
+        discord
+        cordless
+      ];
+    };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

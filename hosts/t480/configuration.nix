@@ -42,6 +42,9 @@
   boot.supportedFilesystems = [ "zfs" ];
   networking.hostId = "235f593c";
 
+  # Install sway
+  programs.sway.enable = true;
+
   # Set up LUKS requirements
   boot.initrd.luks.devices.crypted.device = "/dev/disk/by-label/nixos";
 
