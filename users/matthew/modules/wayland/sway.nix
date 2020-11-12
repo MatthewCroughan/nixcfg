@@ -78,7 +78,7 @@ in {
     };
   };
 
-  config = builtins.readFile ./sway.conf
+  xdg.configFile."sway/config".source = ./sway.conf;
 
   systemd.user.services.kanshi = {
     Unit = {
@@ -106,6 +106,4 @@ in {
     }
   '';
 
-  };
 }
-

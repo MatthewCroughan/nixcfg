@@ -121,7 +121,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-     wget vim firefox mpv htop
+     wget vim firefox mpv htop vimPlugins.vim-addon-nix htop
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -183,6 +183,6 @@
  # Enable power management
  powerManagement.enable = true;
 
-services.udev.extraRules = ''SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"'';
+ services.udev.extraRules = ''SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"'';
 
 }
