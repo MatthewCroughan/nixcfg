@@ -34,8 +34,6 @@ self:
 	kitty
 
         # latest.firefox-nightly-bin
-        #firefox-wayland
-        firefox-bin
 
         ## misc
         discord

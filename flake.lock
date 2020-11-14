@@ -2,27 +2,43 @@
   "nodes": {
     "cachix": {
       "locked": {
-        "lastModified": 1599903709,
-        "narHash": "sha256-tinVKY7zRdSXmVOp7BAulNtIb2iP5nvNp5UAxihKXNI=",
+        "lastModified": 1605220118,
+        "narHash": "sha256-Und10ixH1WuW0XHYMxxuHRohKYb45R/T8CwZuLd2D2Q=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "252bfe0107587d40092057f338e9ffcf7bbd90cb",
+        "rev": "3090c65041104931adda7625d37fa874b2b5c124",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-20.03",
+        "ref": "nixos-20.09",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "cachix_2": {
+      "locked": {
+        "lastModified": 1604368813,
+        "narHash": "sha256-UOLaURSO448k+4bGJlaSMYeo2F5F6CuFo9VoYDkhmsk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d105075a1fd870b1d1617a6008cb38b443e65433",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-20.09",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "cmpkgs": {
       "locked": {
-        "lastModified": 1601260294,
-        "narHash": "sha256-+IB5tg+rdPTG5+XkxHDlGm5NPg87Lb07hDD6ZUBKlSo=",
+        "lastModified": 1604628793,
+        "narHash": "sha256-UcWa6b/KxpVAodtVeoOFlDTNM0aQNz45ANnYP20HaCA=",
         "owner": "colemickens",
         "repo": "nixpkgs",
-        "rev": "45417ed2d3e5ca1214d3ac45b149e06b68f6284d",
+        "rev": "efe53b2b7b2620d2241ff0a7ed0c28db4deaaec3",
         "type": "github"
       },
       "original": {
@@ -32,16 +48,55 @@
         "type": "github"
       }
     },
+    "cmpkgs_2": {
+      "locked": {
+        "lastModified": 1604628793,
+        "narHash": "sha256-UcWa6b/KxpVAodtVeoOFlDTNM0aQNz45ANnYP20HaCA=",
+        "owner": "colemickens",
+        "repo": "nixpkgs",
+        "rev": "efe53b2b7b2620d2241ff0a7ed0c28db4deaaec3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "colemickens",
+        "ref": "cmpkgs",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "firefox": {
+      "inputs": {
+        "cachix": "cachix",
+        "cmpkgs": "cmpkgs",
+        "mozilla": "mozilla",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1605326424,
+        "narHash": "sha256-Tx+CMtGmAUP/IkoT4ZEJFa0uXqMTFarULvbno4wBjFw=",
+        "owner": "colemickens",
+        "repo": "flake-firefox-nightly",
+        "rev": "be6f495d580a510d9e90a2df4a7e0add8e86605e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "colemickens",
+        "repo": "flake-firefox-nightly",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1603922580,
-        "narHash": "sha256-rPJ3YxsVm5YYHzIRLy1w3jSXIQvVXK1KydraC7m/2xc=",
+        "lastModified": 1605308217,
+        "narHash": "sha256-7y8IO9rl4AAJN1CQMP/QQ5Zvs9O1XynWRyLPCmuM8JQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a98ec6ec158686387d66654ea96153ec06be33d7",
+        "rev": "fd79015c0feee0e61e17f6ed59b4e9d01d9ef597",
         "type": "github"
       },
       "original": {
@@ -50,13 +105,29 @@
         "type": "github"
       }
     },
+    "mozilla": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1603906276,
+        "narHash": "sha256-RsNPnEKd7BcogwkqhaV5kI/HuNC4flH/OQCC/4W5y/8=",
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "rev": "8c007b60731c07dd7a052cce508de3bb1ae849b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1604311355,
-        "narHash": "sha256-8NQT0eF6X3aunXeWW2EZKoHM48nYgKcTcpqJzQpBdeo=",
+        "lastModified": 1605324302,
+        "narHash": "sha256-y4oZxYyb9vAcYhpfe7lZO8GdmjFtueXQQ8C2OpB99pk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8eea6fcf0d8c29b422a9b464c03194baae430adb",
+        "rev": "d95835945319eb9ee14ae1b2853c80991ce9ecae",
         "type": "github"
       },
       "original": {
@@ -66,16 +137,16 @@
     },
     "nixpkgs-wayland": {
       "inputs": {
-        "cachix": "cachix",
-        "cmpkgs": "cmpkgs",
+        "cachix": "cachix_2",
+        "cmpkgs": "cmpkgs_2",
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1604123156,
-        "narHash": "sha256-G+BNHisroUblo2arBcu7yBUf9RzrHP/uHrQ6/tZMZL4=",
+        "lastModified": 1605312886,
+        "narHash": "sha256-lP1rGXhGtDXi3xeyMttYCuwCzRvIYunXc2kaABZmrcY=",
         "owner": "colemickens",
         "repo": "nixpkgs-wayland",
-        "rev": "5220bb7c8b4b6e1503a2f1be120a9ee12f082ef1",
+        "rev": "d709be7ff23daba0e9ceb5fbec227c39c2f12774",
         "type": "github"
       },
       "original": {
@@ -86,11 +157,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1603153815,
-        "narHash": "sha256-uCav0CJ0Zm0vbqJiS9NUYD4XZg4Ww9bbsFzcDUzh2+U=",
+        "lastModified": 1605171959,
+        "narHash": "sha256-JIM7QrQ2jpnA6qRfP8MzXD8USiWYStfL9Cssz01QvMw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "007126eef72271480cb7670e19e501a1ad2c1ff2",
+        "rev": "a371c1071161104d329f6a85d922fd92b7cbab63",
         "type": "github"
       },
       "original": {
@@ -102,11 +173,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1603758576,
-        "narHash": "sha256-xKFmWVx+rFInBao3gtmvXcd0LjHD1+0c1Ef5PJDrbuM=",
+        "lastModified": 1605171959,
+        "narHash": "sha256-JIM7QrQ2jpnA6qRfP8MzXD8USiWYStfL9Cssz01QvMw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1dc37370c489b610f8b91d7fdd40633163ffbafd",
+        "rev": "a371c1071161104d329f6a85d922fd92b7cbab63",
         "type": "github"
       },
       "original": {
@@ -118,6 +189,7 @@
     },
     "root": {
       "inputs": {
+        "firefox": "firefox",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-wayland": "nixpkgs-wayland"

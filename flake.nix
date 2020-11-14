@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:colemickens/nixpkgs-wayland";
     home-manager.url = "github:nix-community/home-manager";
+    firefox.url = "github:colemickens/flake-firefox-nightly";
+    firefox.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, home-manager, nixpkgs, ... }: {
