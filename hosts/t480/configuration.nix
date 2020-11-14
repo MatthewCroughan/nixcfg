@@ -27,6 +27,7 @@
 
   networking.hostName = "t480"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  
 
   # Configures a list of networks I want to connect to.
   networking.wireless.networks.bebop.pskRaw = "0c89c6e287005f99efda5199d432f94cf8d08ea7925ba2d24eef24e268aabe67";
@@ -37,6 +38,10 @@
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
+
+  networking.networkmanager.unmanaged = [
+     "*" "except:type:wwan" "except:type:gsm"
+  ];
 
   # Setup ZFS requirements
   boot.supportedFilesystems = [ "zfs" ];
@@ -68,18 +73,25 @@
   # Enable OpenGL
   hardware.opengl.enable = true;
 
-  # Configure Iris Graphics
-  # Change MESA_LOADER_DRIVER_OVERRIDE to "iris"
-  # when https://bugs.launchpad.net/ubuntu/+source/mesa/+bug/1877879 is fixed
-  environment.variables = {
-      MESA_LOADER_DRIVER_OVERRIDE = "iris";
-    };
-    #hardware.opengl.package = (pkgs.mesa.override {
-    #  galliumDrivers = [ "virgl" "swrast" "iris" ];
-    #}).drivers;
+#services.xserver.desktopManager.xfce.enable = true;
+services.xserver.enable = true;
+services.xserver.displayManager.gdm.wayland = true;
+services.xserver.displayManager.gdm.enable = true;
+services.xserver.desktopManager.gnome3.enable = true;
+programs.xwayland.enable = false;
+
+#  # Configure Iris Graphics
+#  # Change MESA_LOADER_DRIVER_OVERRIDE to "iris"
+#  # when https://bugs.launchpad.net/ubuntu/+source/mesa/+bug/1877879 is fixed
+#  environment.variables = {
+#      MESA_LOADER_DRIVER_OVERRIDE = "iris";
+#    };
+#    #hardware.opengl.package = (pkgs.mesa.override {
+#    #  galliumDrivers = [ "virgl" "swrast" "iris" ];
+#    #}).drivers;
 
 #  # Enable the X11 windowing system.
-#  services.xserver.enable = true;
+#  services.xserver.enable = false;
 #  services.xserver.layout = "us";
 #
 #  # Enable touchpad support.
@@ -121,7 +133,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-     wget vim firefox mpv htop vimPlugins.vim-addon-nix htop
+     wget vim mpv htop vimPlugins.vim-addon-nix htop
    ];
 
   # Some programs need SUID wrappers, can be configured further or are

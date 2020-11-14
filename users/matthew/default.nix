@@ -31,8 +31,10 @@ self:
     packages = with pkgs;
       [
         ## tools
+	kitty
 
         # latest.firefox-nightly-bin
+        #firefox-wayland
         firefox-bin
 
         ## misc
