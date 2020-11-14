@@ -187,12 +187,28 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1605327268,
+        "narHash": "sha256-HuCE2b4miBA/lKCvWQqPvQY0s9JIB0Wij3N7zorv/+g=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "d57163576758253355e8b4425228256ee63887d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "firefox": "firefox",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-wayland": "nixpkgs-wayland"
+        "nixpkgs-wayland": "nixpkgs-wayland",
+        "nur": "nur"
       }
     }
   },
