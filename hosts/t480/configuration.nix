@@ -85,12 +85,12 @@ in
   hardware.opengl.enable = true;
 
 #services.xserver.desktopManager.xfce.enable = true;
-services.xserver.enable = true;
-services.xserver.displayManager.gdm.wayland = true;
-services.xserver.displayManager.gdm.enable = true;
-#services.xserver.desktopManager.gnome3.enable = true;
-services.xserver.desktopManager.xfce.enable = true;
-programs.xwayland.enable = false;
+#services.xserver.enable = true;
+#services.xserver.displayManager.gdm.wayland = true;
+#services.xserver.displayManager.gdm.enable = true;
+##services.xserver.desktopManager.gnome3.enable = true;
+#services.xserver.desktopManager.xfce.enable = true;
+#programs.xwayland.enable = false;
 
 #  # Configure Iris Graphics
 #  # Change MESA_LOADER_DRIVER_OVERRIDE to "iris"

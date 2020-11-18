@@ -12,3 +12,6 @@ switch:
 update:
 	jq --raw-output '.nodes.root.inputs | keys | .[]' < flake.lock | \
 		xargs -n1 -P1 nix flake update --update-input
+
+upgrade:
+	make update && make switch
