@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:colemickens/nixpkgs-wayland";
+    nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager";
     firefox.url = "github:colemickens/flake-firefox-nightly";
     firefox.inputs.nixpkgs.follows = "nixpkgs";

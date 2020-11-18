@@ -24,6 +24,14 @@ in
     '';
    };
 
+#  nixpkgs.config.packageOverrides = pkgs: {
+#    chromium = pkgs.chromium.override {
+#      useOzone = true;
+#    };
+#  };
+
+  nixpkgs.overlays = [ inputs.nur.overlay ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -42,9 +50,9 @@ in
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
 
-  networking.networkmanager.unmanaged = [
-     "*" "except:type:wwan" "except:type:gsm"
-  ];
+#  networking.networkmanager.unmanaged = [
+#     "*" "except:type:wwan" "except:type:gsm"
+#  ];
 
   # Setup ZFS requirements
   boot.supportedFilesystems = [ "zfs" ];
@@ -80,7 +88,8 @@ in
 services.xserver.enable = true;
 services.xserver.displayManager.gdm.wayland = true;
 services.xserver.displayManager.gdm.enable = true;
-services.xserver.desktopManager.gnome3.enable = true;
+#services.xserver.desktopManager.gnome3.enable = true;
+services.xserver.desktopManager.xfce.enable = true;
 programs.xwayland.enable = false;
 
 #  # Configure Iris Graphics
@@ -136,7 +145,7 @@ programs.xwayland.enable = false;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-     wget vim mpv htop vimPlugins.vim-addon-nix htop firefoxFlake.firefox-nightly-bin
+     wget vim mpv gnumake htop vimPlugins.vim-addon-nix firefoxFlake.firefox-nightly-bin pkgs.nur.repos.clefru.parsecgaming
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
