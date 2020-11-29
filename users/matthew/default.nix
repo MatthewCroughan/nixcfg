@@ -17,12 +17,20 @@ self:
 
   home.file."scripts".source = "${self}/scripts"; # pass 'self' in order to allow ./users/default.nix -> ./users/matthew/default.nix to access ${self}, to provide a path relative to flake.nix.
 
-  # Set cursor theme
-  home.file.".icons/default".source = "${pkgs.gnome3.adwaita-icon-theme}/share/icons/Adwaita";
-  xsession.pointerCursor = {
-    package = pkgs.gnome3.adwaita-icon-theme;
-    name = "Adwaita";
-    size = 24;
+#  # Set cursor theme
+#  home.file.".icons/default".source = "${pkgs.gnome3.adwaita-icon-theme}/share/icons/Adwaita";
+#  xsession.pointerCursor = {
+#    package = pkgs.gnome3.adwaita-icon-theme;
+#    name = "Adwaita";
+#    size = 24;
+#  };
+
+  programs.bash = {
+    enable = true;
+    initExtra = builtins.readFile "${self}/dotfiles/bashrc";
+    shellAliases = {
+      something = "${pkgs.ffmpeg}/bin/ffmpeg --someoption";
+    };
   };
 
   home = { 
@@ -34,10 +42,9 @@ self:
 	kitty
 
         # latest.firefox-nightly-bin
+	manpages
 
         ## misc
-        discord
-        cordless
       ];
     };
 

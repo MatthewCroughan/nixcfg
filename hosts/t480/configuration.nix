@@ -11,6 +11,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../profiles/sway.nix
 #      ./modules
 #      ./sway.nix
 #      ./wayland.nix
@@ -30,7 +31,7 @@ in
 #    };
 #  };
 
-  nixpkgs.overlays = [ inputs.nur.overlay ];
+  nixpkgs.overlays = [ inputs.nur.overlay inputs.neovim-nightly.overlay];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -60,6 +61,7 @@ in
 
   # Install sway
   programs.sway.enable = true;
+  programs.light.enable = true;
 
   # Set up LUKS requirements
   boot.initrd.luks.devices.crypted.device = "/dev/disk/by-label/nixos";
@@ -85,9 +87,9 @@ in
   hardware.opengl.enable = true;
 
 #services.xserver.desktopManager.xfce.enable = true;
-#services.xserver.enable = true;
-#services.xserver.displayManager.gdm.wayland = true;
-#services.xserver.displayManager.gdm.enable = true;
+services.xserver.enable = true;
+services.xserver.displayManager.gdm.wayland = true;
+services.xserver.displayManager.gdm.enable = true;
 ##services.xserver.desktopManager.gnome3.enable = true;
 #services.xserver.desktopManager.xfce.enable = true;
 #programs.xwayland.enable = false;
@@ -145,7 +147,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-     wget vim mpv gnumake htop vimPlugins.vim-addon-nix firefoxFlake.firefox-nightly-bin pkgs.nur.repos.clefru.parsecgaming
+     wget vim rnix-lsp tmux mpv gnumake htop vimPlugins.vim-addon-nix firefoxFlake.firefox-nightly-bin pkgs.nur.repos.clefru.parsecgaming 
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -193,7 +195,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.matthew = {
      isNormalUser = true;
-     extraGroups = [ "input" "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "input" "wheel" "docker" "video" ]; # Enable ‘sudo’ for the user.
    };
 
  # This value determines the NixOS release from which the default
