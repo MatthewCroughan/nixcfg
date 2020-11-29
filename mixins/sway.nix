@@ -1,5 +1,15 @@
 { config, pkgs, inputs, ... }:
 
+let
+  swayfont = "Iosevka Bold 9";
+  barfont = "Iosevka Bold 9"; # font matches waybar-config.css
+  terminal = "${pkgs.kitty}/bin/kitty";
+in
+{
+  imports = [
+    ../mixins/mako.nix
+    ../mixins/sway.nix
+  ];
   config = {
     programs.sway.enable = true; # needed for swaylock/pam stuff
     programs.sway.extraPackages = []; # empty list, defaults are bad
@@ -35,3 +45,9 @@
           startup = [
             { always = true; command = "${pkgs.systemd}/bin/systemd-notify --ready || true"; }
             { always = true; command = "${pkgs.mako}/bin/mako"; }
+          ];
+        };
+      };
+    };
+  };
+}

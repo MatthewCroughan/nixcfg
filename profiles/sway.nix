@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../mixins/mako.nix
+    ../mixins/sway.nix
+  ];
   config = {
     home-manager.users.matthew = { pkgs, ... }: {
       systemd.user.sessionVariables = {
