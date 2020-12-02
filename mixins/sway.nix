@@ -6,10 +6,6 @@ let
   terminal = "${pkgs.kitty}/bin/kitty";
 in
 {
-  imports = [
-    ../mixins/mako.nix
-    ../mixins/sway.nix
-  ];
   config = {
     programs.sway.enable = true; # needed for swaylock/pam stuff
     programs.sway.extraPackages = []; # empty list, defaults are bad
@@ -22,7 +18,7 @@ in
     home-manager.users.matthew = { pkgs, ... }: {
       wayland.windowManager.sway = {
         enable = true;
-        extraConfig = builtins.readFile "../profiles/sway.conf";
+        extraConfig = builtins.readFile ../profiles/sway.conf;
         wrapperFeatures = {
           base = true; # this is the default, but be explicit for now
           gtk = true;
@@ -32,6 +28,7 @@ in
 #          seat seat0 xcursor_theme "capitaine-cursors"
 #        '';
         config = rec {
+          keybindings = {};
           modifier = "Mod4";
           inherit terminal;
           fonts = [ swayfont ];

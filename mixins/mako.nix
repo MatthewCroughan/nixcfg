@@ -2,7 +2,7 @@
 
 {
   config = {
-    home-manager.users.matthew= { pkgs, ... }: {
+    home-manager.users.matthew = { pkgs, ... }: {
       programs.mako = {
         enable = true;
       };
