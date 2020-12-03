@@ -12,6 +12,8 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../profiles/sway.nix
+      ../../mixins/obs.nix
+      ../../mixins/v4l2loopback.nix
 #      ./modules
 #      ./sway.nix
 #      ./wayland.nix
@@ -137,12 +139,14 @@ services.xserver.displayManager.gdm.enable = true;
 #    };
 #  };
 
-  services.pipewire.enable=true;
+  services.pipewire.enable = true;
 
-  xdg.portal.enable = true;
-  xdg.portal.gtkUsePortal = true;
-  xdg.portal.extraPortals = with pkgs;
-    [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
+  xdg.portal = {
+    enable = true;
+    gtkUsePortal = true;
+    extraPortals = with pkgs;
+      [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

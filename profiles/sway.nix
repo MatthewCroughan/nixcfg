@@ -4,6 +4,7 @@
   imports = [
     ../mixins/mako.nix
     ../mixins/sway.nix
+    ../mixins/wlsunset.nix
   ];
   config = {
     home-manager.users.matthew = { pkgs, ... }: {
