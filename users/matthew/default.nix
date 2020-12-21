@@ -1,6 +1,9 @@
-self:
+#self:
+#  _module.args.inputs = self.inputs;
 
-{ config, lib, pkgs, inputs, ... }:
+# Now, I bring `self` into scope like this instead.
+
+{ config, lib, pkgs, inputs, self, ... }:
 
 {
   imports =
@@ -8,7 +11,6 @@ self:
       ./modules
     ];
 
-  _module.args.inputs = self.inputs;
 
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
