@@ -1,10 +1,10 @@
-{ config, pkgs, self, ... }@inputs:
+{ config, pkgs, self, inputs, ... }:
 
 let
   firefoxFlake = inputs.firefox.packages.${pkgs.system};
 in
 {
-  programs.firefox = {
+  programs.firefox = with pkgs; {
     enable = true;
     package = firefoxFlake.firefox-nightly-bin;
   };

@@ -8,6 +8,8 @@ self:
       ./modules
     ];
 
+  _module.args.inputs = self.inputs;
+
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
 
