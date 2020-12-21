@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, self, ... }@inputs:
 
 let
   firefoxFlake = inputs.firefox.packages.${pkgs.system};
