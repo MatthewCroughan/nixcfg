@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [
       ./tmux.nix # tmux config
-      ./neovim.nix
+      ./firefox.nix
     ];
 }

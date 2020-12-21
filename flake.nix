@@ -10,13 +10,13 @@
     firefox.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  inputs.neovim-nightly = {
-    type = "github";
-    owner = "mjlbach";
-    repo = "neovim-nightly-overlay";
-    ref = "flakes";
-    flake = true;
-  };
+#  inputs.neovim-nightly = {
+#    type = "github";
+#    owner = "mjlbach";
+#    repo = "neovim-nightly-overlay";
+#    ref = "flakes";
+#    flake = true;
+#  };
 
   outputs = { self, home-manager, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
