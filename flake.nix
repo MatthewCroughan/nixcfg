@@ -19,6 +19,9 @@
 #  };
 
   outputs = { self, home-manager, nixpkgs, ... }@inputs: {
+    overlay = final: prev: {
+      parsecgaming = prev.callPackage ./pkgs/parsecgaming;
+    };
     nixosConfigurations = {
       t480 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
