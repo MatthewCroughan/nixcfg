@@ -44,6 +44,7 @@
       [
         ## tools
 	kitty
+        self.packages.x86_64-linux.parsecgaming
 
         # latest.firefox-nightly-bin
 	manpages

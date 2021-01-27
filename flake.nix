@@ -8,6 +8,10 @@
     home-manager.url = "github:nix-community/home-manager";
     firefox.url = "github:colemickens/flake-firefox-nightly";
     firefox.inputs.nixpkgs.follows = "nixpkgs";
+    dolphin-emu = {
+      url = "github:dolphin-emu/dolphin";
+      flake = false;
+    };
   };
 
 #  inputs.neovim-nightly = {
@@ -19,8 +23,10 @@
 #  };
 
   outputs = { self, home-manager, nixpkgs, ... }@inputs: {
-    overlay = final: prev: {
-      parsecgaming = prev.callPackage ./pkgs/parsecgaming;
+    # Declare some local packages be available via self.packages
+    packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; }; in {
+      parsecgaming = pkgs.callPackage ./pkgs/parsecgaming {};
+      dolphin-emu = pkgs.dolphinEmuMaster.overrideAttrs (oa: { src = inputs.dolphin-emu; version = inputs.dolphin-emu.rev; cmakeFlags = [ "-DUSE_SHARED_ENET=ON" "-DENABLE_LTO=ON" "-DDOLPHIN_WC_BRANCH=master" ]; });
     };
     nixosConfigurations = {
       t480 = nixpkgs.lib.nixosSystem {

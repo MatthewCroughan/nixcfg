@@ -138,7 +138,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-     wget chromium vim rnix-lsp tmux mpv gnumake htop vimPlugins.vim-addon-nix self.packages.parsecgaming
+     wget chromium vim rnix-lsp tmux mpv gnumake htop vimPlugins.vim-addon-nix
    ];
 
   # Allow proprietary software.
@@ -175,6 +175,9 @@
 
  # Enable power management
  powerManagement.enable = true;
+
+ services.upower.enable = true;
+ services.tlp.enable = true; 
 
  # Udev Rules
    
