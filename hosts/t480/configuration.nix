@@ -20,6 +20,7 @@
       ../../profiles/garbage-collection.nix
       ../../mixins/obs.nix
       ../../mixins/v4l2loopback.nix
+      ../../mixins/vim.nix
     ];
 
   nix = {
