@@ -9,6 +9,7 @@
     firefox.url = "github:colemickens/flake-firefox-nightly";
     firefox.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
+    robotnix.url = "github:danielfullmer/robotnix";
     dolphin-emu = {
       url = "github:dolphin-emu/dolphin";
       flake = false;
@@ -29,6 +30,12 @@
       parsecgaming = pkgs.callPackage ./pkgs/parsecgaming {};
       dolphin-emu = pkgs.dolphinEmuMaster.overrideAttrs (oa: { src = inputs.dolphin-emu; version = inputs.dolphin-emu.rev; cmakeFlags = [ "-DUSE_SHARED_ENET=ON" "-DENABLE_LTO=ON" "-DDOLPHIN_WC_BRANCH=master" ]; });
     };
+
+    robotnixConfigurations = nixpkgs.lib.mapAttrs (n: v: inputs.robotnix.lib.robotnixSystem v) {
+      pyxis = import ./hosts/pyxis/default.nix;
+#      bacon = import ./hosts/bacon/default.nix;
+    };
+
     nixosConfigurations = {
       t480 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
