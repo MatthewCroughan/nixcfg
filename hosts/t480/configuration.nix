@@ -13,7 +13,7 @@
       ./hardware-configuration.nix
 #      ./modules/wireguard.nix
 #      ../../profiles/dark-theme.nix
-      ../../modules/ly.nix
+#      ../../modules/ly.nix
       ../../profiles/tailscale.nix
       ../../profiles/sway.nix
       ../../profiles/wireless.nix
@@ -103,14 +103,13 @@
   # Enable OpenGL
   hardware.opengl.enable = true;
 
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.ly.enable = true;
+#  services.xserver.displayManager.ly.enable = true;
 #  services.xserver.displayManager.lightdm.enable = true;
 #  services.xserver.displayManager.sddm.enable = true;
+
 #  services.xserver.displayManager.gdm.wayland = true;
-#  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.enable = true;
 
 ##services.xserver.desktopManager.gnome3.enable = true;
 #services.xserver.desktopManager.xfce.enable = true;
@@ -170,8 +169,6 @@
   # Enable sound.
   # sound.enable = true;
   hardware.pulseaudio.enable = true;
-
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.matthew = {
