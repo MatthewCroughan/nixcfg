@@ -1,13 +1,10 @@
 { stdenv, lib, fetchFromGitHub, linux-pam, git, libxcb, ncurses }:
 
-# This package is intended to be reworked, it is temporarily using a fork since
-# the original developer used a non-standard method of specifying .gitmodules.
-# https://github.com/nullgemm/ly/pull/279
+# This package is was reworked for usage in NixOS, the original author is
+# nullgem, not Matthew Croughan.
 
 stdenv.mkDerivation rec {
   name = "ly";
-
-#  hardeningDisable = [ "all" ];
 
   nativeBuildInputs = [ git ];
 
@@ -25,7 +22,9 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
+    mkdir -p $out/res
     cp bin/ly $out/bin
+    cp -r res/* $out/res
   '';
 
   meta = with lib; {

@@ -32,17 +32,17 @@ term_reset_cmd=${pkgs.ncurses}/bin/tput reset
 tty=${toString xcfg.tty}
 
 # wayland setup command
-wayland_cmd=/home/matthew/tmp/ly/wsetup.sh
+wayland_cmd=${lyPkg}/res/wsetup.sh
 # wayland desktop environments
 waylandsessions=${dmcfg.sessionData.desktops}/share/wayland-sessions
 
 animate = true
 animation = 0
 
-#    x_cmd=${dmcfg.xserverBin} ${toString dmcfg.xserverArgs} -keeptty vt7 -verbose 2 -logfile /tmp/x11.log
-#    x_cmd_setup="${dmcfg.sessionData.wrapper}"
-#    xauth_cmd = "${dmcfg.xauthBin}"
-#    xsessions="${dmcfg.sessionData.desktops}/share/xsessions"
+x_cmd=${dmcfg.xserverBin} ${toString dmcfg.xserverArgs} -keeptty vt7 -verbose 2 -logfile /tmp/x11.log
+x_cmd_setup="${dmcfg.sessionData.wrapper}"
+xauth_cmd = "${dmcfg.xauthBin}"
+xsessions="${dmcfg.sessionData.desktops}/share/xsessions"
 
 ${cfg.extraConfig}
     '';
@@ -125,6 +125,7 @@ in
       Type = "idle";
       After = ["systemd-user-sessions.service" "plymouth-quit-wait.service" "getty@tty${toString xcfg.tty}.service"];
       StandardInput = "tty";
+      ExecStart = "${lyPkg}/bin/ly -c ${lyConfig}";
       TTYPath = "/dev/tty${toString xcfg.tty}";
       TTYReset = true;
       TTYVHangup = true;
