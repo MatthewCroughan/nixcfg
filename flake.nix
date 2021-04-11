@@ -26,7 +26,7 @@
 
   outputs = { self, home-manager, nixpkgs, agenix, ... }@inputs: {
     # Declare some local packages be available via self.packages
-    packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; }; in {
+    packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
       parsecgaming = pkgs.callPackage ./pkgs/parsecgaming {};
       dolphin-emu = pkgs.dolphinEmuMaster.overrideAttrs (oa: { src = inputs.dolphin-emu; version = inputs.dolphin-emu.rev; cmakeFlags = [ "-DUSE_SHARED_ENET=ON" "-DENABLE_LTO=ON" "-DDOLPHIN_WC_BRANCH=master" ]; });
     };
