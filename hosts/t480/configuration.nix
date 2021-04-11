@@ -33,6 +33,8 @@
   # Enable pipewire, attempted to get browser screensharing working
   services.pipewire.enable = true;
 
+  services.logind.killUserProcesses = true;
+
   # Enable bluetooth for headphones
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
