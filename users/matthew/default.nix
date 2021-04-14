@@ -47,8 +47,10 @@
 
   gtk = {
     enable = true;
-    theme.package = pkgs.pop-gtk-theme;
-    theme.name = "Pop-dark";
+    theme.package = pkgs.arc-theme;
+    theme.name = "Arc-Dark";
+    iconTheme.package = pkgs.arc-icon-theme;
+    iconTheme.name = "Arc";
   };
 
   home = { 
