@@ -21,6 +21,7 @@
       ../../mixins/obs.nix
       ../../mixins/v4l2loopback.nix
       ../../mixins/vim.nix
+      ../../mixins/gfx-intel.nix
     ];
 
   nix = {
