@@ -32,7 +32,7 @@ in
           base = true; # this is the default, but be explicit for now
           gtk = true;
         };
-        xwayland = true;
+        xwayland = false;
 #        extraConfig = ''
 #          seat seat0 xcursor_theme "capitaine-cursors"
 #        '';

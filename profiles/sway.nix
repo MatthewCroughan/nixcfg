@@ -8,7 +8,7 @@
   ];
   config = {
     home-manager.users.matthew = { pkgs, ... }: {
-      systemd.user.sessionVariables = {
+    home.sessionVariables = {
         MOZ_ENABLE_WAYLAND = "1";
         MOZ_USE_XINPUT2 = "1";
 
