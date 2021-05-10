@@ -14,3 +14,7 @@ ICAgICAgICAgICAgICAgICAgICAgICAgICAgfFs6OnwufCAgICAgICAgICAgICAgICAgICAgICAK
 ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHx8OiB8ICAgICAgICAgICAgICAgICAgICAgICAK
 ICAgICAgICAgICAgICAgICAgICAgICAgICAgQllFLUJZRQo=" | base64 -d
 }
+
+flash-to(){
+sudo dd if=$1 of=$2 status=progress conv=sync,noerror bs=64k
+}
