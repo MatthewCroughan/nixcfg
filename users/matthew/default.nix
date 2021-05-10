@@ -40,6 +40,7 @@
     '';
     shellAliases = {
       something = "${pkgs.ffmpeg}/bin/ffmpeg --someoption";
+      n = "nix-shell -p";
     };
   };
 
