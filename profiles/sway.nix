@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -7,7 +7,11 @@
     ../mixins/wlsunset.nix
   ];
   config = {
+
+
     home-manager.users.matthew = { pkgs, ... }: {
+      # block auto-sway reload, Sway crashes...
+      xdg.configFile."sway/config".onChange = lib.mkForce "";
     home.sessionVariables = {
         MOZ_ENABLE_WAYLAND = "1";
         MOZ_USE_XINPUT2 = "1";
