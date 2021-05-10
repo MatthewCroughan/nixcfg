@@ -45,6 +45,22 @@
     };
   };
 
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+    settings = {
+      username = {
+        format = "user: [$user]($style) ";
+        show_always = true;
+      };
+      shlvl = {
+        disabled = false;
+        format = "$shlvl ▼ ";
+        threshold = 4;
+      };
+    };
+  };
+
   qt = {
     enable = true;
     platformTheme = "gnome";
