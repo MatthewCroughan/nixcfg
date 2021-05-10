@@ -60,7 +60,6 @@
     packages = with pkgs;
       [
         ## tools
-	kitty
         self.packages.x86_64-linux.parsecgaming
         self.packages.x86_64-linux.dolphin-emu
         quasselClient

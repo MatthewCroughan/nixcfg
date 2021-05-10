@@ -4,6 +4,7 @@
   imports =
     [
       ./tmux.nix # tmux config
+      ./kitty.nix
       ./firefox.nix
     ];
 }
