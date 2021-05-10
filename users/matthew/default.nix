@@ -31,6 +31,13 @@
   programs.bash = {
     enable = true;
     initExtra = builtins.readFile "${self}/dotfiles/bashrc";
+    bashrcExtra = ''
+      
+      mach-shell() {
+        pypiApps=$(for arg; do printf '.%s' "$arg"; done) 
+        nix shell github:davhau/mach-nix#gen.pythonWith$pypiApps
+      }
+    '';
     shellAliases = {
       something = "${pkgs.ffmpeg}/bin/ffmpeg --someoption";
     };
