@@ -52,7 +52,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Gives access to the NUR: https://github.com/nix-community/NUR
-  nixpkgs.overlays = [ inputs.nur.overlay ];
+  nixpkgs.overlays = [ inputs.nur.overlay inputs.flake-ndi.overlay ];
 
   # Use the systemd-boot EFI boot loader, instead of GRUB, etc.
   boot.loader.systemd-boot.enable = true;

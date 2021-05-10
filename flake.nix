@@ -10,6 +10,7 @@
     firefox.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
     robotnix.url = "github:danielfullmer/robotnix";
+    flake-ndi.url = "github:matthewcroughan/flake-ndi";
     dolphin-emu = {
       url = "github:dolphin-emu/dolphin";
       flake = false;
