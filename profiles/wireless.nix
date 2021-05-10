@@ -1,6 +1,7 @@
 {
   # Configures a list of networks I want to connect to.
   networking.wireless.networks = { 
+    goatControl.pskRaw = "ec7319b43260eb9127295667cc1d5d2dfc4c9e57574415f0b541c04e30e868ba";
     Astral_Ship_5GHz.pskRaw = "157bddfe695338f0fc6a2cfa88dbb6134a3489579f7e748714fa1ae2e8a82192";
     Astral_Ship.pskRaw = "ff866b7b9494bd6915c28a06c8604d1e2396e590e64f71b2fdf9c0c9709ec2c4";
     Astral_ship_Festri.pskRaw = "a20c6252f348eddc73efc0a0956c7cf66c958a327d7d7b943d72cf477008d8f2";
