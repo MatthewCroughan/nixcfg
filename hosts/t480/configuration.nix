@@ -191,7 +191,15 @@
  powerManagement.enable = true;
 
  services.upower.enable = true;
- services.tlp.enable = true; 
+
+ services.tlp = {
+   enable = true;
+   settings = {
+     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+     STOP_CHARGE_THRESH_BAT1=95;
+   };
+ };
+
 
  # Udev Rules
    
