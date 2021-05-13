@@ -17,6 +17,7 @@
         set tw=80
         set fo+=t
         set wrap linebreak
+        syntax on
         "" filetype plugin indent on
         set backspace=indent,eol,start
       '';
