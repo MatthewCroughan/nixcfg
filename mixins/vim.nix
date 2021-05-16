@@ -24,7 +24,7 @@
       name = "vim";
       vimrcConfig.packages.vim = 
         with pkgs.vimPlugins; { 
-          start = [ vim-nix ]; 
+          start = [ vim-nix vim-surround ]; 
         };
       }
     )
