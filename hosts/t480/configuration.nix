@@ -86,6 +86,9 @@
   # Set up LUKS requirements
   boot.initrd.luks.devices.crypted.device = "/dev/disk/by-label/nixos";
 
+  # Allow trim on SSD
+  boot.initrd.luks.devices.crypted.allowDiscards = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
