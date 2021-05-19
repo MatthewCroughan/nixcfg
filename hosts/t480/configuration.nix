@@ -31,6 +31,8 @@
     '';
    };
 
+  services.throttled.enable = true;
+
   # Enable pipewire, attempted to get browser screensharing working
   services.pipewire.enable = true;
 
