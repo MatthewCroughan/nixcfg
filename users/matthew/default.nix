@@ -32,6 +32,8 @@
     enable = true;
     initExtra = builtins.readFile "${self}/dotfiles/bashrc";
     bashrcExtra = ''
+
+      export EDITOR=vim
       
       mach-shell() {
         pypiApps=$(for arg; do printf '.%s' "$arg"; done) 
