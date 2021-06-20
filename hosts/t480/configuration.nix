@@ -81,6 +81,10 @@
   boot.supportedFilesystems = [ "zfs" ];
   networking.hostId = "235f593c";
 
+  # Since I'm using nixos-unstable mostly, the latest ZFS is sometimes
+  # incompatible with the latest kernel.
+  boot.zfs.enableUnstable = true;
+
   # Install sway
   programs.sway.enable = true;
   programs.light.enable = true;
