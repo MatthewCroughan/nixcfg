@@ -3,6 +3,7 @@
 {
   device = "pyxis";
   flavor = "lineageos";
+  androidVersion = 11;
 
   source.dirs."device/xiaomi/pyxis".src = pkgs.fetchgit {
     deepClone = false;
