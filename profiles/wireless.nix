@@ -8,7 +8,7 @@
     DoESLiverpool.pskRaw = "63e49f779a41eda7be1510a275a07e519d407af706d0f2d3cc3140b9aecd412f"; 
     bebop = { 
       pskRaw = "0c89c6e287005f99efda5199d432f94cf8d08ea7925ba2d24eef24e268aabe67"; 
-      priority = 2; 
+      priority = 10; 
     }; 
     VM9606636 = {  
       pskRaw = "8f4e924abf1c644cf53b6bbf0dc4d813dc783ff27227580b046164348331966b"; 
