@@ -6,5 +6,6 @@
       ./tmux.nix # tmux config
       ./kitty.nix
       ./firefox.nix
+      ./syncthing.nix
     ];
 }
