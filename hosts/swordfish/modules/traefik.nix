@@ -1,11 +1,16 @@
 { config, lib, ... }:
 
 {
+  age.secrets.cloudflare_api_key.file = ../../../secrets/cloudflare_api_key.age;
+
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   systemd.services.traefik = {
     environment = { 
       CF_API_EMAIL = "cloudflare@croughan.sh";
+    };
+    serviceConfig = {
+      EnvironmentFile = config.age.secrets.cloudflare_api_key.path;
     };
   };
 
