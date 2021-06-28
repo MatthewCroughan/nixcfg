@@ -1,0 +1,3 @@
+{
+  services.jellyfin.enable = true;
+}
