@@ -16,17 +16,17 @@ stdenv.mkDerivation {
   # fetch the latest binaries.
   latest_appdata = fetchurl {
     url = "https://builds.parsecgaming.com/channel/release/appdata/linux/latest";
-    sha256 = "sha256-0vzgfoMtgNkn68y6sintco33dZ/qyFbSZtox5soDhAU=";
+    sha256 = "sha256-+axVUEvrDv/G9cv9PZf1H075mqDk5J2b3uXGYtB0GGk=";
   };
   latest_parsecd_so = fetchurl {
     url =
-"https://builds.parsecgaming.com/channel/release/binary/linux/gz/parsecd-150-69.so";
-    sha256 = "sha256-W+PNw+N566UjQHjeK5Iy1lFyQuIIjXoHeD6gRNRlQBs=";
+"https://builds.parsecgaming.com/channel/release/binary/linux/gz/parsecd-150-72.so";
+    sha256 = "sha256-kd4duq26F1J/0U1fiujUyzgZmL3zIcEVwDL1mvxHB1s=";
   };
 
   postPatch = ''
     cp $latest_appdata usr/share/parsec/skel/appdata.json
-    cp $latest_parsecd_so usr/share/parsec/skel/parsecd-150-69.so
+    cp $latest_parsecd_so usr/share/parsec/skel/parsecd-150-72.so
   '';
 
   runtimeDependencies = [
