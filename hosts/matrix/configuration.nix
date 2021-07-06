@@ -7,6 +7,7 @@
       ./modules/matrix.nix
       ./modules/zram.nix
       ./profiles/ssh.nix
+      ./modules/defenestrate.it/homepage.nix
     ];
 
   # Use the GRUB 2 boot loader.
