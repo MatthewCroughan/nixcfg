@@ -60,6 +60,13 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      matrix = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          (import ./hosts/matrix/configuration.nix)
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
   };
 }
