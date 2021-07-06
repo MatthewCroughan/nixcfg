@@ -47,6 +47,7 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    inputs.agenix.defaultPackage.x86_64-linux
   ];
 
   services.openssh.enable = true;

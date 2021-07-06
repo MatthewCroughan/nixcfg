@@ -5,6 +5,14 @@ let
       join = hostName: domain: hostName + lib.optionalString (domain != null) ".${domain}";
     in join config.networking.hostName config.networking.domain;
 in {
+
+  age.secrets = {
+    coturn_static_auth.file = ../../../secrets/coturn_static_auth.age;
+    coturn_static_auth.owner = "turnserver";
+    synapse_secrets_yaml.file = ../../../secrets/synapse_secrets_yaml.age;
+    synapse_secrets_yaml.owner = "matrix-synapse";
+  };
+
   networking = {
     hostName = "matrix";
     domain = "defenestrate.it";
@@ -31,7 +39,7 @@ in {
   services.coturn = {
     enable = true;
     use-auth-secret = true;
-    static-auth-secret = "CHANGE_ME";
+    static-auth-secret-file = config.age.secrets.coturn_static_auth.path;
     realm = "turn.${config.networking.domain}";
     no-tcp-relay = true;
     no-tls = true;
@@ -110,6 +118,7 @@ in {
   };
   services.matrix-synapse = {
     enable = true;
+    extraConfigFiles = [ config.age.secrets.synapse_secrets_yaml.path ];
     extraConfig = ''
       experimental_features:
         spaces_enabled: true
@@ -119,9 +128,6 @@ in {
       "turn:turn.${config.networking.domain}:3478?transport=udp"
       "turn:turn.${config.networking.domain}:3478?transport=tcp"
     ];
-    turn_shared_secret = config.services.coturn.static-auth-secret;
-    registration_shared_secret = "CHANGE_ME";
-    macaroon_secret_key = "CHANGE_ME";
     server_name = config.networking.domain;
     listeners = [
       {

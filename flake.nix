@@ -64,6 +64,7 @@
         system = "x86_64-linux";
         modules = [
           (import ./hosts/matrix/configuration.nix)
+          agenix.nixosModules.age
         ];
         specialArgs = { inherit inputs; };
       };
