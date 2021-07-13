@@ -8,9 +8,27 @@
 
 { config, pkgs, ... }:
 
+let
+  overlay = self: super: {
+    rnix-lsp_0_2_0 = with super; rustPlatform.buildRustPackage {
+      pname = "rnix-lsp-unstable";
+      version = "2021-07-05";
+      src = fetchFromGitHub {
+        owner = "ma27";
+        repo = "rnix-lsp";
+        rev = "cbd13a0f9f7c066a545a30c63fcb7e225a069cf3";
+        sha256 = "sha256-CwMa2n53+ZzMoCY1c795iyBMO9W9myByYfjfOGEFim0=";
+      };
+      cargoSha256 = "sha256-uKncKlguo78t5jcP17uE2/Ru2tlEMFcxX0oB8l8pYmI=";
+    };
+  };
+in
 {
+  nixpkgs.overlays = [ overlay ];
+
   nixpkgs.config.vim.ftNix = false;
   environment.systemPackages = with pkgs; [
+    pkgs.rnix-lsp_0_2_0
     (vim_configurable.customize {
       vimrcConfig.customRC = ''
         set mouse-=a
@@ -18,13 +36,52 @@
         set fo+=t
         set wrap linebreak
         syntax on
-        "" filetype plugin indent on
+        filetype plugin on
+        set omnifunc=syntaxcomplete#Complete
         set backspace=indent,eol,start
+
+        if executable('rnix-lsp')
+            au User lsp_setup call lsp#register_server({
+                \ 'name': 'rnix-lsp',
+                \ 'cmd': {server_info->[&shell, &shellcmdflag, 'rnix-lsp']},
+                \ 'whitelist': ['nix'],
+                \ })
+        endif
+
+        function! s:on_lsp_buffer_enabled() abort
+            setlocal omnifunc=lsp#complete
+            setlocal signcolumn=no
+            if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+            nmap <buffer> gd <plug>(lsp-definition)
+            nmap <buffer> gs <plug>(lsp-document-symbol-search)
+            nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+            nmap <buffer> gr <plug>(lsp-references)
+            nmap <buffer> gi <plug>(lsp-implementation)
+            nmap <buffer> gt <plug>(lsp-type-definition)
+            nmap <buffer> <leader>rn <plug>(lsp-rename)
+            nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+            nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+            nmap <buffer> K <plug>(lsp-hover)
+            inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+            inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+        
+            let g:lsp_format_sync_timeout = 1000
+            autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+            
+            " refer to doc to add more commands
+        endfunction
+
+        augroup lsp_install
+            au!
+            " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+            autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+        augroup END
+
       '';
       name = "vim";
       vimrcConfig.packages.vim = 
         with pkgs.vimPlugins; { 
-          start = [ vim-nix vim-surround ]; 
+          start = [ vim-nix vim-surround vim-lsp ];
         };
       }
     )
