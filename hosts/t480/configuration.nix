@@ -165,7 +165,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-     wget chromium vim rnix-lsp tmux mpv gnumake htop inputs.agenix.defaultPackage.x86_64-linux
+     wget chromium vim tmux mpv gnumake htop inputs.agenix.defaultPackage.x86_64-linux
    ];
 
   # Allow proprietary software.
