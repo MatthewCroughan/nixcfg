@@ -29,7 +29,7 @@
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
       parsecgaming = pkgs.callPackage ./pkgs/parsecgaming {};
-      dolphin-emu = pkgs.dolphinEmuMaster.overrideAttrs (oa: { src = inputs.dolphin-emu; version = inputs.dolphin-emu.rev; cmakeFlags = [ "-DUSE_SHARED_ENET=ON" "-DENABLE_LTO=ON" "-DDOLPHIN_WC_BRANCH=master" ]; });
+      dolphin-emu = pkgs.dolphinEmuMaster.overrideAttrs (old: { src = inputs.dolphin-emu; version = inputs.dolphin-emu.rev; cmakeFlags = old.cmakeFlags ++ [ "-DDOLPHIN_WC_REVISION=${inputs.dolphin-emu.rev}" "-DDOLPHIN_WC_DESCRIBE=${pkgs.lib.substring 0 8 inputs.dolphin-emu.rev}" ]; });
     };
 
     robotnixConfigurations = nixpkgs.lib.mapAttrs (n: v: inputs.robotnix.lib.robotnixSystem v) {
