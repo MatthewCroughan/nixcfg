@@ -17,6 +17,7 @@
       ../../profiles/tailscale.nix
       ../../profiles/sway.nix
       ../../profiles/wireless.nix
+      ../../profiles/pipewire.nix
       ../../profiles/garbage-collection.nix
       ../../mixins/obs.nix
       ../../mixins/v4l2loopback.nix
@@ -33,8 +34,6 @@
 
   services.throttled.enable = true;
 
-  # Enable pipewire, attempted to get browser screensharing working
-  services.pipewire.enable = true;
 
   services.logind.killUserProcesses = true;
 
@@ -180,10 +179,6 @@
 
   # Enable fingerprint reading daemon.
   services.fprintd.enable = true;
-
-  # Enable sound.
-  # sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.matthew = {
