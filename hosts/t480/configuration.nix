@@ -24,6 +24,8 @@
       ../../mixins/vim.nix
       ../../mixins/gfx-intel.nix
       ../../mixins/common.nix
+      ../../mixins/i3status.nix
+      ../../mixins/fonts.nix
     ];
 
   nix = {
@@ -34,7 +36,6 @@
    };
 
   services.throttled.enable = true;
-
 
   services.logind.killUserProcesses = true;
 
@@ -87,10 +88,6 @@
   # Since I'm using nixos-unstable mostly, the latest ZFS is sometimes
   # incompatible with the latest kernel.
   boot.zfs.enableUnstable = true;
-
-  # Install sway
-  programs.sway.enable = true;
-  programs.light.enable = true;
 
   # Set up LUKS requirements
   boot.initrd.luks.devices.crypted.device = "/dev/disk/by-label/nixos";

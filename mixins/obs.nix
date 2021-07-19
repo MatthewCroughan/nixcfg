@@ -2,9 +2,6 @@
 
 {
   config = {
-    programs.sway.enable = true; # needed for swaylock/pam stuff
-    programs.sway.extraPackages = []; # block rxvt
-
     home-manager.users.matthew = { pkgs, ... }: {
 
 #      home.file.".config/obs-studio/plugins/obs-ndi/bin/64bit/obs-ndi.so".source = "${pkgs.obs-ndi}/lib/obs-plugins/obs-ndi.so";

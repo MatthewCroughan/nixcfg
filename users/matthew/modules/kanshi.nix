@@ -1,6 +1,7 @@
 {
   services.kanshi = {
     enable = true;
+    systemdTarget = "graphical-session.target";
     profiles = {
       undocked = {
         outputs = [
