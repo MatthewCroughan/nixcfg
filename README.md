@@ -14,8 +14,8 @@
   [Packages/Derivations](https://nixos.org/manual/nix/unstable/expressions/derivations.html)
   that aren't in nixpkgs that I want to hack on.
 
-- `profiles/` - Integrated configs that should be usable on any system via
-  import.
+- `profiles/` - Configurations that are often comprised of mixins that are
+  intended to be imported into a given system.
 
 - `secrets/` - [`age`](https://github.com/FiloSottile/age) encrypted secrets,
   made possible by [`agenix`](https://github.com/ryantm/agenix)
