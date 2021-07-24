@@ -21,11 +21,12 @@
       ../../profiles/garbage-collection.nix
       ../../mixins/obs.nix
       ../../mixins/v4l2loopback.nix
-      ../../mixins/vim.nix
+      ../../mixins/editor/vim.nix
       ../../mixins/gfx-intel.nix
       ../../mixins/common.nix
       ../../mixins/i3status.nix
       ../../mixins/fonts.nix
+      ../../mixins/editor/nvim.nix
     ];
 
   nix = {
