@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:colemickens/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
     firefox.url = "github:colemickens/flake-firefox-nightly";
     firefox.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +26,7 @@
 #    flake = true;
 #  };
 
-  outputs = { self, home-manager, nixpkgs, agenix, ... }@inputs: {
+  outputs = { self, home-manager, nixpkgs, agenix, nixos-hardware, ... }@inputs: {
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
       parsecgaming = pkgs.callPackage ./pkgs/parsecgaming {};
@@ -44,6 +45,7 @@
           (import ./hosts/t480/configuration.nix)
           home-manager.nixosModules.home-manager
           agenix.nixosModules.age
+          nixos-hardware.nixosModules.lenovo-thinkpad-t480
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
