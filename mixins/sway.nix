@@ -15,10 +15,10 @@ let
   };
   swaylockcmd = "${pkgs.swaylock}/bin/swaylock -c '#000000'";
   idlecmd = pkgs.writeShellScript "swayidle.sh" ''
-    ${pkgs.swayidle}/bin/swayidle -w
-    before-sleep "${swaylockcmd}"
-    lock "${swaylockcmd}"
-    timeout 500 "${swaylockcmd}"
+    ${pkgs.swayidle}/bin/swayidle \
+    before-sleep "${swaylockcmd}" \
+    lock "${swaylockcmd}" \
+    timeout 500 "${swaylockcmd}" \
     timeout 1000 "${pkgs.systemd}/bin/systemctl suspend"
   '';
   dropdownTerminalCmd = pkgs.writeShellScript "launchkitty.sh" ''
@@ -68,7 +68,7 @@ in
             { always = true; command = "${pkgs.mako}/bin/mako --default-timeout 3000"; }
             { always = true; command = "tail -n0 -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob"; }
             { always = true; command = "${pkgs.flashfocus}/bin/flashfocus"; }
-            { command = "${idlecmd}"; always = true; }
+            { command = "exec ${idlecmd}"; always = true; }
           ];
           modifier = "Mod4";
           keybindings = {
