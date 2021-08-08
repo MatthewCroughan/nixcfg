@@ -15,6 +15,7 @@
       ./modules/jellyfin.nix
       ./modules/traefik.nix
       ./modules/openrgb.nix
+      ./modules/libvirtd.nix
 #      ./modules/selinux.nix
 #      ./modules/davfs2.nix
     ];
