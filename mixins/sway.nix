@@ -49,7 +49,10 @@ in
           inherit terminal;
 #          fonts = swayfonts;
           bars = [{
-            fonts = [ "Terminus 9" ];
+            fonts = {
+              names = [ "Terminus" ];
+              size = 9.0;
+            };
             statusCommand = "i3status-rs $HOME/.config/i3status-rust/config-top.toml";
             extraConfig = "height 16";
           }];
