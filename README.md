@@ -32,3 +32,5 @@
 
 - `users/` - [home-manager](https://github.com/nix-community/home-manager) configuration.
 
+- `examples` - Things I don't necessarily want to use, but want to keep around
+  and link to people online.
