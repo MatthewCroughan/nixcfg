@@ -19,7 +19,6 @@
       ../../profiles/steam.nix
       ../../profiles/wireless.nix
       ../../profiles/pipewire.nix
-      ../../profiles/garbage-collection.nix
       ../../mixins/obs.nix
       ../../mixins/v4l2loopback.nix
       ../../mixins/editor/vim.nix
@@ -60,7 +59,12 @@
   nixpkgs.overlays = [ inputs.nur.overlay inputs.flake-ndi.overlay ];
 
   # Use the systemd-boot EFI boot loader, instead of GRUB, etc.
-  boot.loader.systemd-boot.enable = true;
+
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 10;
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Set hostname.
