@@ -43,6 +43,8 @@
       something = "${pkgs.ffmpeg}/bin/ffmpeg --someoption";
       n = "nix-shell -p";
       ssh = "env TERM=xterm-256color ssh";
+      ipv6off = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1 -w net.ipv6.conf.default.disable_ipv6=1 -w net.ipv6.conf.lo.disable_ipv6=1";
+      ipv6on = "sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0 -w net.ipv6.conf.default.disable_ipv6=0 -w net.ipv6.conf.lo.disable_ipv6=0";
     };
   };
 
