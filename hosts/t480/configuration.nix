@@ -36,6 +36,11 @@
     '';
    };
 
+  services.resolved = {
+    enable = true;
+    dnssec = "false";
+  };
+
   services.throttled.enable = true;
 
   services.logind.killUserProcesses = true;
