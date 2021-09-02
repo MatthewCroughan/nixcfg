@@ -13,7 +13,7 @@ in
         telescope-nvim
         nvim-treesitter
         nvim-web-devicons
-        nvim-bufferline-lua
+        bufferline-nvim
         nvim-lspconfig
         vim-nix
         nvim-compe
