@@ -41,6 +41,8 @@
     dnssec = "false";
   };
 
+  networking.useNetworkd = true;
+
   services.throttled.enable = true;
 
   services.logind.killUserProcesses = true;
@@ -82,7 +84,7 @@
   # Enables wireless support via wpa_supplicant.
   networking.wireless = {
     enable = true;
-    interfaces = [ "wlan0" ];
+    interfaces = [ "wlp3s0" ];
   };
   
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -90,7 +92,7 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
-  networking.interfaces.wlan0.useDHCP = true;
+  networking.interfaces.wlp3s0.useDHCP = true;
 
   # Setup ZFS requirements
   boot.supportedFilesystems = [ "zfs" ];
