@@ -38,6 +38,11 @@
         pypiApps=$(for arg; do printf '.%s' "$arg"; done) 
         nix shell github:davhau/mach-nix#gen.pythonWith$pypiApps
       }
+
+      # Prints a list of webm urls for a given 4chan thread link
+      getwebm() { 
+        ${pkgs.curl}/bin/curl -sL "$1.json" | ${pkgs.jq}/bin/jq -r '.posts[] | select(.ext == ".webm") | "https://i.4cdn.org/'"$(echo "$1" | sed -r 's/.*4chan.org\/([a-zA-Z0-9]+)\/.*/\1/')"'/\(.tim)\(.ext)"';
+      }
     '';
     shellAliases = {
       something = "${pkgs.ffmpeg}/bin/ffmpeg --someoption";
