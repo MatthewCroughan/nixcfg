@@ -36,6 +36,13 @@
     '';
    };
 
+  # From flake-utils-plus
+  nix = {
+    generateNixPathFromInputs = true;
+    generateRegistryFromInputs = true;
+    linkInputs = true;
+  };
+
   services.resolved = {
     enable = true;
     dnssec = "false";

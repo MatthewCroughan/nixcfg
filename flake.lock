@@ -141,6 +141,21 @@
         "type": "github"
       }
     },
+    "fu": {
+      "locked": {
+        "lastModified": 1629481132,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "997f7efcb746a9c140ce1f13c72263189225f482",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -356,12 +371,35 @@
         "dolphin-emu": "dolphin-emu",
         "firefox": "firefox",
         "flake-ndi": "flake-ndi",
+        "fu": "fu",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
-        "robotnix": "robotnix"
+        "robotnix": "robotnix",
+        "utils": "utils"
+      }
+    },
+    "utils": {
+      "inputs": {
+        "flake-utils": [
+          "fu"
+        ]
+      },
+      "locked": {
+        "lastModified": 1630853715,
+        "narHash": "sha256-X4beh7NefAIpA10jC2+wAUhSjzQpgHSzrg3MaJs9d3s=",
+        "owner": "gytis-ivaskevicius",
+        "repo": "flake-utils-plus",
+        "rev": "fb18a434e9dc19fb504ba59664c1d9e106991bfc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gytis-ivaskevicius",
+        "ref": "staging",
+        "repo": "flake-utils-plus",
+        "type": "github"
       }
     }
   },

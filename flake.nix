@@ -16,6 +16,11 @@
       url = "github:dolphin-emu/dolphin";
       flake = false;
     };
+    fu.url = "github:numtide/flake-utils";
+    utils = {
+      url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
+      inputs.flake-utils.follows = "fu";
+    };
   };
 
 #  inputs.neovim-nightly = {
@@ -26,7 +31,7 @@
 #    flake = true;
 #  };
 
-  outputs = { self, home-manager, nixpkgs, agenix, nixos-hardware, ... }@inputs: {
+  outputs = { self, home-manager, nixpkgs, agenix, nixos-hardware, utils, ... }@inputs: {
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
       parsecgaming = pkgs.callPackage ./pkgs/parsecgaming {};
@@ -43,6 +48,7 @@
         system = "x86_64-linux";
         modules = [
           (import ./hosts/t480/configuration.nix)
+          utils.nixosModules.autoGenFromInputs
           home-manager.nixosModules.home-manager
           agenix.nixosModules.age
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
