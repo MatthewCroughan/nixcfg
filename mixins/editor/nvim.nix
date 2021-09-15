@@ -5,6 +5,7 @@ let
   };
 in
 {
+  nixpkgs.overlays = [ (import ./rnix-lsp-overlay.nix).overlay ];
   home-manager.users.matthew = { pkgs, ...}: {
     xdg.configFile."nvim/colors/Tomorrow-Night-Bright.vim".source = "${theme.src}";
     programs.neovim = {
