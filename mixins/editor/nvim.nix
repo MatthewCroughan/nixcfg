@@ -18,6 +18,7 @@ in
         nvim-lspconfig
         vim-nix
         nvim-compe
+        vim-oscyank
       ];
       extraConfig = ''
         " Configure Telescope
@@ -26,6 +27,8 @@ in
         nnoremap <leader>fg <cmd>Telescope live_grep<cr>
         nnoremap <leader>fb <cmd>Telescope buffers<cr>
         nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+        vmap <C-c> y:OSCYank<cr>
 
         nnoremap <silent><A-h> :BufferLineCyclePrev<CR>
         nnoremap <silent><A-l> :BufferLineCycleNext<CR>
