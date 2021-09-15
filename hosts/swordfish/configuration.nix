@@ -9,7 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/avahi.nix
-      ./modules/vim.nix
+      ../../mixins/editor/vim.nix
+      ../../mixins/editor/nvim.nix
       ./modules/trusted-users.nix
       ./modules/tailscale.nix
       ./modules/jellyfin.nix
@@ -24,6 +25,8 @@
     enable = true;
     storageDriver = "zfs";
   };
+
+  services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
   nix = {
     package = pkgs.nixFlakes;
