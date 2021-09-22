@@ -43,6 +43,18 @@
       getwebm() { 
         ${pkgs.curl}/bin/curl -sL "$1.json" | ${pkgs.jq}/bin/jq -r '.posts[] | select(.ext == ".webm") | "https://i.4cdn.org/'"$(echo "$1" | sed -r 's/.*(4chan|4channel).org\/([a-zA-Z0-9]+)\/.*/\2/')"'/\(.tim)\(.ext)"';
       }
+
+      # Makes `nix inate` as an alias of `nix shell`.
+      nix() {
+        case $1 in
+          inate)
+            shift
+            command nix shell "$@"
+            ;;
+          *)
+            command nix "$@";;
+        esac
+      }
     '';
     shellAliases = {
       something = "${pkgs.ffmpeg}/bin/ffmpeg --someoption";
