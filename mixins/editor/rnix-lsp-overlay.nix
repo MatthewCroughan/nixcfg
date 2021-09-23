@@ -6,8 +6,8 @@
       src = fetchFromGitHub {
         owner = "nix-community";
         repo = "rnix-lsp";
-        rev = "cbd13a0f9f7c066a545a30c63fcb7e225a069cf3";
-        sha256 = "sha256-CwMa2n53+ZzMoCY1c795iyBMO9W9myByYfjfOGEFim0=";
+        rev = "b940e4b6d3f1e4be014e076a0a59e69b35c67ba5";
+        sha256 = "sha256-GhKZG6IxlTKkynggMstm/L1oUVRZa5ZWh1P3UUZtT6g=";
       };
       cargoSha256 = "sha256-uKncKlguo78t5jcP17uE2/Ru2tlEMFcxX0oB8l8pYmI=";
     };
