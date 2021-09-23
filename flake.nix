@@ -13,7 +13,9 @@
     robotnix.url = "github:danielfullmer/robotnix";
     flake-ndi.url = "github:matthewcroughan/flake-ndi";
     dolphin-emu = {
-      url = "github:dolphin-emu/dolphin";
+      url = "https://github.com/dolphin-emu/dolphin.git";
+      type = "git";
+      submodules = true;
       flake = false;
     };
     fu.url = "github:numtide/flake-utils";
