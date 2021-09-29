@@ -50,6 +50,11 @@
 
   networking.useNetworkd = true;
 
+  # This happens to fix a problem with the systemd service that is created as a
+  # result of enabling networkd. It's not clear why it happens, but I should
+  # re-evaluate whether this is necessary to set in the future.
+  systemd.services.systemd-networkd-wait-online.enable = false;
+
   services.throttled.enable = true;
 
   services.logind.killUserProcesses = true;
