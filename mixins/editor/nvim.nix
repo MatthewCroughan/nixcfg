@@ -20,6 +20,7 @@ in
         nvim-compe
         vim-oscyank
         indent-blankline-nvim
+        gitsigns-nvim
       ];
       extraConfig = ''
         " Configure Telescope
@@ -46,6 +47,7 @@ in
 
         lua << EOF
         local actions = require('telescope.actions')
+        require('gitsigns').setup()
         require('telescope').setup {
           defaults = {
             mappings = {
