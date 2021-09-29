@@ -22,6 +22,9 @@ in
         indent-blankline-nvim
         gitsigns-nvim
       ];
+      # git is needed for gitsigns-nvim
+      # ripgrep and fd is needed for telescope-nvim
+      extraPackages = with pkgs; [ ripgrep git fd ];
       extraConfig = ''
         " Configure Telescope
         " Find files using Telescope command-line sugar.
