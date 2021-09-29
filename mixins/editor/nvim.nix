@@ -19,6 +19,7 @@ in
         vim-nix
         nvim-compe
         vim-oscyank
+        indent-blankline-nvim
       ];
       extraConfig = ''
         " Configure Telescope
@@ -39,7 +40,7 @@ in
         set tw=80
         set wrap linebreak
         set number
-        set signcolumn=number
+        set signcolumn=yes:2
         set termguicolors
         colorscheme ${theme.name}
 
@@ -61,6 +62,19 @@ in
             show_buffer_close_icons = false
           }
         }
+        require("indent_blankline").setup {
+          options = {
+            space_char_blankline = " ",
+            show_current_context = true,
+            char = "|"
+          }
+        }
+
+        vim.opt.list = true
+        vim.opt.listchars = {
+            eol = "↴",
+        }
+
         local lspc = require('lspconfig')
         lspc.rnix.setup {}
         EOF
