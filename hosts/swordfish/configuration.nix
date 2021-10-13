@@ -17,6 +17,7 @@
       ./modules/traefik.nix
       ./modules/openrgb.nix
       ./modules/libvirtd.nix
+      ./modules/crater.nix
 #      ./modules/selinux.nix
 #      ./modules/davfs2.nix
     ];
