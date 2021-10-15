@@ -11,6 +11,7 @@
       ./modules/avahi.nix
       ../../mixins/editor/vim.nix
       ../../mixins/editor/nvim.nix
+      ./modules/hydroxide.nix
       ./modules/trusted-users.nix
       ./modules/tailscale.nix
       ./modules/jellyfin.nix
