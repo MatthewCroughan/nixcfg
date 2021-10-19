@@ -11,6 +11,8 @@ let
 in  
 {
   "cloudflare_api_key.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
+  "platonicHerculesClusterJoinToken.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
+  "platonicHerculesBinaryCaches.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
   "coturn_static_auth.age".publicKeys = [ users.matthew-t480 systems.matrix ];
   "synapse_secrets_yaml.age".publicKeys = [ users.matthew-t480 systems.matrix ];
 }

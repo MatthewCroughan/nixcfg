@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/avahi.nix
+      ./modules/hercules-ci-agent.nix
       ../../mixins/editor/vim.nix
       ../../mixins/editor/nvim.nix
       ./modules/hydroxide.nix
