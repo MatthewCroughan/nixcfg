@@ -47,8 +47,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
-
     systemd.services.hydroxide = {
       script = let
         hostOpts = if isNull cfg.host then "" else let
