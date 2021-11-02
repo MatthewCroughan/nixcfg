@@ -25,6 +25,7 @@
       http = {
         services = {
           crater.loadBalancer.servers = [ { url = "http://127.0.0.1:8070"; } ];
+          crater-nixinator.loadBalancer.servers = [ { url = "http://127.0.0.1:8060"; } ];
           jellyfin.loadBalancer.servers = [ { url = "http://127.0.0.1:8096"; } ];
         };
         routers = {
@@ -50,6 +51,18 @@
             rule = "Host(`crater.gamecu.be`)";
             entryPoints = [ "websecure" ];
             service = "crater";
+            tls.certresolver = "letsencrypt";
+          };
+          crater-nixinator-insecure = {
+            rule = "Host(`crater.nixinator.gamecu.be`)";
+            entryPoints = [ "web" ];
+            service = "crater-nixinator";
+            middlewares = "redirect-to-https";
+          };
+          crater-nixinator = {
+            rule = "Host(`crater.nixinator.gamecu.be`)";
+            entryPoints = [ "websecure" ];
+            service = "crater-nixinator";
             tls.certresolver = "letsencrypt";
           };
         };

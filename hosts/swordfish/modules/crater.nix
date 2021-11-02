@@ -1,20 +1,42 @@
 { config, lib, pkgs, ... }:
 let
-  matthewcroughan = builtins.getFlake "github:matthewcroughan/nixpkgs/4fc9b7816c95125e2bc80be527847a55acdcb432";
-in
-{
-  imports = [
-    (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/matthewcroughan/nixpkgs/4fc9b7816c95125e2bc80be527847a55acdcb432/nixos/modules/services/web-apps/crater.nix";
-      sha256 = "0m7lxgf08lh54c12jzwxifzh8dm4i117c8ifz51vgawjmhfi5is3";
-    })
-  ];
-
-  nixpkgs.overlays = [
+  matthewcroughan = builtins.getFlake "github:matthewcroughan/nixpkgs/eb02ba188d55210d3478b924387edbbb04358f11";
+  craterModule = "${matthewcroughan}/nixos/modules/services/web-apps/crater.nix";
+  craterOverlay =
     (self: super: {
       crater = matthewcroughan.outputs.legacyPackages.${super.hostPlatform.system}.crater;
-    })
-  ];
+    });
+  makeCraterContainer = port: {
+    extraFlags = [ "-U" ];
+    autoStart = true;
+    ephemeral = false;
+    config = { config, pkgs, ... }: {
+      imports = [
+        craterModule
+      ];
+      nixpkgs.overlays = [
+        craterOverlay
+      ];
+      networking.firewall.allowedTCPPorts = [ port ];
+      services = {
+        crater.enable = true;
+        httpd = {
+          virtualHosts.crater.listen =
+            [
+              {
+                "port" = port;
+              }
+            ];
+          adminAddr = "github@croughan.sh";
+        };
+      };
+    };
+  };
+in
+{
+
+  imports = [ craterModule ];
+  nixpkgs.overlays = [ craterOverlay ];
 
   services.crater.enable = true;
   services.httpd.virtualHosts.crater.listen =
@@ -24,4 +46,8 @@ in
       }
     ];
   services.httpd.adminAddr = "github@croughan.sh";
+
+  containers = {
+    craterNixinator = makeCraterContainer 8060;
+  };
 }
