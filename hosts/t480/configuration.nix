@@ -132,6 +132,7 @@
     mpv
     gnumake
     htop
+    git
     inputs.agenix.defaultPackage.x86_64-linux
   ];
 
