@@ -47,7 +47,7 @@
 
   systemd.enableUnifiedCgroupHierarchy = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_5_14;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
