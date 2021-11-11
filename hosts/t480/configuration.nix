@@ -47,6 +47,7 @@
     hostName = "t480";
     useNetworkd = true;
     wireless = {
+      userControlled.enable = true;
       enable = true;
       interfaces = [ "wlp3s0" ];
     };
