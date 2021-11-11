@@ -12,6 +12,7 @@
       ./modules/hercules-ci-agent.nix
       ../../mixins/editor/vim.nix
       ../../mixins/editor/nvim.nix
+      ../../mixins/common.nix
       ./modules/hydroxide.nix
       ./modules/trusted-users.nix
       ./modules/tailscale.nix
