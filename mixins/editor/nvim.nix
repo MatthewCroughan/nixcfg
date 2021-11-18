@@ -46,6 +46,7 @@ in
         set number
         set signcolumn=yes:2
         set termguicolors
+	set indentexpr=
         colorscheme ${theme.name}
 
         lua << EOF
