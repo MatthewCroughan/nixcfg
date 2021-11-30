@@ -57,7 +57,7 @@ in {
         in "-imap-port ${port} -smtp-port ${port} -carddav-port ${port}";
         args = lib.concatStringsSep " " [ hostOpts portOpts ];
         generateStateScript = pkgs.writeScript "generateHydroxideState" ''
-          XDG_CONFIG_HOME=${cfg.dataDir} ${pkgs.hydroxide}/bin/hydroxide auth "$1"
+          XDG_CONFIG_HOME=${cfg.dataDir} ${cfg.package}/bin/hydroxide auth "$1"
           chown -R hydroxide:hydroxide ${cfg.dataDir}/hydroxide
         '';
         nagMessage = pkgs.writeText "nagMessage" ''
