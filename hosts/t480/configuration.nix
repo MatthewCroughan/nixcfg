@@ -75,7 +75,8 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs;
-      [ xdg-desktop-portal-wlr ];
+      [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
+    gtkUsePortal = true;
   };
 
   # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992 
