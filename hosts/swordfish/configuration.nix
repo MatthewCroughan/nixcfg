@@ -40,7 +40,32 @@
     '';
   };
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv7l-linux" ];
+
+  fileSystems."/eggshells" =
+    { device = "eggshells";
+      fsType = "zfs";
+    };
+
+  fileSystems."/eggshells/archive" =
+    { device = "eggshells/archive";
+      fsType = "zfs";
+    };
+
+  boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" "armv7l-linux" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        mirroredBoots = [
+          { devices = [ "/dev/disk/by-uuid/1C38-D720" ];
+            path = "/boot-fallback"; }
+        ];
+      };
+    };
+  };
 
   # Since I'm using nixos-unstable mostly, the latest ZFS is sometimes
   # incompatible with the latest kernel.
@@ -50,22 +75,9 @@
 
   boot.kernelPackages = pkgs.linuxPackages_5_14;
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.devices = [ "/dev/sda" "/dev/sdb" ];
-  
-  # boot.loader.grub.devices = [ "/dev/disk/by-id/ata-WDC_WDS240G2G0A-00JH30_204656464910-part1" "/dev/disk/by-id/ata-ADATA_SU630_2K442L2225YW-part1" ];
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Setup ZFS requirements  
   boot.supportedFilesystems = [ "zfs" ];
-  networking.hostId = "8fdcdff2";
+  networking.hostId = "cadb7ccb";
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
