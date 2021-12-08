@@ -11,8 +11,8 @@ in
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
+        (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
         telescope-nvim
-        nvim-treesitter
         nvim-web-devicons
         bufferline-nvim
         nvim-lspconfig
@@ -46,7 +46,8 @@ in
         set number
         set signcolumn=yes:2
         set termguicolors
-	set indentexpr=
+        set foldexpr=nvim_treesitter#foldexpr()
+
         colorscheme ${theme.name}
 
         lua << EOF
@@ -60,6 +61,11 @@ in
                 ["<A-k>"] = actions.move_selection_previous
               }
             }
+          }
+        }
+        require'nvim-treesitter.configs'.setup {
+          indent = {
+            enable = true
           }
         }
         require('bufferline').setup {
