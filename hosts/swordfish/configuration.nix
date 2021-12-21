@@ -103,7 +103,15 @@
   #   keyMap = "us";
   # };
 
-  services.netdata.enable = true;  
+  services.netdata = {
+    enable = true;
+    config = {
+      global = {
+        "memory mode" = "dbengine";
+        "history" = 24*60*60*7; # 1 Week
+      };
+    };
+  };
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
