@@ -19,6 +19,12 @@
     };
     config = { config, pkgs, ... }: {
       users.users.hercules-ci-agent.uid = 6969;
+      nix = {
+        package = pkgs.nixUnstable;
+        extraOptions = ''
+          experimental-features = nix-command flakes
+        '';
+       };
       services.hercules-ci-agent = {
         enable = true;
         settings = {
