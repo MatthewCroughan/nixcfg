@@ -73,7 +73,7 @@
 
   systemd.enableUnifiedCgroupHierarchy = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_5_14;
+  boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
 
   # Setup ZFS requirements  
   boot.supportedFilesystems = [ "zfs" ];

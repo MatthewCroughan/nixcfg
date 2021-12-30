@@ -80,7 +80,7 @@
   };
 
   # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992 
-  boot.kernelPackages = pkgs.linuxPackages_5_14;
+  boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
 
   # Gives access to the NUR: https://github.com/nix-community/NUR
   nixpkgs.overlays = [ inputs.nur.overlay inputs.flake-ndi.overlay ];
