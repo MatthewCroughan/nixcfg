@@ -1,8 +1,35 @@
 { config, lib, ... }:
 {
 
-  nix.allowedUsers = [ "6969" ];
-  nix.trustedUsers = [ "6969" ];
+  nix.allowedUsers = [ "6969" "7979" ];
+  nix.trustedUsers = [ "6969" "7979" ];
+
+  containers.tunnelvr-swordfish = {
+    autoStart = true;
+    ephemeral = true;
+    bindMounts = {
+      "/run/secrets" = {
+        hostPath = "/run/secrets";
+        isReadOnly = true;
+      };
+    };
+    config = { config, pkgs, ... }: {
+      users.users.hercules-ci-agent.uid = 7979;
+      nix = {
+        package = pkgs.nixUnstable;
+        extraOptions = ''
+          experimental-features = nix-command flakes
+        '';
+       };
+      services.hercules-ci-agent = {
+        enable = true;
+        settings = {
+          clusterJoinTokenPath = "/run/secrets/tunnelvrHerculesClusterJoinToken";
+          binaryCachesPath = "/run/secrets/tunnelvrHerculesBinaryCaches";
+        };
+      };
+    };
+  };
 
   containers.plutonomicon-swordfish = {
     autoStart = true;
@@ -36,6 +63,16 @@
   };
 
   age.secrets = {
+    tunnelvrHerculesClusterJoinToken = {
+      file = ../../../secrets/tunnelvrHerculesClusterJoinToken.age;
+      group = "7979";
+      owner = "7979";
+    };
+    tunnelvrHerculesBinaryCaches = {
+      file = ../../../secrets/tunnelvrHerculesBinaryCaches.age;
+      group = "7979";
+      owner = "7979";
+    };
     plutonomiconHerculesClusterJoinToken = {
       file = ../../../secrets/plutonomiconHerculesClusterJoinToken.age;
       group = "6969";
