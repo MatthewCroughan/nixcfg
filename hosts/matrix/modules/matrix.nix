@@ -154,6 +154,7 @@ in {
 
     root = pkgs.element-web.override {
       conf = {
+        showLabsSettings = true;
         default_server_config."m.homeserver" = {
           "base_url" = "https://${fqdn}";
           "server_name" = "${fqdn}";
