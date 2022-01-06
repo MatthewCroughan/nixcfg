@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-wayland.url = "github:colemickens/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
+    nixinate.url = "github:matthewcroughan/nixinate";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
     firefox.url = "github:colemickens/flake-firefox-nightly";
@@ -33,7 +34,8 @@
 #    flake = true;
 #  };
 
-  outputs = { self, home-manager, nixpkgs, agenix, nixos-hardware, utils, ... }@inputs: {
+  outputs = { self, nixinate, home-manager, nixpkgs, agenix, nixos-hardware, utils, ... }@inputs: {
+    apps = nixinate.nixinate.x86_64-linux self;
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
       parsecgaming = pkgs.callPackage ./pkgs/parsecgaming {};
@@ -55,6 +57,12 @@
           agenix.nixosModules.age
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
           {
+            _module.args = {
+               nixinate = {
+                 host = "t480";
+                 sshUser = "matthew";
+               };
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users = import ./users self; # pass 'self' in order to allow ./users/default.nix -> ./users/matthew/default.nix to access ${self}, to provide a path relative to flake.nix.
@@ -67,6 +75,12 @@
         modules = [
           home-manager.nixosModules.home-manager
           {
+            _module.args = {
+               nixinate = {
+                 host = "swordfish";
+                 sshUser = "matthew";
+               };
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users = import ./users self; # pass 'self' in order to allow ./users/default.nix -> ./users/matthew/default.nix to access ${self}, to provide a path relative to flake.nix.
@@ -79,6 +93,14 @@
       matrix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          {
+            _module.args = {
+               nixinate = {
+                 host = "matrix.defenestrate.it";
+                 sshUser = "matthew";
+               };
+            };
+          }
           (import ./hosts/matrix/configuration.nix)
           agenix.nixosModules.age
         ];
