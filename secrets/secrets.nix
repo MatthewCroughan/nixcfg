@@ -13,6 +13,7 @@ in
   "cloudflare_api_key.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
   "platonicHerculesClusterJoinToken.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
   "platonicHerculesBinaryCaches.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
+  "plutonomiconHerculesSecrets.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
   "plutonomiconHerculesClusterJoinToken.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
   "plutonomiconHerculesBinaryCaches.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
   "tunnelvrHerculesClusterJoinToken.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
