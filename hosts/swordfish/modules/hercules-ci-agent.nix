@@ -15,6 +15,8 @@
     };
     config = { config, pkgs, ... }: {
       users.users.hercules-ci-agent.uid = 7979;
+      networking.useHostResolvConf = false;
+      services.resolved.enable = true;
       nix = {
         package = pkgs.nixUnstable;
         extraOptions = ''
@@ -46,6 +48,8 @@
     };
     config = { config, pkgs, ... }: {
       users.users.hercules-ci-agent.uid = 6969;
+      networking.useHostResolvConf = false;
+      services.resolved.enable = true;
       nix = {
         package = pkgs.nixUnstable;
         extraOptions = ''
