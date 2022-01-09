@@ -1,110 +1,64 @@
 { config, lib, ... }:
 {
 
-  nix.allowedUsers = [ "6969" "7979" ];
-  nix.trustedUsers = [ "6969" "7979" ];
-
-  containers.tunnelvr-swordfish = {
-    autoStart = true;
-    ephemeral = true;
-    bindMounts = {
-      "/run/secrets" = {
-        hostPath = "/run/secrets";
-        isReadOnly = true;
-      };
-    };
-    config = { config, pkgs, ... }: {
-      users.users.hercules-ci-agent.uid = 7979;
-      networking.useHostResolvConf = false;
-      services.resolved.enable = true;
-      nix = {
-        package = pkgs.nixUnstable;
-        extraOptions = ''
-          experimental-features = nix-command flakes
-        '';
-       };
-      services.hercules-ci-agent = {
-        enable = true;
-        settings = {
-          clusterJoinTokenPath = "/run/secrets/tunnelvrHerculesClusterJoinToken";
-          binaryCachesPath = "/run/secrets/tunnelvrHerculesBinaryCaches";
-        };
-      };
+  services.hercules-ci-agents."tunnelvr-swordfish" = {
+    settings = {
+      clusterJoinTokenPath = config.age.secrets.tunnelvrHerculesClusterJoinToken.path;
+      binaryCachesPath = config.age.secrets.tunnelvrHerculesBinaryCaches.path;
     };
   };
 
-  containers.plutonomicon-swordfish = {
-    autoStart = true;
-    ephemeral = true;
-    bindMounts = {
-      "/run/secrets" = {
-        hostPath = "/run/secrets";
-        isReadOnly = true;
-      };
-      "/nix" = {
-        hostPath = "/nix";
-        isReadOnly = false;
-      };
+  services.hercules-ci-agents."plutonomicon-swordfish" = {
+    settings = {
+      clusterJoinTokenPath = config.age.secrets.plutonomiconHerculesClusterJoinToken.path;
+      binaryCachesPath = config.age.secrets.plutonomiconHerculesBinaryCaches.path;
+      secretsJsonPath = config.age.secrets.plutonomiconHerculesSecrets.path;
     };
-    config = { config, pkgs, ... }: {
-      users.users.hercules-ci-agent.uid = 6969;
-      networking.useHostResolvConf = false;
-      services.resolved.enable = true;
-      nix = {
-        package = pkgs.nixUnstable;
-        extraOptions = ''
-          experimental-features = nix-command flakes
-        '';
-       };
-      services.hercules-ci-agent = {
-        enable = true;
-        settings = {
-          clusterJoinTokenPath = "/run/secrets/plutonomiconHerculesClusterJoinToken";
-          binaryCachesPath = "/run/secrets/plutonomiconHerculesBinaryCaches";
-        };
-      };
+  };
+
+  services.hercules-ci-agents."ardana-swordfish" = {
+    settings = {
+      clusterJoinTokenPath = config.age.secrets.ardanaHerculesClusterJoinToken.path;
+      binaryCachesPath = config.age.secrets.ardanaHerculesBinaryCaches.path;
     };
   };
 
   age.secrets = {
     tunnelvrHerculesClusterJoinToken = {
       file = ../../../secrets/tunnelvrHerculesClusterJoinToken.age;
-      group = "7979";
-      owner = "7979";
+      group = "hci-tunnelvr-swordfish";
+      owner = "hci-tunnelvr-swordfish";
     };
     tunnelvrHerculesBinaryCaches = {
       file = ../../../secrets/tunnelvrHerculesBinaryCaches.age;
-      group = "7979";
-      owner = "7979";
-    };
-    plutonomiconHerculesClusterJoinToken = {
-      file = ../../../secrets/plutonomiconHerculesClusterJoinToken.age;
-      group = "6969";
-      owner = "6969";
+      group = "hci-tunnelvr-swordfish";
+      owner = "hci-tunnelvr-swordfish";
     };
     plutonomiconHerculesBinaryCaches = {
       file = ../../../secrets/plutonomiconHerculesBinaryCaches.age;
-      group = "6969";
-      owner = "6969";
+      group = "hci-plutonomicon-swordfish";
+      owner = "hci-plutonomicon-swordfish";
     };
-    platonicHerculesClusterJoinToken = {
-      file = ../../../secrets/platonicHerculesClusterJoinToken.age;
-      group = "hercules-ci-agent";
-      owner = "hercules-ci-agent";
+    plutonomiconHerculesClusterJoinToken = {
+      file = ../../../secrets/plutonomiconHerculesClusterJoinToken.age;
+      group = "hci-plutonomicon-swordfish";
+      owner = "hci-plutonomicon-swordfish";
     };
-    platonicHerculesBinaryCaches = {
-      file = ../../../secrets/platonicHerculesBinaryCaches.age;
-      group = "hercules-ci-agent";
-      owner = "hercules-ci-agent";
+    plutonomiconHerculesSecrets = {
+      file = ../../../secrets/plutonomiconHerculesSecrets.age;
+      group = "hci-plutonomicon-swordfish";
+      owner = "hci-plutonomicon-swordfish";
+    };
+    ardanaHerculesClusterJoinToken = {
+      file = ../../../secrets/ardanaHerculesClusterJoinToken.age;
+      group = "hci-ardana-swordfish";
+      owner = "hci-ardana-swordfish";
+    };
+    ardanaHerculesBinaryCaches = {
+      file = ../../../secrets/ardanaHerculesBinaryCaches.age;
+      group = "hci-ardana-swordfish";
+      owner = "hci-ardana-swordfish";
     };
   };
 
-  services.hercules-ci-agent = {
-    enable = true;
-    settings = {
-      clusterJoinTokenPath = config.age.secrets.platonicHerculesClusterJoinToken.path;
-      binaryCachesPath = config.age.secrets.platonicHerculesBinaryCaches.path;
-
-    };
-  };
 }

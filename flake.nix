@@ -24,6 +24,7 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "fu";
     };
+    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent/stopgap-multi-agent-module";
   };
 
 #  inputs.neovim-nightly = {
@@ -34,7 +35,7 @@
 #    flake = true;
 #  };
 
-  outputs = { self, nixinate, home-manager, nixpkgs, agenix, nixos-hardware, utils, ... }@inputs: {
+  outputs = { self, nixinate, home-manager, nixpkgs, agenix, nixos-hardware, utils, hercules-ci-agent, ... }@inputs: {
     apps = nixinate.nixinate.x86_64-linux self;
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
@@ -87,6 +88,7 @@
           }
           (import ./hosts/swordfish/configuration.nix)
           agenix.nixosModules.age
+          hercules-ci-agent.nixosModules.stop-gap-multi-agent-service
         ];
         specialArgs = { inherit inputs; };
       };
