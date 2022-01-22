@@ -22,9 +22,16 @@ in
         indent-blankline-nvim
         gitsigns-nvim
       ];
-      # git is needed for gitsigns-nvim
-      # ripgrep and fd is needed for telescope-nvim
-      extraPackages = with pkgs; [ ripgrep git fd ];
+      extraPackages = with pkgs; 
+        [ 
+          # git is needed for gitsigns-nvim
+          # ripgrep and fd is needed for telescope-nvim
+          ripgrep git fd
+
+          haskell-language-server
+          # Stack is required to run the language server
+          stack
+        ];
       extraConfig = ''
         " Configure Telescope
         " Find files using Telescope command-line sugar.
@@ -89,6 +96,7 @@ in
 
         local lspc = require('lspconfig')
         lspc.rnix.setup {}
+        lspc.hls.setup {}
         EOF
       '';
     };
