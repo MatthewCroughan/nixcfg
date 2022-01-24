@@ -20,6 +20,7 @@
     settings = {
       clusterJoinTokenPath = config.age.secrets.ardanaHerculesClusterJoinToken.path;
       binaryCachesPath = config.age.secrets.ardanaHerculesBinaryCaches.path;
+      secretsJsonPath = config.age.secrets.ardanaHerculesSecrets.path;
     };
   };
 
@@ -56,6 +57,11 @@
     };
     ardanaHerculesBinaryCaches = {
       file = ../../../secrets/ardanaHerculesBinaryCaches.age;
+      group = "hci-ardana-swordfish";
+      owner = "hci-ardana-swordfish";
+    };
+    ardanaHerculesSecrets = {
+      file = ../../../secrets/ardanaHerculesSecrets.age;
       group = "hci-ardana-swordfish";
       owner = "hci-ardana-swordfish";
     };
