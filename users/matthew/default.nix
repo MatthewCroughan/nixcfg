@@ -32,6 +32,20 @@
     enable = true;
     initExtra = builtins.readFile "${self}/dotfiles/bashrc";
     bashrcExtra = ''
+
+      flash-to(){
+        if [ $(${pkgs.file}/bin/file $1 --mime-type -b) == "application/zstd" ]; then
+          echo "Flashing zst using zstdcat | dd"
+          ${pkgs.zstd}/bin/zstdcat $1 | sudo dd of=$2 status=progress conv=sync,noerror bs=64k
+        elif [ $(${pkgs.file}/bin/file $2 --mime-type -b) == "application/xz" ]; then
+          echo "Flashing xz using xzcat | dd"
+          ${pkgs.xz}/bin/xzcat $1 | sudo dd of=$2 status=progress conv=sync,noerror bs=64k
+        else
+          echo "Flashing arbitrary file"
+          sudo dd if=$1 of=$2 status=progress conv=sync,noerror bs=64k
+        fi
+      }
+
       export EDITOR=vim
       
       mach-shell() {
