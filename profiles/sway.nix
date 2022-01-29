@@ -7,7 +7,7 @@
     ../mixins/wlsunset.nix
   ];
   config = {
-    services.dbus.packages = with pkgs; [ gnome3.dconf ];
+    services.dbus.packages = with pkgs; [ dconf ];
     programs.light.enable = true;
 
     # The NixOS option 'programs.sway.enable' is needed to make swaylock work,
