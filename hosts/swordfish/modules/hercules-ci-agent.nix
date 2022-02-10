@@ -1,6 +1,14 @@
 { config, lib, ... }:
 {
 
+  services.hercules-ci-agents."orbis-tertius-swordfish" = {
+    settings = {
+      clusterJoinTokenPath = config.age.secrets.orbis-tertiusHerculesClusterJoinToken.path;
+      binaryCachesPath = config.age.secrets.orbis-tertiusHerculesBinaryCaches.path;
+      secretsJsonPath = config.age.secrets.orbis-tertiusHerculesSecrets.path;
+    };
+  };
+
   services.hercules-ci-agents."tunnelvr-swordfish" = {
     settings = {
       clusterJoinTokenPath = config.age.secrets.tunnelvrHerculesClusterJoinToken.path;
@@ -34,6 +42,21 @@
       file = ../../../secrets/tunnelvrHerculesBinaryCaches.age;
       group = "hci-tunnelvr-swordfish";
       owner = "hci-tunnelvr-swordfish";
+    };
+    orbis-tertiusHerculesBinaryCaches = {
+      file = ../../../secrets/orbis-tertiusHerculesBinaryCaches.age;
+      group = "hci-orbis-tertius-swordfish";
+      owner = "hci-orbis-tertius-swordfish";
+    };
+    orbis-tertiusHerculesClusterJoinToken = {
+      file = ../../../secrets/orbis-tertiusHerculesClusterJoinToken.age;
+      group = "hci-orbis-tertius-swordfish";
+      owner = "hci-orbis-tertius-swordfish";
+    };
+    orbis-tertiusHerculesSecrets = {
+      file = ../../../secrets/orbis-tertiusHerculesSecrets.age;
+      group = "hci-orbis-tertius-swordfish";
+      owner = "hci-orbis-tertius-swordfish";
     };
     plutonomiconHerculesBinaryCaches = {
       file = ../../../secrets/plutonomiconHerculesBinaryCaches.age;

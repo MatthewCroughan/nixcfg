@@ -11,6 +11,9 @@ let
 in  
 {
   "cloudflare_api_key.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
+  "orbis-tertiusHerculesSecrets.age".publicKeys = [ users.matthew-t480 users.matthew-swordfish systems.swordfish ];
+  "orbis-tertiusHerculesClusterJoinToken.age".publicKeys = [ users.matthew-t480 users.matthew-swordfish systems.swordfish ];
+  "orbis-tertiusHerculesBinaryCaches.age".publicKeys = [ users.matthew-t480 users.matthew-swordfish systems.swordfish ];
   "ardanaHerculesSecrets.age".publicKeys = [ users.matthew-t480 users.matthew-swordfish systems.swordfish ];
   "ardanaHerculesClusterJoinToken.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
   "ardanaHerculesBinaryCaches.age".publicKeys = [ users.matthew-swordfish systems.swordfish ];
