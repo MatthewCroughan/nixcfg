@@ -22,8 +22,8 @@ in
         indent-blankline-nvim
         gitsigns-nvim
       ];
-      extraPackages = with pkgs; 
-        [ 
+      extraPackages = with pkgs;
+        [
           # git is needed for gitsigns-nvim
           # ripgrep and fd is needed for telescope-nvim
           ripgrep git fd
@@ -88,6 +88,11 @@ in
             char = "|"
           }
         }
+
+        vim.cmd[[
+          match ExtraWhitespace /\s\+$/
+          highlight ExtraWhitespace ctermbg=red guibg=red
+        ]]
 
         vim.opt.list = true
         vim.opt.listchars = {
