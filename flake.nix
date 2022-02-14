@@ -27,14 +27,6 @@
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent/stopgap-multi-agent-module";
   };
 
-#  inputs.neovim-nightly = {
-#    type = "github";
-#    owner = "mjlbach";
-#    repo = "neovim-nightly-overlay";
-#    ref = "flakes";
-#    flake = true;
-#  };
-
   outputs = { self, nixinate, home-manager, nixpkgs, agenix, nixos-hardware, utils, hercules-ci-agent, ... }@inputs: {
     apps = nixinate.nixinate.x86_64-linux self;
     # Declare some local packages be available via self.packages
@@ -45,7 +37,8 @@
 
     robotnixConfigurations = nixpkgs.lib.mapAttrs (n: v: inputs.robotnix.lib.robotnixSystem v) {
       pyxis = import ./hosts/pyxis/default.nix;
-#      bacon = import ./hosts/bacon/default.nix;
+      # More phones here ...
+      # E.g: bacon = import ./hosts/bacon/default.nix;
     };
 
     nixosConfigurations = {
