@@ -41,7 +41,7 @@
           echo "Flashing xz using xzcat | dd"
           ${pkgs.xz}/bin/xzcat $1 | sudo dd of=$2 status=progress conv=sync,noerror bs=64k
         else
-          echo "Flashing arbitrary file"
+          echo "Flashing arbitrary file $1 to $2"
           sudo dd if=$1 of=$2 status=progress conv=sync,noerror bs=64k
         fi
       }
