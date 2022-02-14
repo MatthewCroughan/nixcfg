@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs2111.url = "github:nixos/nixpkgs/nixos-21.11";
     nixpkgs-wayland.url = "github:colemickens/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     nixinate.url = "github:matthewcroughan/nixinate";
@@ -25,9 +26,10 @@
       inputs.flake-utils.follows = "fu";
     };
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent/stopgap-multi-agent-module";
+    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
 
-  outputs = { self, nixinate, home-manager, nixpkgs, agenix, nixos-hardware, utils, hercules-ci-agent, ... }@inputs: {
+  outputs = { self, nixinate, home-manager, nixpkgs, nixpkgs2111, agenix, nixos-hardware, utils, hercules-ci-agent, simple-nixos-mailserver, ... }@inputs: {
     apps = nixinate.nixinate.x86_64-linux self;
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
@@ -98,6 +100,23 @@
           }
           (import ./hosts/matrix/configuration.nix)
           agenix.nixosModules.age
+        ];
+        specialArgs = { inherit inputs; };
+      };
+      mail = nixpkgs2111.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            _module.args = {
+               nixinate = {
+                 host = "mail.croughan.sh";
+                 sshUser = "matthew";
+                 buildOn = "remote";
+               };
+            };
+          }
+          (import ./hosts/mail/configuration.nix)
+          simple-nixos-mailserver.nixosModules.mailserver
         ];
         specialArgs = { inherit inputs; };
       };
