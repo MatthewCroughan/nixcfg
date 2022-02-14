@@ -57,6 +57,7 @@
                nixinate = {
                  host = "t480";
                  sshUser = "matthew";
+                 buildOn = "remote";
                };
             };
             home-manager.useGlobalPkgs = true;
@@ -75,6 +76,7 @@
                nixinate = {
                  host = "swordfish";
                  sshUser = "matthew";
+                 buildOn = "remote";
                };
             };
             home-manager.useGlobalPkgs = true;
@@ -95,6 +97,7 @@
                nixinate = {
                  host = "matrix.defenestrate.it";
                  sshUser = "matthew";
+                 buildOn = "remote";
                };
             };
           }
