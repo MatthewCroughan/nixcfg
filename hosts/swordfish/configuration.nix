@@ -54,11 +54,11 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" "armv7l-linux" ];
     loader = {
-      efi.canTouchEfiVariables = true;
       grub = {
         enable = true;
         efiSupport = true;
         device = "nodev";
+        efiInstallAsRemovable = true;
         mirroredBoots = [
           { devices = [ "/dev/disk/by-uuid/1C38-D720" ];
             path = "/boot-fallback"; }
