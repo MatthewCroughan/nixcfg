@@ -141,9 +141,6 @@
   # Allow proprietary software.
   nixpkgs.config.allowUnfree = true;
 
-  # Enable Docker.
-  virtualisation.docker.enable = true;
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
@@ -153,7 +150,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.matthew = {
      isNormalUser = true;
-     extraGroups = [ "input" "wheel" "docker" "video" "dialout" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "input" "wheel" "video" "dialout" ]; # Enable ‘sudo’ for the user.
    };
 
  # This value determines the NixOS release from which the default

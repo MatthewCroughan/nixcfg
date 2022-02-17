@@ -25,10 +25,6 @@
 #      ./modules/davfs2.nix
     ];
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "zfs";
-  };
 
   services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
@@ -130,7 +126,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matthew = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
   users.users.julianbld = {
