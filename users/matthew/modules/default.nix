@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./tmux.nix # tmux config
+      ./tmux.nix
       ./kitty.nix
       ./firefox.nix
       ./syncthing.nix

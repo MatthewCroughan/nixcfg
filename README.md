@@ -23,14 +23,7 @@
 - `environments/` - Environments/Shells for things I need to work with, such as
   [Yocto](https://www.yoctoproject.org/).
 
-- `dotfiles/` - Legacy [dotfile](https://wiki.archlinux.org/index.php/Dotfiles)
-  configs that are not written in nix, but should be at a later date.
-
-- `scripts/` - Scripts, or any files I want to exist in my home directory,
-  managed by [home-manager](https://github.com/nix-community/home-manager).
-  This is done via `home.file."scripts".source = "${self}/scripts"`
-
-- `users/` - [home-manager](https://github.com/nix-community/home-manager) configuration.
+- `users/` - [home-manager](https://github.com/nix-community/home-manager) configuration per user.
 
 - `examples` - Things I don't necessarily want to use, but want to keep around
   and link to people online.
