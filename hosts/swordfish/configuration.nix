@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules/avahi.nix
+      ../../profiles/avahi.nix
       ./modules/hercules-ci-agent.nix
       ../../mixins/editor/vim.nix
       ../../mixins/editor/nvim.nix
@@ -18,11 +18,8 @@
       ./modules/tailscale.nix
       ./modules/jellyfin.nix
       ./modules/traefik.nix
-      ./modules/openrgb.nix
       ./modules/libvirtd.nix
       ./modules/crater.nix
-#      ./modules/selinux.nix
-#      ./modules/davfs2.nix
     ];
 
 

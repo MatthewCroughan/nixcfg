@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ../../profiles/tailscale.nix
       ../../profiles/sway.nix
-      ../../profiles/steam.nix
+#      ../../profiles/steam.nix
       ../../profiles/wireless.nix
       ../../profiles/pipewire.nix
       ../../profiles/avahi.nix
