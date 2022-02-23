@@ -130,6 +130,23 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      hetznix = nixpkgs2111.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            _module.args = {
+               nixinate = {
+                 host = "hetznix";
+                 sshUser = "matthew";
+                 buildOn = "local";
+               };
+            };
+          }
+          (import ./hosts/hetznix/configuration.nix)
+          agenix.nixosModules.age
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
   };
 }
