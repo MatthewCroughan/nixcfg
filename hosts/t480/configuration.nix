@@ -8,20 +8,20 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../profiles/tailscale.nix
-      ../../profiles/sway.nix
-#      ../../profiles/steam.nix
-      ../../profiles/wireless.nix
-      ../../profiles/pipewire.nix
-      ../../profiles/avahi.nix
-      ../../mixins/obs.nix
-      ../../mixins/v4l2loopback.nix
-      ../../mixins/editor/vim.nix
-      ../../mixins/gfx-intel.nix
-      ../../mixins/common.nix
-      ../../mixins/i3status.nix
-      ../../mixins/fonts.nix
-      ../../mixins/editor/nvim.nix
+      "${inputs.self}/profiles/tailscale.nix"
+      "${inputs.self}/profiles/sway.nix"
+#      "${inputs.self}/profiles/steam.nix"
+      "${inputs.self}/profiles/wireless.nix"
+      "${inputs.self}/profiles/pipewire.nix"
+      "${inputs.self}/profiles/avahi.nix"
+      "${inputs.self}/mixins/obs.nix"
+      "${inputs.self}/mixins/v4l2loopback.nix"
+      "${inputs.self}/mixins/editor/vim.nix"
+      "${inputs.self}/mixins/gfx-intel.nix"
+      "${inputs.self}/mixins/common.nix"
+      "${inputs.self}/mixins/i3status.nix"
+      "${inputs.self}/mixins/fonts.nix"
+      "${inputs.self}/mixins/editor/nvim.nix"
     ];
 
   nix = {

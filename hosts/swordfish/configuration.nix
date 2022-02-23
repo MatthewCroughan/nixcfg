@@ -7,12 +7,12 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      "${inputs.self}/profiles/avahi.nix"
+      "${inputs.self}/mixins/editor/vim.nix"
+      "${inputs.self}/mixins/editor/nvim.nix"
+      "${inputs.self}/mixins/common.nix"
       ./hardware-configuration.nix
-      ../../profiles/avahi.nix
       ./modules/hercules-ci-agent.nix
-      ../../mixins/editor/vim.nix
-      ../../mixins/editor/nvim.nix
-      ../../mixins/common.nix
       ./modules/hydroxide.nix
       ./modules/trusted-users.nix
       ./modules/tailscale.nix
