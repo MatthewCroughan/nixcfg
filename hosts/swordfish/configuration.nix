@@ -22,9 +22,6 @@
       ./modules/crater.nix
     ];
 
-
-  services.dbus.packages = with pkgs; [ gnome3.dconf ];
-
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
