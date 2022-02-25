@@ -17,7 +17,7 @@
             enable = true;
             hostAddr = "0.0.0.0";
           };
-          imports = [ "${nixpkgs}/nixos/modules/virtualisation/openstack-config.nix" ]; 
+          imports = [ "${nixpkgs}/nixos/modules/virtualisation/openstack-config.nix" ];
           nix = {
             package = nixpkgs.legacyPackages.${system}.pkgs.nixUnstable;
             extraOptions = ''
@@ -30,13 +30,13 @@
             ];
             trustedBinaryCaches = [
               "https://cache.nixos.org"
-              "https://hydra.iohk.io" 
-              "https://iohk.cachix.org" 
+              "https://hydra.iohk.io"
+              "https://iohk.cachix.org"
             ];
             binaryCaches = [
               "https://cache.nixos.org"
-              "https://hydra.iohk.io" 
-              "https://iohk.cachix.org" 
+              "https://hydra.iohk.io"
+              "https://iohk.cachix.org"
             ];
            };
         }

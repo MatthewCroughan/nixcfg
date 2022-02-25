@@ -1,4 +1,4 @@
-# Work in progress hacking on the ly tui, most of this config was taken from: 
+# Work in progress hacking on the ly tui, most of this config was taken from:
 # https://gitlab.com/roosemberth/dotfiles/-/blob/dc50bb9e36613cad6612c46decaa74ea087bd66f/nixos-config/modules/display-manager-ly.nix
 
 { config, lib, pkgs, ... }:

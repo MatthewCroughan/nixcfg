@@ -13,7 +13,7 @@
     # The NixOS option 'programs.sway.enable' is needed to make swaylock work,
     # since home-manager can't set PAM up to allow unlocks, along with some
     # other quirks.
-    programs.sway.enable = true; 
+    programs.sway.enable = true;
 
     fonts.fonts = with pkgs; [ terminus_font_ttf font-awesome ];
     home-manager.users.matthew = { pkgs, ... }: {

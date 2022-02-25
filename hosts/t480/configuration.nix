@@ -62,7 +62,7 @@
     enable = true;
     dnssec = "false";
   };
-    
+
   services.throttled.enable = true;
 
   services.logind.killUserProcesses = true;
@@ -79,7 +79,7 @@
     gtkUsePortal = true;
   };
 
-  # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992 
+  # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992
   boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
 
   # Gives access to the NUR: https://github.com/nix-community/NUR
@@ -119,10 +119,10 @@
 
   # Set your time zone.
   time.timeZone = "Europe/London";
- 
+
   # Set location provider
   location.provider = "geoclue2";
- 
+
   # Enable OpenGL
   hardware.opengl.enable = true;
 

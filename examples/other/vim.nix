@@ -13,9 +13,9 @@
         set mouse-=a
       '';
       name = "vim";
-      vimrcConfig.packages.vim = 
-        with pkgs.vimPlugins; { 
-          start = [ vim-nix ]; 
+      vimrcConfig.packages.vim =
+        with pkgs.vimPlugins; {
+          start = [ vim-nix ];
         };
       }
     )

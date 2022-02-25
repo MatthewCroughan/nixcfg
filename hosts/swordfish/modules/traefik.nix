@@ -6,7 +6,7 @@
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   systemd.services.traefik = {
-    environment = { 
+    environment = {
       CF_API_EMAIL = "cloudflare@croughan.sh";
     };
     serviceConfig = {

@@ -65,7 +65,7 @@
 
   boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
 
-  # Setup ZFS requirements  
+  # Setup ZFS requirements
   boot.supportedFilesystems = [ "zfs" ];
   networking.hostId = "cadb7ccb";
 

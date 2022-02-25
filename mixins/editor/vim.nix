@@ -49,10 +49,10 @@
             nmap <buffer> K <plug>(lsp-hover)
             inoremap <buffer> <expr><c-f> lsp#scroll(+4)
             inoremap <buffer> <expr><c-d> lsp#scroll(-4)
-        
+
             let g:lsp_format_sync_timeout = 1000
             autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-            
+
             " refer to doc to add more commands
         endfunction
 
@@ -64,8 +64,8 @@
 
       '';
       name = "vim";
-      vimrcConfig.packages.vim = 
-        with pkgs.vimPlugins; { 
+      vimrcConfig.packages.vim =
+        with pkgs.vimPlugins; {
           start = [ vim-nix vim-surround vim-lsp ];
         };
       }

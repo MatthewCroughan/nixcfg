@@ -16,7 +16,7 @@
             format_mem = "{mem_used_percents}";
             format_swap = "{swap_used_percents}";
             theme_overrides = {
-              idle_bg = "#00223f"; 
+              idle_bg = "#00223f";
             };
           }
           {
@@ -27,7 +27,7 @@
           {
             block = "sound";
             theme_overrides = {
-              idle_bg = "#00223f"; 
+              idle_bg = "#00223f";
             };
           }
           {
@@ -39,7 +39,7 @@
             format = "{ssid} {signal_strength} {ip} {speed_down;K*b} {speed_up;K*b}";
             interval = 5;
             theme_overrides = {
-              idle_bg = "#00223f"; 
+              idle_bg = "#00223f";
             };
           }
           {
