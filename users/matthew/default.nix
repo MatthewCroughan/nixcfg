@@ -1,10 +1,13 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, headless, ... }:
 
 {
-  imports =
-    [
-      ./modules
-    ];
+  # If we aren't headless, then load ./desktop.nix
+  # TODO: This is janky and leads to infinite recursion errors if headless is
+  # unset. It's an antipattern, but it's what I can do for now without a big
+  # refactor.
+  # https://discourse.nixos.org/t/conditionally-import-module-if-it-exists/17832/2
+  # https://github.com/jonringer/nixpkgs-config/blob/cc2958b5e0c8147849c66b40b55bf27ff70c96de/flake.nix#L47-L82
+  imports = [ ] ++ lib.optional (!headless) ./desktop.nix;
 
   home = {
     username = "matthew";
@@ -96,30 +99,6 @@
   };
 
   xdg.enable = true;
-
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
-
-  gtk = {
-    enable = true;
-    theme.package = pkgs.arc-theme;
-    theme.name = "Arc-Dark";
-    iconTheme.package = pkgs.arc-icon-theme;
-    iconTheme.name = "Arc";
-  };
-
-  home = {
-    packages = with pkgs; [
-      inputs.self.packages.x86_64-linux.parsecgaming
-      quasselClient
-    ];
-  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

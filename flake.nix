@@ -65,7 +65,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users = import ./users;
-              extraSpecialArgs = { inherit inputs; };
+              extraSpecialArgs = { inherit inputs; headless = false; };
             };
           }
         ];
@@ -87,7 +87,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users = import ./users;
-              extraSpecialArgs = { inherit inputs; };
+              extraSpecialArgs = { inherit inputs; headless = true; };
             };
           }
           (import ./hosts/swordfish/configuration.nix)
