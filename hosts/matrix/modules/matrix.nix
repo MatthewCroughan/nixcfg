@@ -45,13 +45,13 @@ in {
     no-tls = true;
     no-dtls = true;
     extraConfig = ''
-        user-quota=12
-        total-quota=1200
-        denied-peer-ip=10.0.0.0-10.255.255.255
-        denied-peer-ip=192.168.0.0-192.168.255.255
-        denied-peer-ip=172.16.0.0-172.31.255.255
+      user-quota=12
+      total-quota=1200
+      denied-peer-ip=10.0.0.0-10.255.255.255
+      denied-peer-ip=192.168.0.0-192.168.255.255
+      denied-peer-ip=172.16.0.0-172.31.255.255
 
-        allowed-peer-ip=192.168.191.127
+      allowed-peer-ip=192.168.191.127
     '';
   };
 

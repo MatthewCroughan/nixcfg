@@ -1,23 +1,25 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
+    ./disks.nix
     ./hardware-configuration.nix
     ./modules/tailscale.nix
     ./modules/vaultwarden.nix
     ./modules/traefik.nix
     "${inputs.self}/profiles/users/matthewcroughan.nix"
     "${inputs.self}/mixins/openssh.nix"
+    "${inputs.self}/mixins/common.nix"
   ];
-  nix.package = pkgs.nixFlakes;
+
   boot = {
     loader = {
       grub = {
         enable = true;
         version = 2;
-        device = "/dev/sda";
       };
     };
   };
+
   networking = {
     interfaces = {
       enp1s0 = {
@@ -32,9 +34,9 @@
       address = "fe80::1";
       interface = "enp1s0";
     };
-    hostId = "00000000";
     hostName = "hetznix";
     useDHCP = false;
   };
+
   system.stateVersion = "21.11";
 }

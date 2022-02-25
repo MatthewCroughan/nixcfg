@@ -1,19 +1,17 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
-
 {
   imports =
     [
+      ./disks.nix
       ./hardware-configuration.nix
+      "${inputs.self}/profiles/users/matthewcroughan.nix"
       "${inputs.self}/profiles/tailscale.nix"
       "${inputs.self}/profiles/sway.nix"
 #      "${inputs.self}/profiles/steam.nix"
       "${inputs.self}/profiles/wireless.nix"
       "${inputs.self}/profiles/pipewire.nix"
       "${inputs.self}/profiles/avahi.nix"
+      "${inputs.self}/mixins/openssh.nix"
       "${inputs.self}/mixins/obs.nix"
       "${inputs.self}/mixins/v4l2loopback.nix"
       "${inputs.self}/mixins/editor/vim.nix"
@@ -29,14 +27,11 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-   };
-
-  # From flake-utils-plus
-  nix = {
+    # From flake-utils-plus
     generateNixPathFromInputs = true;
     generateRegistryFromInputs = true;
     linkInputs = true;
-  };
+   };
 
   # This happens to fix a problem with the systemd service that is created as a
   # result of enabling networkd. It's not clear why it happens, but I should
@@ -58,16 +53,27 @@
     };
   };
 
-  services.resolved = {
-    enable = true;
-    dnssec = "false";
+  services = {
+    # Udev Rule for my Gamecube Controller Adapter
+    udev.extraRules = ''SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"'';
+    # Power management
+    throttled.enable = true;
+    upower.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        STOP_CHARGE_THRESH_BAT1=95;
+      };
+    };
+    resolved = {
+      enable = true;
+      dnssec = "false";
+    };
+    logind.killUserProcesses = true;
   };
 
-  services.throttled.enable = true;
-
-  services.logind.killUserProcesses = true;
-
-  # Enable bluetooth for headphones
+  # Enabule bluetooth for headphones
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
@@ -79,36 +85,20 @@
     gtkUsePortal = true;
   };
 
-  # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992
-  boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
-
-  # Gives access to the NUR: https://github.com/nix-community/NUR
-  nixpkgs.overlays = [ inputs.nur.overlay inputs.flake-ndi.overlay ];
-
-  # Use the systemd-boot EFI boot loader, instead of GRUB.
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 10;
-    };
-    efi = {
-      canTouchEfiVariables = true;
+  boot = {
+    # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992
+    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+    # Use the systemd-boot EFI boot loader, instead of GRUB.
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
     };
   };
-
-  # Setup ZFS requirements
-  boot.supportedFilesystems = [ "zfs" ];
-  networking.hostId = "235f593c";
-
-  # Since I'm using nixos-unstable mostly, the latest ZFS is sometimes
-  # incompatible with the latest kernel.
-  boot.zfs.enableUnstable = true;
-
-  # Set up LUKS requirements
-  boot.initrd.luks.devices.crypted.device = "/dev/disk/by-label/nixos";
-
-  # Allow trim on SSD
-  boot.initrd.luks.devices.crypted.allowDiscards = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -140,18 +130,7 @@
 
   # Allow proprietary software.
   nixpkgs.config.allowUnfree = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Enable fingerprint reading daemon.
-  services.fprintd.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.matthew = {
-     isNormalUser = true;
-     extraGroups = [ "input" "wheel" "video" "dialout" ]; # Enable ‘sudo’ for the user.
-   };
+  powerManagement.enable = true;
 
  # This value determines the NixOS release from which the default
  # settings for stateful data, like file locations and database versions
@@ -160,24 +139,5 @@
  # Before changing this value read the documentation for this option
  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
  system.stateVersion = "20.03"; # Did you read the comment?
-
- # Enable power management
- powerManagement.enable = true;
-
- services.upower.enable = true;
-
- services.tlp = {
-   enable = true;
-   settings = {
-     CPU_SCALING_GOVERNOR_ON_AC = "performance";
-     STOP_CHARGE_THRESH_BAT1=95;
-   };
- };
-
- # Udev Rule for my Gamecube Controller Adapter
- services.udev.extraRules = ''SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"'';
-
- networking.firewall.enable = false;
-
 }
 
