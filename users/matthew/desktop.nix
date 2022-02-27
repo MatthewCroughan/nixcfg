@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 {
   imports = [
+    ./modules/nnn.nix
     ./modules/firefox.nix
     ./modules/kanshi.nix
     ./modules/kitty.nix

@@ -13,6 +13,8 @@
       copy_on_select = "yes";
     };
     extraConfig = ''
+      allow_remote_control yes
+      listen_on unix:@matthew-kitty
 background            #000000
 foreground            #e9e9e9
 cursor                #e9e9e9
