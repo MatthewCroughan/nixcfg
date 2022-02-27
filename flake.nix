@@ -25,7 +25,7 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "fu";
     };
-    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent/stopgap-multi-agent-module";
+    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
   };
 
@@ -92,7 +92,7 @@
           }
           (import ./hosts/swordfish/configuration.nix)
           agenix.nixosModules.age
-          hercules-ci-agent.nixosModules.stop-gap-multi-agent-service
+          hercules-ci-agent.nixosModules.multi-agent-service
         ];
         specialArgs = { inherit inputs; };
       };

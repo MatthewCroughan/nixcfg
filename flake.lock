@@ -230,16 +230,15 @@
         "pre-commit-hooks-nix": "pre-commit-hooks-nix"
       },
       "locked": {
-        "lastModified": 1641654431,
-        "narHash": "sha256-pKhHRcPURhNv28rRoW7PVrl5qtYJ//c42qDAT3yGC9Y=",
+        "lastModified": 1645096583,
+        "narHash": "sha256-TEZFHP44Glqd9kFOa7eSQbgtGIga2PRdabkpjJlnhcs=",
         "owner": "hercules-ci",
         "repo": "hercules-ci-agent",
-        "rev": "f414c34f8df0414e60f6c7a9c2286f78d0af3baa",
+        "rev": "0a314e7634d4c146182fae2363e629748f224d6e",
         "type": "github"
       },
       "original": {
         "owner": "hercules-ci",
-        "ref": "stopgap-multi-agent-module",
         "repo": "hercules-ci-agent",
         "type": "github"
       }
