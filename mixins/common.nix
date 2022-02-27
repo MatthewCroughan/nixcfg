@@ -5,7 +5,7 @@
     git
   ];
   nix = {
- #   package = pkgs.nixUnstable;
+    package = pkgs.nixUnstable;
     extraOptions =
       let empty_registry = builtins.toFile "empty-flake-registry.json" ''{"flakes":[],"version":2}''; in
       ''
