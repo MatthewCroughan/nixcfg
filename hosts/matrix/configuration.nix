@@ -5,6 +5,7 @@
       "${inputs.self}/profiles/users/matthewcroughan.nix"
       "${inputs.self}/mixins/openssh.nix"
       "${inputs.self}/mixins/common.nix"
+      "${inputs.self}/profiles/fail2ban.nix"
       ./disks.nix
       ./hardware-configuration.nix
       ./modules/matrix.nix

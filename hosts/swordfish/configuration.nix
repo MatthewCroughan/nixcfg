@@ -8,6 +8,7 @@
       "${inputs.self}/mixins/editor/vim.nix"
       "${inputs.self}/mixins/editor/nvim.nix"
       "${inputs.self}/mixins/common.nix"
+      "${inputs.self}/profiles/fail2ban.nix"
       ./disks.nix
       ./hardware-configuration.nix
       ./modules/hercules-ci-agent.nix

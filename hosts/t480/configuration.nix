@@ -7,6 +7,7 @@
       "${inputs.self}/profiles/users/matthewcroughan.nix"
       "${inputs.self}/profiles/tailscale.nix"
       "${inputs.self}/profiles/sway.nix"
+      "${inputs.self}/profiles/fail2ban.nix"
 #      "${inputs.self}/profiles/steam.nix"
       "${inputs.self}/profiles/wireless.nix"
       "${inputs.self}/profiles/pipewire.nix"
