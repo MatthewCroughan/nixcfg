@@ -54,13 +54,6 @@
           agenix.nixosModules.age
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
           {
-            _module.args = {
-               nixinate = {
-                 host = "t480";
-                 sshUser = "matthew";
-                 buildOn = "remote";
-               };
-            };
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -79,7 +72,7 @@
             _module.args = {
                nixinate = {
                  host = "swordfish";
-                 sshUser = "matthew";
+                 sshUser = "deploy";
                  buildOn = "remote";
                };
             };
@@ -103,7 +96,7 @@
             _module.args = {
                nixinate = {
                  host = "matrix.defenestrate.it";
-                 sshUser = "matthew";
+                 sshUser = "deploy";
                  buildOn = "remote";
                };
             };
@@ -120,7 +113,7 @@
             _module.args = {
                nixinate = {
                  host = "mail.croughan.sh";
-                 sshUser = "matthew";
+                 sshUser = "deploy";
                  buildOn = "remote";
                };
             };
@@ -137,8 +130,8 @@
             _module.args = {
                nixinate = {
                  host = "hetznix";
-                 sshUser = "matthew";
-                 buildOn = "local";
+                 sshUser = "deploy";
+                 buildOn = "remote";
                };
             };
           }

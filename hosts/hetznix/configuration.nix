@@ -6,6 +6,7 @@
     ./modules/tailscale.nix
     ./modules/vaultwarden.nix
     ./modules/traefik.nix
+    "${inputs.self}/profiles/users/deploy.nix"
     "${inputs.self}/profiles/users/matthewcroughan.nix"
     "${inputs.self}/profiles/fail2ban.nix"
     "${inputs.self}/mixins/openssh.nix"

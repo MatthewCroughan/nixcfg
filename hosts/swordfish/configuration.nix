@@ -3,6 +3,7 @@
   imports =
     [
       "${inputs.self}/profiles/avahi.nix"
+      "${inputs.self}/profiles/users/deploy.nix"
       "${inputs.self}/profiles/users/matthewcroughan.nix"
       "${inputs.self}/mixins/openssh.nix"
       "${inputs.self}/mixins/editor/vim.nix"
