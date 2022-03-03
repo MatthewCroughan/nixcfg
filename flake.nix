@@ -131,7 +131,9 @@
                nixinate = {
                  host = "hetznix";
                  sshUser = "deploy";
-                 buildOn = "remote";
+                 # Since hetznix is serving my Android phone updates, it's probably
+                 # best if I compile this locally on a system with lots of ram.
+                 buildOn = "local";
                };
             };
           }

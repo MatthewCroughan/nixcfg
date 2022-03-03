@@ -25,8 +25,21 @@
       http = {
         services = {
           vaultwarden.loadBalancer.servers = [ { url = "http://127.0.0.1:8222"; } ];
+          androidUpdate.loadBalancer.servers = [ { url = "http://127.0.0.1:9999"; } ];
         };
         routers = {
+          androidUpdate-insecure = {
+            rule = "Host(`android.croughan.sh`)";
+            entryPoints = [ "web" ];
+            service = "androidUpdate";
+            middlewares = "redirect-to-https";
+          };
+          androidUpdate = {
+            rule = "Host(`android.croughan.sh`)";
+            entryPoints = [ "websecure" ];
+            service = "androidUpdate";
+            tls.certresolver = "letsencrypt";
+          };
           vaultwarden-insecure = {
             rule = "Host(`vaultwarden.croughan.sh`)";
             entryPoints = [ "web" ];

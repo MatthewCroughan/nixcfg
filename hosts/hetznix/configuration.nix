@@ -3,6 +3,7 @@
   imports = [
     ./disks.nix
     ./hardware-configuration.nix
+    ./modules/androidUpdate.nix
     ./modules/tailscale.nix
     ./modules/vaultwarden.nix
     ./modules/traefik.nix
