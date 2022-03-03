@@ -1,9 +1,53 @@
 { config, pkgs, ... }:
-
 {
   device = "pyxis";
   flavor = "lineageos";
   androidVersion = 11;
+  buildDateTime = 1646166324;
+
+  webview.vanadium = {
+    enable = true;
+    availableByDefault = true;
+  };
+
+  apps = {
+    vanadium.enable = true;
+    updater = {
+      flavor = "lineageos";
+      enable = true;
+      url = "https://android.croughan.sh";
+    };
+    fdroid.enable = true;
+    seedvault.enable = true;
+    prebuilt = {
+      molly-im = {
+        apk = builtins.fetchurl {
+          url = "https://github.com/mollyim/mollyim-android/releases/download/v5.31.6-1/Molly-v5.31.6-1-FOSS.apk";
+          sha256 = "1v7wffh0ni4bbdhj8wrdnhfixcdjids078iv9d67bd7xgdxgihd8";
+        };
+      };
+     discord = {
+        apk = pkgs.fetchurl {
+          name = "discord.apk";
+          url = "https://d-07.winudf.com/b/APK/Y29tLmRpc2NvcmRfMTEzMDEwX2Q4MjNhZjNi?_fn=RGlzY29yZCBDaGF0IFRhbGsgSGFuZ291dF92MTEzLjEwIC0gU3RhYmxlX2Fwa3B1cmUuY29tLmFwaw&_p=Y29tLmRpc2NvcmQ&am=NviUlVqqCxi1xV0LA75cGQ&at=1646064499&k=7fdcf9a31580820ff443ca67ce8f4b17621e44f3&r=https%3A%2F%2Fm.apkpure.com%2Fsearch%3Fq%3Ddiscord%26search_type%3D%26search_input_keyword%3D";
+          sha256 = "sha256-xx1G3oNd5LE2TVt44Io5WWH7RHkulB6rIPb38/MEoGc=";
+        };
+      };
+     notion = {
+        apk = pkgs.fetchurl {
+          name = "notion.apk";
+          url = "https://d-08.winudf.com/b/APK/bm90aW9uLmlkXzYzMDBfMjg2NGM3Nzc?_fn=Tm90aW9uIG5vdGVzIGRvY3MgdGFza3NfdjAuNi4zMDBfYXBrcHVyZS5jb20uYXBr&_p=bm90aW9uLmlk&am=zyp0Wnpsn9ZIXcHroa7SWg&at=1646064387&k=e2fae6e02d01635b005bae73dc8b88e2621e4483&r=https%3A%2F%2Fm.apkpure.com%2Fnotion-notes-docs-tasks%2Fnotion.id";
+          sha256 = "sha256-WPn+Lw3WL4kdTBYFL0fViFopNUNNaSl7qvEW+84+C+s=";
+        };
+      };
+      mattermost = {
+        apk = builtins.fetchurl {
+          url = "https://releases.mattermost.com/mattermost-mobile/1.49.1/386/Mattermost-arm64-v8a.apk";
+          sha256 = "1459bmbqgag2c3x34qbxxddwnm80sfd388ib2yznlk5z46pfhx52";
+        };
+      };
+    };
+  };
 
   source.dirs."device/xiaomi/pyxis".src = builtins.fetchGit {
     rev = "35b094bca0753e717502d543fc4fed444c84f5c1";
