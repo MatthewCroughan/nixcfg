@@ -40,6 +40,7 @@
   systemd.services.systemd-networkd-wait-online.enable = false;
 
   networking = {
+    firewall.trustedInterfaces = [ "tailscale0" ];
     hostName = "t480";
     useNetworkd = true;
     wireless = {
