@@ -33,6 +33,7 @@
           {
             block = "battery";
             format = "{percentage} {time}";
+            driver = "upower";
           }
           {
             block = "net";
