@@ -23,6 +23,8 @@
       "${inputs.self}/mixins/editor/nvim.nix"
     ];
 
+  users.users.matthew.extraGroups = [ "video" ];
+
   nix = {
     # From flake-utils-plus
     generateNixPathFromInputs = true;
