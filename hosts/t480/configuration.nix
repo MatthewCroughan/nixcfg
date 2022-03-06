@@ -84,14 +84,6 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  # Enable xdg.portal for Wayland
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs;
-      [ xdg-desktop-portal-wlr xdg-desktop-portal-gtk ];
-    gtkUsePortal = true;
-  };
-
   boot = {
     # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992
     kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;

@@ -10,6 +10,17 @@
     services.dbus.packages = with pkgs; [ dconf ];
     programs.light.enable = true;
 
+    xdg = {
+      portal = {
+        enable = true;
+        gtkUsePortal = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal-gtk
+        ];
+      };
+    };
+
     # The NixOS option 'programs.sway.enable' is needed to make swaylock work,
     # since home-manager can't set PAM up to allow unlocks, along with some
     # other quirks.
