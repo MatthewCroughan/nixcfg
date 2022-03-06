@@ -24,15 +24,11 @@
     ];
 
   nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
     # From flake-utils-plus
     generateNixPathFromInputs = true;
     generateRegistryFromInputs = true;
     linkInputs = true;
-   };
+  };
 
   # This happens to fix a problem with the systemd service that is created as a
   # result of enabling networkd. It's not clear why it happens, but I should
