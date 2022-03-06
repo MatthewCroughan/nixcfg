@@ -301,11 +301,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1644196782,
-        "narHash": "sha256-pRRnb3odtYsfQGhHkkQ+DXu3/Uv0s+BG806ETwZGexY=",
+        "lastModified": 1646336474,
+        "narHash": "sha256-Zt7uslLW7mlrXcLP695l2SqKvCdanWr8miwHLj8lyQ4=",
         "owner": "matthewcroughan",
         "repo": "nixinate",
-        "rev": "9299d595e80dbe52fca1d126066bc98ca471ab22",
+        "rev": "f13b5a7dcce8977c44f755973e06d804de04c2f2",
         "type": "github"
       },
       "original": {
