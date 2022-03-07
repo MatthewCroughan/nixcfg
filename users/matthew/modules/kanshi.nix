@@ -1,7 +1,12 @@
 {
+  systemd.user.services.kanshi = {
+    serviceConfig = {
+      StartLimitBurst = 5;
+      StartLimitIntervalSec = 30;
+    };
+  };
   services.kanshi = {
     enable = true;
-    systemdTarget = "graphical-session.target";
     profiles = {
       undocked = {
         outputs = [
