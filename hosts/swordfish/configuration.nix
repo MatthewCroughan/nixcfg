@@ -26,6 +26,8 @@
     extra-platforms = x86_64-linux i686-linux aarch64-linux armv7l-linux riscv64-linux
   '';
 
+  hardware.usbWwan.enable = true;
+
   networking = {
     hostName = "swordfish";
   };
