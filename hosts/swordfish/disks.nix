@@ -14,6 +14,9 @@
     # incompatible with the latest kernel.
     zfs.enableUnstable = true;
     kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+    # Western Digital SN850s are acting weird without disabling pcie_aspm
+    # https://bbs.archlinux.org/viewtopic.php?id=255535
+    kernelParams = [ "pcie_aspm=off" ];
   };
   fileSystems = {
     "/eggshells" =
