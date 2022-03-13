@@ -26,7 +26,7 @@
       inputs.flake-utils.follows = "fu";
     };
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
-    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-21.11";
   };
 
   outputs = { self, nixinate, home-manager, nixpkgs, nixpkgs2111, agenix, nixos-hardware, utils, hercules-ci-agent, simple-nixos-mailserver, ... }@inputs: {
