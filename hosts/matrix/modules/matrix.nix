@@ -119,31 +119,30 @@ in {
   services.matrix-synapse = {
     enable = true;
     extraConfigFiles = [ config.age.secrets.synapse_secrets_yaml.path ];
-    extraConfig = ''
-      experimental_features:
-        spaces_enabled: true
-    '';
-    url_preview_enabled = true;
-    turn_uris = [
-      "turn:turn.${config.networking.domain}:3478?transport=udp"
-      "turn:turn.${config.networking.domain}:3478?transport=tcp"
-    ];
-    server_name = config.networking.domain;
-    listeners = [
-      {
-        port = 8008;
-        bind_address = "::1";
-        type = "http";
-        tls = false;
-        x_forwarded = true;
-        resources = [
-          {
-            names = [ "client" "federation" "webclient" ];
-            compress = false;
-          }
-        ];
-      }
-    ];
+    settings = {
+      listeners = [
+        {
+          port = 8008;
+          bind_addresses = [ "::1" ];
+          type = "http";
+          tls = false;
+          x_forwarded = true;
+          resources = [
+            {
+              names = [ "client" "federation" ];
+              compress = false;
+            }
+          ];
+        }
+      ];
+      experimental_features.spaces_enabled = true;
+      url_preview_enabled = true;
+      turn_uris = [
+        "turn:turn.${config.networking.domain}:3478?transport=udp"
+        "turn:turn.${config.networking.domain}:3478?transport=tcp"
+      ];
+      server_name = config.networking.domain;
+    };
   };
   services.nginx.virtualHosts."element.${config.networking.domain}" = {
     enableACME = true;
