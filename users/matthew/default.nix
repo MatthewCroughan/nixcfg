@@ -71,7 +71,6 @@
         }
       '';
       shellAliases = {
-        something = "${pkgs.ffmpeg}/bin/ffmpeg --someoption";
         n = "nix-shell -p";
         r = "nix repl ${inputs.utils.lib.repl}";
         ssh = "env TERM=xterm-256color ssh";
