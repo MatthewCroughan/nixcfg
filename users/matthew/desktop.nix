@@ -30,4 +30,6 @@
     iconTheme.package = pkgs.arc-icon-theme;
     iconTheme.name = "Arc";
   };
+
+  xdg.enable = true;
 }
