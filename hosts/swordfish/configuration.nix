@@ -26,6 +26,15 @@
     extra-platforms = x86_64-linux i686-linux aarch64-linux armv7l-linux riscv64-linux
   '';
 
+  nix = {
+    sshServe = {
+      protocol = "ssh-ng";
+      enable = true;
+      write = true;
+      keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM38GVfgjAWLVRcIJld+Cv4dEg1ais4JSrKjh8dmb9vg julian@goatlap"];
+    };
+  };
+
   hardware.usbWwan.enable = true;
 
   networking = {
