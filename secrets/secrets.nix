@@ -20,9 +20,6 @@ in
   "ardanaHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "ardanaHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "ardanaHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "plutonomiconHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "plutonomiconHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "plutonomiconHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "tunnelvrHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "tunnelvrHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "coturn_static_auth.age".publicKeys = allUsers ++ [ systems.matrix ];

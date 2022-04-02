@@ -16,14 +16,6 @@
     };
   };
 
-  services.hercules-ci-agents."plutonomicon-swordfish" = {
-    settings = {
-      clusterJoinTokenPath = config.age.secrets.plutonomiconHerculesClusterJoinToken.path;
-      binaryCachesPath = config.age.secrets.plutonomiconHerculesBinaryCaches.path;
-      secretsJsonPath = config.age.secrets.plutonomiconHerculesSecrets.path;
-    };
-  };
-
   services.hercules-ci-agents."ardana-swordfish" = {
     settings = {
       clusterJoinTokenPath = config.age.secrets.ardanaHerculesClusterJoinToken.path;
@@ -57,21 +49,6 @@
       file = ../../../secrets/orbis-tertiusHerculesSecrets.age;
       group = "hci-orbis-tertius-swordfish";
       owner = "hci-orbis-tertius-swordfish";
-    };
-    plutonomiconHerculesBinaryCaches = {
-      file = ../../../secrets/plutonomiconHerculesBinaryCaches.age;
-      group = "hci-plutonomicon-swordfish";
-      owner = "hci-plutonomicon-swordfish";
-    };
-    plutonomiconHerculesClusterJoinToken = {
-      file = ../../../secrets/plutonomiconHerculesClusterJoinToken.age;
-      group = "hci-plutonomicon-swordfish";
-      owner = "hci-plutonomicon-swordfish";
-    };
-    plutonomiconHerculesSecrets = {
-      file = ../../../secrets/plutonomiconHerculesSecrets.age;
-      group = "hci-plutonomicon-swordfish";
-      owner = "hci-plutonomicon-swordfish";
     };
     ardanaHerculesClusterJoinToken = {
       file = ../../../secrets/ardanaHerculesClusterJoinToken.age;
