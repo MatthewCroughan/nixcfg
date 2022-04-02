@@ -7,7 +7,7 @@
     nixinate.url = "github:matthewcroughan/nixinate";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
-    firefox.url = "github:colemickens/flake-firefox-nightly";
+    firefox.url = "github:colemickens/flake-firefox-nightly/ca0467db6637c36359b00dfe7f0eed89d767df61";
     agenix.url = "github:ryantm/agenix";
     robotnix.url = "github:danielfullmer/robotnix";
     dolphin-emu = {
