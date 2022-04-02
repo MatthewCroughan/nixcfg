@@ -4,16 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs2111.url = "github:nixos/nixpkgs/nixos-21.11";
-    nixpkgs-wayland.url = "github:colemickens/nixpkgs-wayland";
-    nur.url = "github:nix-community/NUR";
     nixinate.url = "github:matthewcroughan/nixinate";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
     firefox.url = "github:colemickens/flake-firefox-nightly";
-    firefox.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
     robotnix.url = "github:danielfullmer/robotnix";
-    flake-ndi.url = "github:matthewcroughan/flake-ndi";
     dolphin-emu = {
       url = "https://github.com/dolphin-emu/dolphin.git";
       type = "git";
