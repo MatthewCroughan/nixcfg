@@ -1,0 +1,115 @@
+{
+  "nodes": {
+    "brother": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "relative",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-F4cvF20QGggvX9PMMgKXg7badOsnOkoTSZ3e2UyGBhI=",
+        "path": "./brother",
+        "type": "path"
+      },
+      "original": {
+        "path": "./brother",
+        "type": "path"
+      }
+    },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648199409,
+        "narHash": "sha256-JwPKdC2PoVBkG6E+eWw3j6BMR6sL3COpYWfif7RVb8Y=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "64a525ee38886ab9028e6f61790de0832aa3ef03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1649313840,
+        "narHash": "sha256-d23rAnhL08BCc88PxWAhEs/D+Kz3fMW2OTGDXWZSFMI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e387bb3a4d0d63446086abbfbe2117e80fe3522a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-21.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1638239011,
+        "narHash": "sha256-AjhmbT4UBlJWqxY0ea8a6GU2C2HdKUREkG43oRr3TZg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a7ecde854aee5c4c7cd6177f54a99d2c1ff28a31",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "21.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "relative": {
+      "inputs": {
+        "brother": "brother",
+        "nixpkgs": "nixpkgs_2",
+        "sister": "sister"
+      },
+      "locked": {
+        "lastModified": 1648931647,
+        "narHash": "sha256-Dd/6RLZRl1w+CuRPFw2NpVIhjAgvv12CUHwF2wkC+us=",
+        "owner": "tomberek",
+        "repo": "relative",
+        "rev": "0943a113c19e17b5f51c054de5233f2d3c97ce35",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tomberek",
+        "repo": "relative",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "relative": "relative"
+      }
+    },
+    "sister": {
+      "inputs": {
+        "nixpkgs": [
+          "relative",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "narHash": "sha256-3Bu9OGWn3t0oxSJ63sIRYJap/7iuXLxbQzGoPJZk89E=",
+        "path": "./sister",
+        "type": "path"
+      },
+      "original": {
+        "path": "./sister",
+        "type": "path"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
