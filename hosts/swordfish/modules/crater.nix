@@ -11,9 +11,9 @@ let
     autoStart = true;
     ephemeral = false;
     config = { config, pkgs, ... }: {
-      systemd.tmpfiles.rules = [
-        "L+ ${config.services.crater.dataDir}/public/storage 0755 ${config.services.crater.user} ${config.services.crater.group} - ${pkgs.crater}/storage/app/public"
-      ];
+#      systemd.tmpfiles.rules = [
+#        "L+ ${config.services.crater.dataDir}/public/storage 0755 ${config.services.crater.user} ${config.services.crater.group} - ${pkgs.crater}/storage/app/public"
+#      ];
       imports = [
         craterModule
       ];
