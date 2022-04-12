@@ -77,5 +77,6 @@ in
 
   containers = {
     craterNixinator = makeCraterContainer 8060;
+    craterNixHow = makeCraterContainer 8050;
   };
 }
