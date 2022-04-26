@@ -29,8 +29,10 @@ in
           ripgrep git fd
 
           haskell-language-server
-          # Stack is required to run the language server
+          # ghc, stack and cabal are required to run the language server
           stack
+          ghc
+          cabal-install
         ];
       extraConfig = ''
         " Configure Telescope
