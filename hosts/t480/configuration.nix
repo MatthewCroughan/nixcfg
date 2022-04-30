@@ -68,6 +68,7 @@
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         STOP_CHARGE_THRESH_BAT1=95;
+        STOP_CHARGE_THRESH_BAT0=95;
       };
     };
     resolved = {
