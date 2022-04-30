@@ -62,7 +62,6 @@
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="2717", ATTRS{idProduct}=="ff40", MODE="0666"
     '';
     # Power management
-    throttled.enable = true;
     upower.enable = true;
     tlp = {
       enable = true;
