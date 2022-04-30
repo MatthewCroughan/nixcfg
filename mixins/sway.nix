@@ -69,7 +69,7 @@ in
           startup = [
             { always = true; command = "${pkgs.systemd}/bin/systemd-notify --ready || true"; }
             { always = true; command = "${pkgs.mako}/bin/mako --default-timeout 3000"; }
-            { always = true; command = "tail -n0 -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob"; }
+            { always = true; command = "touch $SWAYSOCK.wob && tail -n0 -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob"; }
             { always = true; command = "${pkgs.flashfocus}/bin/flashfocus"; }
             { command = "exec ${idlecmd}"; always = true; }
           ];
