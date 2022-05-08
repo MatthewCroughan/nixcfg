@@ -35,7 +35,6 @@
   # replicates the default behaviour.
   networking.useDHCP = lib.mkDefault false;
   networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
-  networking.interfaces.tailscale0.useDHCP = lib.mkDefault true;
   networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
