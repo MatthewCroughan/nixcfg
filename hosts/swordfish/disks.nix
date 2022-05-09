@@ -16,7 +16,10 @@
     kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
     # Western Digital SN850s are acting weird without disabling pcie_aspm
     # https://bbs.archlinux.org/viewtopic.php?id=255535
-    kernelParams = [ "pcie_aspm=off" ];
+    kernelParams = [
+      "pcie_aspm=off"
+      "nvme_core.default_ps_max_latency_us=0"
+    ];
   };
   fileSystems = {
     "/eggshells" =
