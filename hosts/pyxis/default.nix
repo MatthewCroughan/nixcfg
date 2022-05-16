@@ -53,6 +53,7 @@
     rev = "35b094bca0753e717502d543fc4fed444c84f5c1";
     ref = "lineage-18.1";
     url = "https://github.com/SDM710-Development/android_device_xiaomi_pyxis.git";
+    allRefs = true;
   };
 
   source.dirs."device/xiaomi/sdm710-common".src = builtins.fetchGit {
