@@ -21,7 +21,7 @@
       url = "github:gytis-ivaskevicius/flake-utils-plus";
       inputs.flake-utils.follows = "fu";
     };
-    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
+    hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent/hercules-ci-agent-0.9.5";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-21.11";
   };
 
