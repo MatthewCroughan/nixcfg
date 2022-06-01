@@ -12,7 +12,6 @@
       "${inputs.self}/profiles/wireless.nix"
       "${inputs.self}/profiles/pipewire.nix"
       "${inputs.self}/profiles/avahi.nix"
-      "${inputs.self}/mixins/openssh.nix"
       "${inputs.self}/mixins/obs.nix"
       "${inputs.self}/mixins/v4l2loopback.nix"
       "${inputs.self}/mixins/editor/vim.nix"
