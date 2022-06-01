@@ -5,7 +5,6 @@ let
   };
 in
 {
-  nixpkgs.overlays = [ (import ./rnix-lsp-overlay.nix).overlay ];
   home-manager.users.matthew = { pkgs, ...}: {
     xdg.configFile."nvim/colors/Tomorrow-Night-Bright.vim".source = "${theme.src}";
     programs.neovim = {
@@ -33,6 +32,7 @@ in
           stack
           ghc
           cabal-install
+          rnix-lsp
         ];
       extraConfig = ''
         " Configure Telescope

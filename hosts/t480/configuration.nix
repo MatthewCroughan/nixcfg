@@ -14,7 +14,6 @@
       "${inputs.self}/profiles/avahi.nix"
       "${inputs.self}/mixins/obs.nix"
       "${inputs.self}/mixins/v4l2loopback.nix"
-      "${inputs.self}/mixins/editor/vim.nix"
       "${inputs.self}/mixins/gfx-intel.nix"
       "${inputs.self}/mixins/common.nix"
       "${inputs.self}/mixins/i3status.nix"
