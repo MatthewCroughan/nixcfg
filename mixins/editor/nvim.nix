@@ -20,6 +20,9 @@ in
         vim-oscyank
         indent-blankline-nvim
         gitsigns-nvim
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp-path
       ];
       extraPackages = with pkgs;
         [
@@ -104,6 +107,36 @@ in
         local lspc = require('lspconfig')
         lspc.rnix.setup {}
         lspc.hls.setup {}
+
+        -- cmp configuration
+        local cmp = require("cmp")
+        cmp.setup {
+          sources = {
+            { name = "nvim_lsp" },
+            { name = "path" },
+          },
+          formatting = {
+            format = function(entry, vim_item)
+              vim_item.menu = ({
+                nvim_lsp = "[LSP]",
+                path = "[Path]",
+              })[entry.source.name]
+              return vim_item
+            end
+          },
+          mapping = {
+            ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+            ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.close(),
+            ['<CR>'] = cmp.mapping.confirm({
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            })
+          },
+        }
         EOF
       '';
     };
