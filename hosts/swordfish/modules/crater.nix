@@ -11,6 +11,7 @@ let
     autoStart = true;
     ephemeral = false;
     config = { config, pkgs, ... }: {
+      system.stateVersion = "22.05";
 #      systemd.tmpfiles.rules = [
 #        "L+ ${config.services.crater.dataDir}/public/storage 0755 ${config.services.crater.user} ${config.services.crater.group} - ${pkgs.crater}/storage/app/public"
 #      ];
