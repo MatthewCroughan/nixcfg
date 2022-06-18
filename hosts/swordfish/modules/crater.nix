@@ -10,6 +10,7 @@ let
     extraFlags = [ "-U" ];
     autoStart = true;
     ephemeral = false;
+    nixpkgs = builtins.getFlake "github:nixos/nixpkgs/c777cdf5c564015d5f63b09cc93bef4178b19b01";
     config = { config, pkgs, ... }: {
       system.stateVersion = "22.05";
 #      systemd.tmpfiles.rules = [
