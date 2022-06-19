@@ -16,7 +16,7 @@ stdenv.mkDerivation {
   # fetch the latest binaries.
   latest_appdata = fetchurl {
     url = "https://builds.parsecgaming.com/channel/release/appdata/linux/latest";
-    sha256 = "078i45q54s2xsqrrldxf5gh187k9wkbqkkwiv3m6vrvkvgpi2fpz";
+    sha256 = "sha256-cs9b9OvS6IJ0PAO0r+XkXIHySH8DPxRdLxMH/rNJZ4k=";
   };
   latest_parsecd_so = fetchurl {
     url =
