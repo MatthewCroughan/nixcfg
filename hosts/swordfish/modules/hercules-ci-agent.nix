@@ -1,7 +1,8 @@
-{ config, lib, ... }:
+{ config, lib, inputs, pkgs,  ... }:
 {
 
   services.hercules-ci-agents."orbis-tertius-swordfish" = {
+    package = lib.mkForce inputs.hercules-ci-agent.packages.${pkgs.hostPlatform.system}.hercules-ci-agent-nix_2_7;
     settings = {
       clusterJoinTokenPath = config.age.secrets.orbis-tertiusHerculesClusterJoinToken.path;
       binaryCachesPath = config.age.secrets.orbis-tertiusHerculesBinaryCaches.path;
@@ -17,6 +18,7 @@
   };
 
   services.hercules-ci-agents."ardana-swordfish" = {
+    package = lib.mkForce inputs.hercules-ci-agent.packages.${pkgs.hostPlatform.system}.hercules-ci-agent-nix_2_7;
     settings = {
       clusterJoinTokenPath = config.age.secrets.ardanaHerculesClusterJoinToken.path;
       binaryCachesPath = config.age.secrets.ardanaHerculesBinaryCaches.path;
