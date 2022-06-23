@@ -5,6 +5,7 @@
     # Allows GUI control over WIFI via wpa_gui
     userControlled.enable = true;
     networks = {
+      ELANET-E6C0C16E.pskRaw = "29f4be0c82e38c18149cdcfc869084ce6a8831fb492e35d759468f6103bf8a31";
       goatControl.pskRaw = "ec7319b43260eb9127295667cc1d5d2dfc4c9e57574415f0b541c04e30e868ba";
       Astral_Ship_5GHz.pskRaw = "157bddfe695338f0fc6a2cfa88dbb6134a3489579f7e748714fa1ae2e8a82192";
       Astral_Ship.pskRaw = "ff866b7b9494bd6915c28a06c8604d1e2396e590e64f71b2fdf9c0c9709ec2c4";
