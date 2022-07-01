@@ -37,6 +37,10 @@
   hardware.usbWwan.enable = true;
 
   networking = {
+    # trace: warning: Strict reverse path filtering breaks Tailscale exit node
+    # use and some subnet routing setups. Consider setting
+    # `networking.firewall.checkReversePath` = 'loose'
+    firewall.checkReversePath = "loose";
     hostName = "swordfish";
   };
 
