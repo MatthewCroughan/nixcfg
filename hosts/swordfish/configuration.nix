@@ -22,7 +22,7 @@
     ];
 
   nix.extraOptions = ''
-    extra-platforms = x86_64-linux i686-linux aarch64-linux armv7l-linux riscv64-linux
+    extra-platforms = x86_64-linux i686-linux aarch64-linux armv6l-linux armv7l-linux riscv64-linux
   '';
 
   nix = {
@@ -52,7 +52,7 @@
   time.timeZone = "Europe/London";
 
   boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" "armv7l-linux" "riscv64-linux" ];
+    binfmt.emulatedSystems = [ "aarch64-linux" "armv7l-linux" "armv6l-linux" "riscv64-linux" ];
     loader = {
       grub = {
         enable = true;
