@@ -14,12 +14,6 @@ let
 in
 {
   "cloudflare_api_key.age".publicKeys = allUsers ++ [ systems.swordfish systems.hetznix ];
-  "orbis-tertiusHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "orbis-tertiusHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "orbis-tertiusHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "ardanaHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "ardanaHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "ardanaHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "tunnelvrHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "tunnelvrHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "coturn_static_auth.age".publicKeys = allUsers ++ [ systems.matrix ];
