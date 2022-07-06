@@ -138,6 +138,30 @@
         ];
         specialArgs = { inherit inputs; };
       };
+      h1 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          {
+            _module.args = {
+               nixinate = {
+                 host = "h1";
+                 sshUser = "deploy";
+                 buildOn = "remote";
+               };
+            };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users = import ./users;
+              extraSpecialArgs = { inherit inputs; headless = true; };
+            };
+          }
+          (import ./hosts/h1/configuration.nix)
+          agenix.nixosModules.age
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
   };
 }
