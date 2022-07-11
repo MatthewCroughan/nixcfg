@@ -49,6 +49,7 @@
           home-manager.nixosModules.home-manager
           agenix.nixosModules.age
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
+          nixos-hardware.nixosModules.common-cpu-intel-kaby-lake
           {
             home-manager = {
               useGlobalPkgs = true;

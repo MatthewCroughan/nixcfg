@@ -86,6 +86,12 @@
   boot = {
     # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992
     kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+    kernelParams = [
+      "i915.modeset=1"
+      "i915.fastboot=1"
+      "i915.enable_guc=2"
+      "i915.enable_psr=0"
+    ];
     # Use the systemd-boot EFI boot loader, instead of GRUB.
     loader = {
       systemd-boot = {
