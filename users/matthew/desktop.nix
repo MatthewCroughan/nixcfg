@@ -11,6 +11,16 @@
     packages = with pkgs; [
       inputs.self.packages.x86_64-linux.parsecgaming
       quasselClient
+      alsa-utils
+      wdisplays
+      inkscape
+      gimp
+      mumble
+      zathura
+      pavucontrol
+      qbittorrent
+      thunderbird
+      wl-mirror
     ];
   };
 

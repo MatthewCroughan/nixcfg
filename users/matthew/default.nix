@@ -12,6 +12,19 @@
   home = {
     username = "matthew";
     homeDirectory = "/home/matthew";
+    packages = with pkgs; [
+      file
+      ripgrep
+      fd
+      magic-wormhole
+      unzip
+      btop
+      htop
+      pciutils
+
+      # Trying out wormhole-william to see if it's better than magic-wormhole
+      wormhole-william
+    ];
   };
 
   programs = {
