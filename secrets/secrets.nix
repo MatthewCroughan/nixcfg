@@ -1,5 +1,6 @@
 let
   systems = {
+    h1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC4sGuJY4BQ84vcUOr947uhPa/GMEm9VUapGO6TMqQal";
     swordfish = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC2EP5GYyELKq33qIIQqPKT3RNNqZaRd5R5kfEaotT5t root@swordfish";
     t480 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJ1zPgcnzvK8sUhwX752acg+YkiYR9tyQcZAYj2NAxu root@t480";
     matrix = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEw6sYFtowoQMYMrlLSQKOPQ+ZrJmmDNkm1K5X6AGCuz root@matrix";
@@ -13,6 +14,7 @@ let
   allSystems = builtins.attrValues systems;
 in
 {
+  "distributedBuilderKey.age".publicKeys = allUsers ++ [ systems.swordfish systems.t480 ];
   "cloudflare_api_key.age".publicKeys = allUsers ++ [ systems.swordfish systems.hetznix ];
   "tunnelvrHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "tunnelvrHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
