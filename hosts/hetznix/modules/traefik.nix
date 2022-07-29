@@ -26,8 +26,21 @@
         services = {
           vaultwarden.loadBalancer.servers = [ { url = "http://127.0.0.1:8222"; } ];
           androidUpdate.loadBalancer.servers = [ { url = "http://127.0.0.1:9999"; } ];
+          xandikos.loadBalancer.servers = [ { url = "http://127.0.0.1:${toString config.services.xandikos.port}"; } ];
         };
         routers = {
+          xandikos-insecure = {
+            rule = "Host(`xandikos.croughan.sh`)";
+            entryPoints = [ "web" ];
+            service = "xandikos";
+            middlewares = "redirect-to-https";
+          };
+          xandikos = {
+            rule = "Host(`xandikos.croughan.sh`)";
+            entryPoints = [ "websecure" ];
+            service = "xandikos";
+            tls.certresolver = "letsencrypt";
+          };
           androidUpdate-insecure = {
             rule = "Host(`android.croughan.sh`)";
             entryPoints = [ "web" ];
