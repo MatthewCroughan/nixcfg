@@ -36,7 +36,12 @@
   systemd.services.systemd-networkd-wait-online.enable = false;
 
   networking = {
-    firewall.trustedInterfaces = [ "tailscale0" ];
+    firewall = {
+      trustedInterfaces = [ "tailscale0" ];
+      # Syncthing ports
+      allowedTCPPorts = [ 22000 ];
+      allowedUDPPorts = [ 21027 22000 ];
+    };
     hostName = "t480";
     useNetworkd = true;
     wireless = {
