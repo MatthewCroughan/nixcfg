@@ -7,7 +7,7 @@
   # refactor.
   # https://discourse.nixos.org/t/conditionally-import-module-if-it-exists/17832/2
   # https://github.com/jonringer/nixpkgs-config/blob/cc2958b5e0c8147849c66b40b55bf27ff70c96de/flake.nix#L47-L82
-  imports = [ ] ++ lib.optional (!headless) ./desktop.nix;
+  imports = [ ./modules/ssh/ssh_sk.nix ] ++ lib.optional (!headless) ./desktop.nix;
 
   home = {
     username = "matthew";
