@@ -5,6 +5,7 @@
       "${inputs.self}/profiles/avahi.nix"
       "${inputs.self}/profiles/users/deploy.nix"
       "${inputs.self}/profiles/users/matthewcroughan.nix"
+      "${inputs.self}/profiles/tailscale.nix"
       "${inputs.self}/mixins/openssh.nix"
       "${inputs.self}/mixins/editor/nvim.nix"
       "${inputs.self}/mixins/common.nix"
@@ -12,8 +13,6 @@
       ./disks.nix
       ./hardware-configuration.nix
     ];
-
-  services.tailscale.enable = true;
 
   nix = {
     sshServe = {
@@ -28,10 +27,6 @@
   };
 
   networking = {
-    # trace: warning: Strict reverse path filtering breaks Tailscale exit node
-    # use and some subnet routing setups. Consider setting
-    # `networking.firewall.checkReversePath` = 'loose'
-    firewall.checkReversePath = "loose";
     hostName = "h1";
   };
 

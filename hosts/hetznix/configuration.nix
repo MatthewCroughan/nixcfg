@@ -5,12 +5,12 @@
     ./hardware-configuration.nix
     ./modules/androidUpdate.nix
     ./modules/xandikos.nix
-    ./modules/tailscale.nix
     ./modules/vaultwarden.nix
     ./modules/traefik.nix
     "${inputs.self}/profiles/users/deploy.nix"
     "${inputs.self}/profiles/users/matthewcroughan.nix"
     "${inputs.self}/profiles/fail2ban.nix"
+    "${inputs.self}/profiles/tailscale.nix"
     "${inputs.self}/mixins/openssh.nix"
     "${inputs.self}/mixins/common.nix"
   ];
@@ -36,7 +36,8 @@
     };
     defaultGateway6 = {
       address = "fe80::1";
-      interface = "enp1s0";
+    #  interface is unnecessary when using networkd
+    #  interface = "enp1s0";
     };
     hostName = "hetznix";
     useDHCP = false;

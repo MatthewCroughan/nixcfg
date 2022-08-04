@@ -30,14 +30,8 @@
     linkInputs = true;
   };
 
-  # This happens to fix a problem with the systemd service that is created as a
-  # result of enabling networkd. It's not clear why it happens, but I should
-  # re-evaluate whether this is necessary to set in the future.
-  systemd.services.systemd-networkd-wait-online.enable = false;
-
   networking = {
     firewall = {
-      trustedInterfaces = [ "tailscale0" ];
       # Syncthing ports
       allowedTCPPorts = [ 22000 ];
       allowedUDPPorts = [ 21027 22000 ];
@@ -76,10 +70,6 @@
         STOP_CHARGE_THRESH_BAT1=95;
         STOP_CHARGE_THRESH_BAT0=95;
       };
-    };
-    resolved = {
-      enable = true;
-      dnssec = "false";
     };
     logind.killUserProcesses = true;
   };
