@@ -26,6 +26,7 @@
         services = {
           vaultwarden.loadBalancer.servers = [ { url = "http://127.0.0.1:8222"; } ];
           androidUpdate.loadBalancer.servers = [ { url = "http://127.0.0.1:9999"; } ];
+          droppers.loadBalancer.servers = [ { url = "http://127.0.0.1:9998"; } ];
           xandikos.loadBalancer.servers = [ { url = "http://127.0.0.1:${toString config.services.xandikos.port}"; } ];
         };
         routers = {
@@ -51,6 +52,18 @@
             rule = "Host(`android.croughan.sh`)";
             entryPoints = [ "websecure" ];
             service = "androidUpdate";
+            tls.certresolver = "letsencrypt";
+          };
+          droppersInsecure = {
+            rule = "Host(`droppers.croughan.sh`)";
+            entryPoints = [ "web" ];
+            service = "droppers";
+            middlewares = "redirect-to-https";
+          };
+          droppers = {
+            rule = "Host(`droppers.croughan.sh`)";
+            entryPoints = [ "websecure" ];
+            service = "droppers";
             tls.certresolver = "letsencrypt";
           };
           vaultwarden-insecure = {

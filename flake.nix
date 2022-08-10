@@ -120,7 +120,7 @@
         ];
         specialArgs = { inherit inputs; };
       };
-      hetznix = nixpkgs2111.lib.nixosSystem {
+      hetznix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {
