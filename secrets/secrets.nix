@@ -14,6 +14,7 @@ let
   allSystems = builtins.attrValues systems;
 in
 {
+  "masariBotsSecrets.age".publicKeys = allUsers ++ [ systems.hetznix ];
   "distributedBuilderKey.age".publicKeys = allUsers ++ [ systems.swordfish systems.t480 ];
   "cloudflare_api_key.age".publicKeys = allUsers ++ [ systems.swordfish systems.hetznix ];
   "tunnelvrHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];

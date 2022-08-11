@@ -8,6 +8,7 @@
     ./modules/xandikos.nix
     ./modules/vaultwarden.nix
     ./modules/traefik.nix
+    ./modules/masariBots.nix
     "${inputs.self}/profiles/users/deploy.nix"
     "${inputs.self}/profiles/users/matthewcroughan.nix"
     "${inputs.self}/profiles/fail2ban.nix"
