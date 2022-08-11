@@ -1,5 +1,13 @@
 { config, pkgs, lib, ... }:
-
+let
+  bemenuAskpass = pkgs.writeShellScript "bemenuAskpass.sh" ''
+    ${pkgs.bemenu}/bin/bemenu \
+        --prompt "$1" \
+        --password \
+        --no-exec \
+        </dev/null
+  '';
+in
 {
   imports = [
     ../mixins/mako.nix
@@ -33,6 +41,7 @@
       xdg.configFile."sway/config".onChange = lib.mkForce "";
 
       home.sessionVariables = {
+        SSH_ASKPASS="${bemenuAskpass}";
         MOZ_ENABLE_WAYLAND = "1";
         MOZ_USE_XINPUT2 = "1";
         #WLR_DRM_NO_MODIFIERS = "1";
