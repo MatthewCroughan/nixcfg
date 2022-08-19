@@ -3,7 +3,7 @@
   imports = [
     ./disks.nix
     ./hardware-configuration.nix
-    ./modules/androidUpdate.nix
+#    ./modules/androidUpdate.nix
     ./modules/droppers.nix
     ./modules/xandikos.nix
     ./modules/vaultwarden.nix
