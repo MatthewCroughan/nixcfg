@@ -39,6 +39,17 @@
 
   hardware.usbWwan.enable = true;
 
+  # Set the metric of the usbWwan adapter I have plugged in to 1025. This means
+  # I can get seamless failover, since the default ethernet route will be
+  # preferred due to its better metric. This is for seamless failover between
+  # WWAN and LAN
+  systemd.network.networks."98-usb-network-adapters" = {
+    DHCP = "yes";
+    dhcpV4Config.RouteMetric = 1025;
+    networkConfig.IPv6PrivacyExtensions = "kernel";
+    matchConfig.Name = "enp*s*f*u*";
+  };
+
   networking = {
     hostName = "swordfish";
   };

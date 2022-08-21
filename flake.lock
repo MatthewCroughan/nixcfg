@@ -230,6 +230,21 @@
         "type": "github"
       }
     },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1661155543,
+        "narHash": "sha256-6PJ4wqDuFMIw34gM/LxQ9qZPw8vPls4xC7UCeweSvKs=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "e7c6fbbe9076109263175ef992ca6edc1050973c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
     "mozilla": {
       "flake": false,
       "locked": {
@@ -553,6 +568,7 @@
         "fu": "fu",
         "hercules-ci-agent": "hercules-ci-agent",
         "home-manager": "home-manager",
+        "impermanence": "impermanence",
         "nixinate": "nixinate",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",

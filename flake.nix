@@ -23,9 +23,10 @@
     };
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-21.11";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixinate, home-manager, nixpkgs, nixpkgs2111, agenix, nixos-hardware, utils, hercules-ci-agent, simple-nixos-mailserver, ... }@inputs: {
+  outputs = { self, nixinate, home-manager, nixpkgs, nixpkgs2111, agenix, nixos-hardware, utils, hercules-ci-agent, simple-nixos-mailserver, impermanence, ... }@inputs: {
     apps = nixinate.nixinate.x86_64-linux self;
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
@@ -117,6 +118,32 @@
           }
           (import ./hosts/mail/configuration.nix)
           simple-nixos-mailserver.nixosModules.mailserver
+        ];
+        specialArgs = { inherit inputs; };
+      };
+      doesRouter = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+      #    "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          "${nixpkgs}/nixos/modules/profiles/hardened.nix"
+          home-manager.nixosModules.home-manager
+          impermanence.nixosModule
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users = import ./users;
+              extraSpecialArgs = { inherit inputs; headless = true; };
+            };
+            _module.args = {
+               nixinate = {
+                 host = "185.135.107.83";
+                 sshUser = "deploy";
+                 buildOn = "local";
+               };
+            };
+          }
+          (import ./hosts/doesRouter/configuration.nix)
         ];
         specialArgs = { inherit inputs; };
       };
