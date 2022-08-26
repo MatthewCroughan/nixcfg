@@ -4,6 +4,7 @@
     ./disks.nix
     ./hardware-configuration.nix
 #    ./modules/androidUpdate.nix
+    ./modules/mosquitto.nix
     ./modules/droppers.nix
     ./modules/xandikos.nix
     ./modules/vaultwarden.nix

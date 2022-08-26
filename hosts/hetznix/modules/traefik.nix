@@ -3,7 +3,7 @@
 {
   age.secrets.cloudflare_api_key.file = "${inputs.self}/secrets/cloudflare_api_key.age";
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 8081 ];
 
   systemd.services.traefik = {
     environment = {
@@ -24,12 +24,19 @@
       };
       http = {
         services = {
+          mosquitto.loadBalancer.servers = [ { url = "http://127.0.0.1:8080"; } ];
           vaultwarden.loadBalancer.servers = [ { url = "http://127.0.0.1:8222"; } ];
           androidUpdate.loadBalancer.servers = [ { url = "http://127.0.0.1:9999"; } ];
           droppers.loadBalancer.servers = [ { url = "http://127.0.0.1:9998"; } ];
           xandikos.loadBalancer.servers = [ { url = "http://127.0.0.1:${toString config.services.xandikos.port}"; } ];
         };
         routers = {
+          mosquitto = {
+            rule = "Host(`mosquitto.doesliverpool.xyz`)";
+            entryPoints = [ "mosquitto-secure-websocket" ];
+            service = "mosquitto";
+            tls.certresolver = "letsencrypt";
+          };
           xandikos-insecure = {
             rule = "Host(`xandikos.croughan.sh`)";
             entryPoints = [ "web" ];
@@ -90,6 +97,7 @@
 
       entryPoints.web.address = ":80";
       entryPoints.websecure.address = ":443";
+      entryPoints.mosquitto-secure-websocket.address = ":8081";
       certificatesResolvers = {
         letsencrypt.acme = {
           email = "letsencrypt@croughan.sh";
