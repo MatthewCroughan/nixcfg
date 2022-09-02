@@ -187,6 +187,7 @@
           }
           (import ./hosts/h1/configuration.nix)
           agenix.nixosModules.age
+          hercules-ci-agent.nixosModules.multi-agent-service
         ];
         specialArgs = { inherit inputs; };
       };

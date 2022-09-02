@@ -19,6 +19,8 @@ in
   "cloudflare_api_key.age".publicKeys = allUsers ++ [ systems.swordfish systems.hetznix ];
   "tunnelvrHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "tunnelvrHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
+  "klHerculesClusterJoinToken.age".publicKeys = [ users.matthew-t480 systems.h1 ];
+  "klHerculesBinaryCaches.age".publicKeys = [ users.matthew-t480 systems.h1 ];
   "coturn_static_auth.age".publicKeys = allUsers ++ [ systems.matrix ];
   "synapse_secrets_yaml.age".publicKeys = allUsers ++ [ systems.matrix ];
   "matthewcroughanHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];

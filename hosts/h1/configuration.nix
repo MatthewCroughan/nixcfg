@@ -12,6 +12,7 @@
       "${inputs.self}/profiles/fail2ban.nix"
       ./disks.nix
       ./hardware-configuration.nix
+      ./modules/hercules-ci-agent.nix
     ];
 
   nix = {
@@ -33,7 +34,6 @@
   time.timeZone = "Europe/London";
 
   boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" "armv7l-linux" "armv6l-linux" "riscv64-linux" ];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
