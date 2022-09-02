@@ -16,6 +16,10 @@
     ];
 
   nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
     sshServe = {
       protocol = "ssh-ng";
       enable = true;
