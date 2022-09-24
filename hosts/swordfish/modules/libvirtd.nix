@@ -1,5 +1,7 @@
 { pkgs, lib, config,  ... }:
 {
+  security.polkit.enable = true;
+
   virtualisation.libvirtd = {
     enable = true;
     qemuOvmf = true;
