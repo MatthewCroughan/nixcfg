@@ -21,6 +21,7 @@
       qbittorrent
       thunderbird
       wl-mirror
+      signal-desktop
     ];
   };
 
