@@ -3,7 +3,7 @@
   device = "pyxis";
   flavor = "lineageos";
   androidVersion = 11;
-  buildDateTime = 1646166324;
+  buildDateTime = 1646166325;
 
   webview.vanadium = {
     enable = true;
@@ -22,8 +22,8 @@
     prebuilt = {
       molly-im = {
         apk = builtins.fetchurl {
-          url = "https://github.com/mollyim/mollyim-android/releases/download/v5.31.6-1/Molly-v5.31.6-1-FOSS.apk";
-          sha256 = "1v7wffh0ni4bbdhj8wrdnhfixcdjids078iv9d67bd7xgdxgihd8";
+          url = "https://github.com/mollyim/mollyim-android/releases/download/v5.48.3-1/Molly-v5.48.3-1-FOSS.apk";
+          sha256 = "1jlf7a30qjan0abbw2a77h67lr47x5skrs35cvb25d4kx442cm30";
         };
       };
 #     discord = {
@@ -42,8 +42,8 @@
 #      };
       mattermost = {
         apk = builtins.fetchurl {
-          url = "https://releases.mattermost.com/mattermost-mobile/1.49.1/386/Mattermost-arm64-v8a.apk";
-          sha256 = "1459bmbqgag2c3x34qbxxddwnm80sfd388ib2yznlk5z46pfhx52";
+          url = "https://releases.mattermost.com/mattermost-mobile/1.55.1/423/Mattermost-arm64-v8a.apk";
+          sha256 = "07xvm4jjyn5wm8jqr269mgr0hwi28sk55a3m230d0pw3bcflbdqb";
         };
       };
     };
