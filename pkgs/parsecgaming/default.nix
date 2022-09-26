@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchurl, alsaLib, dbus, libGL, libpulseaudio, libva
+{ lib, stdenv, fetchurl, alsa-lib, dbus, libGL, libpulseaudio, libva
 , openssl, udev, xorg, wayland }:
 
 stdenv.mkDerivation {
@@ -30,7 +30,7 @@ stdenv.mkDerivation {
   '';
 
   runtimeDependencies = [
-    alsaLib (lib.getLib dbus) libGL libpulseaudio libva.out
+    alsa-lib (lib.getLib dbus) libGL libpulseaudio libva.out
     (lib.getLib openssl) (lib.getLib stdenv.cc.cc) (lib.getLib udev)
     xorg.libX11 xorg.libXcursor xorg.libXi xorg.libXinerama xorg.libXrandr
     xorg.libXScrnSaver wayland
