@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs2111.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixpkgs2205.url = "github:nixos/nixpkgs/nixos-22.05";
     nixinate.url = "github:matthewcroughan/nixinate";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
@@ -22,11 +22,14 @@
       inputs.flake-utils.follows = "fu";
     };
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
-    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-21.11";
+    simple-nixos-mailserver = {
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-22.05";
+      inputs.nixpkgs-22_05.follows = "nixpkgs2205";
+    };
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixinate, home-manager, nixpkgs, nixpkgs2111, agenix, nixos-hardware, utils, hercules-ci-agent, simple-nixos-mailserver, impermanence, ... }@inputs: {
+  outputs = { self, nixinate, home-manager, nixpkgs, nixpkgs2205, agenix, nixos-hardware, utils, hercules-ci-agent, simple-nixos-mailserver, impermanence, ... }@inputs: {
     apps = nixinate.nixinate.x86_64-linux self;
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
@@ -103,7 +106,7 @@
         ];
         specialArgs = { inherit inputs; };
       };
-      mail = nixpkgs2111.lib.nixosSystem {
+      mail = nixpkgs2205.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {
