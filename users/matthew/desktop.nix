@@ -9,7 +9,7 @@
   ];
   home = {
     packages = with pkgs; [
-      inputs.self.packages.x86_64-linux.parsecgaming
+      parsec-bin
       quasselClient
       alsa-utils
       wdisplays
