@@ -95,7 +95,7 @@
                nixinate = {
                  host = "matrix.defenestrate.it";
                  sshUser = "deploy";
-                 buildOn = "remote";
+                 buildOn = "local";
                };
             };
           }
