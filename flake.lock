@@ -86,24 +86,6 @@
         "type": "github"
       }
     },
-    "dolphin-emu": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1637794056,
-        "narHash": "sha256-WoFZCxIT+EB0ysRuI3gZFbPlz2qhoHhQMMxTLJPu7IY=",
-        "ref": "master",
-        "rev": "676c500cdc3562cf76b8dcb24062d05a169a4082",
-        "revCount": 35981,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/dolphin-emu/dolphin.git"
-      },
-      "original": {
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/dolphin-emu/dolphin.git"
-      }
-    },
     "firefox": {
       "inputs": {
         "cachix": "cachix",
@@ -533,7 +515,6 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "dolphin-emu": "dolphin-emu",
         "firefox": "firefox",
         "fu": "fu",
         "hercules-ci-agent": "hercules-ci-agent",
