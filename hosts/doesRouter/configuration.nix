@@ -52,7 +52,7 @@ in
       "net.ipv6.conf.${externalInterface}.accept_ra" = 2;
       "net.ipv6.conf.${externalInterface}.autoconf" = true;
     };
-    kernelPackages = pkgs."linuxPackages_${latestZfsKernelVersion}_hardened";
+    kernelPackages = pkgs.linuxKernel.packages."linux_${latestZfsKernelVersion}_hardened";
     loader = {
       systemd-boot = {
         enable = true;
