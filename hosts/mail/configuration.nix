@@ -8,6 +8,7 @@
     "${inputs.self}/profiles/users/matthewcroughan.nix"
     "${inputs.self}/mixins/openssh.nix"
     "${inputs.self}/mixins/common.nix"
+    "${inputs.self}/mixins/gc.nix"
     "${inputs.self}/profiles/fail2ban.nix"
   ];
 

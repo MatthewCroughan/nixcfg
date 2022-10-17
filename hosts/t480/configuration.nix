@@ -16,6 +16,7 @@
       "${inputs.self}/mixins/v4l2loopback.nix"
       "${inputs.self}/mixins/gfx-intel.nix"
       "${inputs.self}/mixins/common.nix"
+      "${inputs.self}/mixins/gc.nix"
       "${inputs.self}/mixins/i3status.nix"
       "${inputs.self}/mixins/fonts.nix"
       "${inputs.self}/mixins/editor/nvim.nix"

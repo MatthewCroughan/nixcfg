@@ -16,6 +16,7 @@ in
 #    "${inputs.self}/profiles/tailscale.nix"
     "${inputs.self}/mixins/openssh.nix"
     "${inputs.self}/mixins/common.nix"
+    "${inputs.self}/mixins/gc.nix"
   ];
 
   boot = {

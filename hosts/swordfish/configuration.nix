@@ -9,6 +9,7 @@
       "${inputs.self}/mixins/openssh.nix"
       "${inputs.self}/mixins/editor/nvim.nix"
       "${inputs.self}/mixins/common.nix"
+      "${inputs.self}/mixins/gc.nix"
       "${inputs.self}/profiles/fail2ban.nix"
       ./disks.nix
       ./hardware-configuration.nix
