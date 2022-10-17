@@ -10,12 +10,6 @@
     firefox.url = "github:colemickens/flake-firefox-nightly";
     agenix.url = "github:ryantm/agenix";
     robotnix.url = "github:danielfullmer/robotnix";
-    dolphin-emu = {
-      url = "https://github.com/dolphin-emu/dolphin.git";
-      type = "git";
-      submodules = true;
-      flake = false;
-    };
     fu.url = "github:numtide/flake-utils";
     utils = {
       url = "github:gytis-ivaskevicius/flake-utils-plus";
@@ -33,7 +27,6 @@
     apps = nixinate.nixinate.x86_64-linux self;
     # Declare some local packages be available via self.packages
     packages.x86_64-linux = let pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; }; in {
-      dolphin-emu = pkgs.dolphinEmuMaster.overrideAttrs (old: { src = inputs.dolphin-emu; version = inputs.dolphin-emu.rev; cmakeFlags = old.cmakeFlags ++ [ "-DDOLPHIN_WC_REVISION=${inputs.dolphin-emu.rev}" "-DDOLPHIN_WC_DESCRIBE=${pkgs.lib.substring 0 8 inputs.dolphin-emu.rev}" ]; });
       qimg = pkgs.callPackage ./pkgs/qimg {};
     };
 
