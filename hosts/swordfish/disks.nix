@@ -11,10 +11,7 @@
         path = "/boot-fallback";
       }
     ];
-    # Since I'm using nixos-unstable mostly, the latest ZFS is sometimes
-    # incompatible with the latest kernel.
-    zfs.enableUnstable = true;
-    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     # Western Digital SN850s are acting weird without disabling pcie_aspm
     # https://bbs.archlinux.org/viewtopic.php?id=255535
     kernelParams = [

@@ -81,7 +81,7 @@
 
   boot = {
     # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992
-    kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [
       "i915.modeset=1"
       "i915.fastboot=1"
