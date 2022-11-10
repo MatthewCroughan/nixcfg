@@ -13,6 +13,7 @@
       "${inputs.self}/profiles/fail2ban.nix"
       ./disks.nix
       ./hardware-configuration.nix
+      ./modules/masari.nix
     ];
 
   nix = {
