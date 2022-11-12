@@ -115,6 +115,11 @@
   # Enable OpenGL
   hardware.opengl.enable = true;
 
+  hardware.trackpoint = {
+    enable = true;
+    sensitivity = 255;
+  };
+
   environment.systemPackages = with pkgs; [
     wget
     chromium
