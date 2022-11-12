@@ -58,8 +58,7 @@
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="9039", MODE="0666"
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="2717", ATTRS{idProduct}=="ff40", MODE="0666"
     '';
-    # Power management
-    upower.enable = true;
+    thermald.enable = true;
     tlp = {
       enable = true;
       settings = {
