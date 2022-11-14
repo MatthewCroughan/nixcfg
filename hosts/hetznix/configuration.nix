@@ -1,22 +1,33 @@
 { config, pkgs, inputs, ... }:
 {
-  imports = [
+  imports = with inputs.self.nixosModules; [
     ./disks.nix
     ./hardware-configuration.nix
-    ./modules/androidUpdate.nix
+#    ./modules/androidUpdate.nix
     ./modules/mosquitto.nix
     ./modules/droppers.nix
     ./modules/xandikos.nix
     ./modules/vaultwarden.nix
     ./modules/traefik.nix
     ./modules/masariBots.nix
-    "${inputs.self}/profiles/users/deploy.nix"
-    "${inputs.self}/profiles/users/matthewcroughan.nix"
-    "${inputs.self}/profiles/fail2ban.nix"
-    "${inputs.self}/profiles/tailscale.nix"
-    "${inputs.self}/mixins/openssh.nix"
-    "${inputs.self}/mixins/common.nix"
+    users-deploy
+    users-matthewcroughan
+    profiles-fail2ban
+    profiles-tailscale
+    mixins-gc
+    mixins-openssh
+    mixins-common
   ];
+
+  _module.args = {
+    nixinate = {
+      host = "hetznix";
+      sshUser = "deploy";
+      # Since hetznix is serving my Android phone updates, it's probably
+      # best if I compile this locally on a system with lots of ram.
+      buildOn = "local";
+    };
+  };
 
   boot = {
     loader = {

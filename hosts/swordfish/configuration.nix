@@ -1,25 +1,40 @@
 { config, pkgs, inputs, ... }:
 {
-  imports =
-    [
-      "${inputs.self}/profiles/avahi.nix"
-      "${inputs.self}/profiles/users/deploy.nix"
-      "${inputs.self}/profiles/users/matthewcroughan.nix"
-      "${inputs.self}/profiles/tailscale.nix"
-      "${inputs.self}/mixins/openssh.nix"
-      "${inputs.self}/mixins/editor/nvim.nix"
-      "${inputs.self}/mixins/common.nix"
-      "${inputs.self}/profiles/fail2ban.nix"
-      ./disks.nix
-      ./hardware-configuration.nix
-      ./modules/hercules-ci-agent.nix
-      ./modules/hydroxide.nix
-      ./modules/trusted-users.nix
-      ./modules/jellyfin.nix
-      ./modules/traefik.nix
-      ./modules/libvirtd.nix
-      ./modules/crater.nix
-    ];
+  imports = with inputs.self.nixosModules; [
+    ./disks.nix
+    ./hardware-configuration.nix
+    ./modules/hercules-ci-agent.nix
+    ./modules/jellyfin.nix
+    ./modules/traefik.nix
+    ./modules/libvirtd.nix
+    ./modules/crater.nix
+    users-deploy
+    users-matthewcroughan
+    mixins-openssh
+    mixins-common
+    profiles-tailscale
+    profiles-fail2ban
+    profiles-avahi
+    editor-nvim
+  ];
+
+  _module.args = {
+    nixinate = {
+      host = "swordfish";
+      sshUser = "deploy";
+      buildOn = "remote";
+    };
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users = import "${inputs.self}/users";
+    extraSpecialArgs = {
+      inherit inputs;
+      headless = true;
+    };
+  };
 
   nix.extraOptions = ''
     extra-platforms = x86_64-linux i686-linux aarch64-linux armv6l-linux armv7l-linux riscv64-linux
@@ -80,11 +95,6 @@
         };
       };
     };
-  };
-
-  users.users.julianbld = {
-    isNormalUser = true;
-    extraGroups = [ ]; # Enable ‘sudo’ for the user.
   };
 
   environment.systemPackages = with pkgs; [

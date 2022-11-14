@@ -41,7 +41,7 @@
   };
   security.acme = {
     acceptTerms = true;
-    email = "letsencrypt@croughan.sh";
+    defaults.email = "letsencrypt@croughan.sh";
   };
   systemd.services.postfix.serviceConfig = {
     PrivateMounts = lib.mkForce true;

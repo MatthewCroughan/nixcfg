@@ -1,20 +1,37 @@
 { config, pkgs, inputs, ... }:
 {
-  imports =
-    [
-      "${inputs.self}/profiles/avahi.nix"
-      "${inputs.self}/profiles/users/deploy.nix"
-      "${inputs.self}/profiles/users/matthewcroughan.nix"
-      "${inputs.self}/profiles/tailscale.nix"
-      "${inputs.self}/mixins/openssh.nix"
-      "${inputs.self}/mixins/editor/nvim.nix"
-      "${inputs.self}/mixins/common.nix"
-      "${inputs.self}/mixins/gc.nix"
-      "${inputs.self}/profiles/fail2ban.nix"
-      ./disks.nix
-      ./hardware-configuration.nix
-      ./modules/masari.nix
-    ];
+  imports = with inputs.self.nixosModules; [
+    ./disks.nix
+    ./hardware-configuration.nix
+    ./modules/masari.nix
+    users-deploy
+    users-matthewcroughan
+    profiles-avahi
+    profiles-tailscale
+    profiles-fail2ban
+    mixins-openssh
+    mixins-common
+    mixins-gc
+    editor-nvim
+  ];
+
+  _module.args = {
+    nixinate = {
+      host = "h1";
+      sshUser = "deploy";
+      buildOn = "remote";
+    };
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users = import "${inputs.self}/users";
+    extraSpecialArgs = {
+      inherit inputs;
+      headless = true;
+    };
+  };
 
   nix = {
     sshServe = {

@@ -1,9 +1,9 @@
 { config, inputs, ... }:
 let
-  keys = import "${inputs.self}/mixins/ssot/keys.nix";
+  keys = inputs.self.nixosModules.ssot-keys;
 in
 {
-  nix.trustedUsers = [ "matthew" ];
+  nix.settings.trusted-users = [ "matthew" ];
   users.users.matthew = {
     isNormalUser = true;
     extraGroups = [

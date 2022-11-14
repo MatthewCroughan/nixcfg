@@ -55,7 +55,7 @@ in {
     '';
   };
 
-  security.acme.email = "letsencrypt@croughan.sh";
+  security.acme.defaults.email = "letsencrypt@croughan.sh";
   security.acme.acceptTerms = true;
 
   services.nginx = {

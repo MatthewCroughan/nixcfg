@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, headless, ... }:
+{ config, lib, pkgs, inputs, headless ? true, ... }:
 
 {
   # If we aren't headless, then load ./desktop.nix
@@ -21,9 +21,6 @@
       btop
       htop
       pciutils
-
-      # Trying out wormhole-william to see if it's better than magic-wormhole
-      wormhole-william
     ];
   };
 

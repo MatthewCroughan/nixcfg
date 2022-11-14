@@ -1,16 +1,24 @@
 { config, pkgs, inputs, ... }:
 {
-  imports = [
+  imports = with inputs.self.nixosModules; [
     ./disks.nix
     ./hardware-configuration.nix
     ./modules/mailserver.nix
-    "${inputs.self}/profiles/users/deploy.nix"
-    "${inputs.self}/profiles/users/matthewcroughan.nix"
-    "${inputs.self}/mixins/openssh.nix"
-    "${inputs.self}/mixins/common.nix"
-    "${inputs.self}/mixins/gc.nix"
-    "${inputs.self}/profiles/fail2ban.nix"
+    users-deploy
+    users-matthewcroughan
+    mixins-openssh
+    mixins-common
+    mixins-gc
+    profiles-fail2ban
   ];
+
+  _module.args = {
+    nixinate = {
+      host = "mail.croughan.sh";
+      sshUser = "deploy";
+      buildOn = "remote";
+    };
+  };
 
   boot = {
     loader = {

@@ -2,7 +2,7 @@
 {
   fonts.enableDefaultFonts = true;
   fonts.fonts = with pkgs; [
-    corefonts
+#    corefonts
     fira-code fira-code-symbols
     terminus_font
     jetbrains-mono

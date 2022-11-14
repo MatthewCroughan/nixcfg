@@ -1,25 +1,36 @@
 { config, pkgs, inputs, ... }:
 {
-  imports =
-    [
-      ./disks.nix
-      ./hardware-configuration.nix
-      "${inputs.self}/profiles/users/matthewcroughan.nix"
-      "${inputs.self}/profiles/tailscale.nix"
-      "${inputs.self}/profiles/sway.nix"
-      "${inputs.self}/profiles/fail2ban.nix"
-#      "${inputs.self}/profiles/steam.nix"
-      "${inputs.self}/profiles/wireless.nix"
-      "${inputs.self}/profiles/pipewire.nix"
-      "${inputs.self}/profiles/avahi.nix"
-      "${inputs.self}/mixins/obs.nix"
-      "${inputs.self}/mixins/v4l2loopback.nix"
-      "${inputs.self}/mixins/gfx-intel.nix"
-      "${inputs.self}/mixins/common.nix"
-      "${inputs.self}/mixins/i3status.nix"
-      "${inputs.self}/mixins/fonts.nix"
-      "${inputs.self}/mixins/editor/nvim.nix"
-    ];
+  imports = with inputs.self.nixosModules; [
+    ./disks.nix
+    ./hardware-configuration.nix
+    users-matthewcroughan
+    profiles-tailscale
+    profiles-sway
+    profiles-fail2ban
+#    profiles-steam
+    profiles-wireless
+    profiles-pipewire
+    profiles-avahi
+    mixins-obs
+    mixins-v4l2loopback
+    mixins-gfx-intel
+    mixins-common
+    mixins-i3status
+    mixins-fonts
+    mixins-bluetooth
+    mixins-vaapi-intel-hybrid-codec
+    editor-nvim
+  ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users = import "${inputs.self}/users";
+    extraSpecialArgs = {
+      inherit inputs;
+      headless = false;
+    };
+  };
 
   users.users.matthew.extraGroups = [ "video" ];
 
@@ -74,20 +85,14 @@
     logind.killUserProcesses = true;
   };
 
-  # Enabule bluetooth for headphones
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   boot = {
-    # Use latest kernel: https://github.com/NixOS/nixpkgs/issues/30335#issuecomment-336031992
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     kernelParams = [
       "i915.modeset=1"
       "i915.fastboot=1"
       "i915.enable_guc=2"
       "i915.enable_psr=0"
     ];
-    # Use the systemd-boot EFI boot loader, instead of GRUB.
     loader = {
       systemd-boot = {
         enable = true;
@@ -99,25 +104,21 @@
     };
   };
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
-
-  # Set location provider
   location.provider = "geoclue2";
 
-  # Enable OpenGL
-  hardware.opengl.enable = true;
-
-  hardware.trackpoint = {
-    enable = true;
-    sensitivity = 255;
+  hardware = {
+    opengl.enable = true;
+    trackpoint = {
+      enable = true;
+      sensitivity = 255;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -132,15 +133,6 @@
     inputs.agenix.defaultPackage.x86_64-linux
   ];
 
-  # Allow proprietary software.
-  nixpkgs.config.allowUnfree = true;
-
- # This value determines the NixOS release from which the default
- # settings for stateful data, like file locations and database versions
- # on your system were taken. It‘s perfectly fine and recommended to leave
- # this value at the release version of the first install of this system.
- # Before changing this value read the documentation for this option
- # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
- system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "22.11";
 }
 

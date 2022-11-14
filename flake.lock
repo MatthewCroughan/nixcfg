@@ -154,13 +154,13 @@
         "type": "github"
       }
     },
-    "fu": {
+    "flake-utils_3": {
       "locked": {
-        "lastModified": 1629481132,
-        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "997f7efcb746a9c140ce1f13c72263189225f482",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
         "type": "github"
       },
       "original": {
@@ -530,7 +530,6 @@
       "inputs": {
         "agenix": "agenix",
         "firefox": "firefox",
-        "fu": "fu",
         "hercules-ci-agent": "hercules-ci-agent",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
@@ -599,9 +598,7 @@
     },
     "utils_3": {
       "inputs": {
-        "flake-utils": [
-          "fu"
-        ]
+        "flake-utils": "flake-utils_3"
       },
       "locked": {
         "lastModified": 1631138716,

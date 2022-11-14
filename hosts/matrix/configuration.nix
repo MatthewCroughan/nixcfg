@@ -1,19 +1,26 @@
 { config, pkgs, inputs, ... }:
 {
-  imports =
-    [
-      "${inputs.self}/profiles/users/deploy.nix"
-      "${inputs.self}/profiles/users/matthewcroughan.nix"
-      "${inputs.self}/mixins/openssh.nix"
-      "${inputs.self}/mixins/common.nix"
-      "${inputs.self}/mixins/gc.nix"
-      "${inputs.self}/profiles/fail2ban.nix"
-      ./disks.nix
-      ./hardware-configuration.nix
-      ./modules/matrix.nix
-      ./modules/zram.nix
-      ./modules/defenestrate.it/homepage.nix
-    ];
+  imports = with inputs.self.nixosModules; [
+    ./disks.nix
+    ./hardware-configuration.nix
+    ./modules/matrix.nix
+    ./modules/zram.nix
+    ./modules/defenestrate.it/homepage.nix
+    users-deploy
+    users-matthewcroughan
+    mixins-openssh
+    mixins-common
+    mixins-gc
+    profiles-fail2ban
+  ];
+
+  _module.args = {
+    nixinate = {
+      host = "matrix.defenestrate.it";
+      sshUser = "deploy";
+      buildOn = "local";
+    };
+  };
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub = {

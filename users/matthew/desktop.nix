@@ -9,7 +9,8 @@
   ];
   home = {
     packages = with pkgs; [
-      parsec-bin
+      # bypass unfree, without unfreePredicate, etc
+      (parsec-bin.overrideAttrs (_:{ meta.license = null; }))
       quasselClient
       alsa-utils
       wdisplays

@@ -6,18 +6,34 @@ let
   latestZfsKernelVersion = with builtins; (elemAt (splitVersion pkgs.zfs.latestCompatibleLinuxPackages.kernel.version) 0) + "_" + (elemAt (splitVersion pkgs.zfs.latestCompatibleLinuxPackages.kernel.version) 1);
 in
 {
-  imports = [
+  imports = with inputs.self.nixosModules; [
     ./disks.nix
     ./persist.nix
     ./hardware-configuration.nix
-    "${inputs.self}/profiles/users/deploy.nix"
-    "${inputs.self}/profiles/users/matthewcroughan.nix"
-    "${inputs.self}/profiles/fail2ban.nix"
-#    "${inputs.self}/profiles/tailscale.nix"
-    "${inputs.self}/mixins/openssh.nix"
-    "${inputs.self}/mixins/common.nix"
-    "${inputs.self}/mixins/gc.nix"
+    users-deploy
+    users-matthewcroughan
+    profiles-fail2ban
+    mixins-openssh
+    mixins-common
+    mixins-gc
   ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users = import "${inputs.self}/users";
+    extraSpecialArgs = {
+      inherit inputs;
+      headless = true;
+    };
+  };
+  _module.args = {
+    nixinate = {
+      host = "185.135.107.83";
+      sshUser = "deploy";
+      buildOn = "local";
+    };
+  };
 
   boot = {
     # https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt

@@ -1,9 +1,9 @@
 { config, inputs, ... }:
 let
-  keys = import "${inputs.self}/mixins/ssot/keys.nix";
+  keys = inputs.self.nixosModules.ssot-keys;
 in
 {
-  nix.trustedUsers = [ "deploy" ];
+  nix.settings.trusted-users = [ "deploy" ];
   security.sudo.extraRules = [{
     users = [ "deploy" ];
     commands = [{
