@@ -5,7 +5,10 @@
     git
   ];
   nix = {
-    settings.trusted-users = [ "@wheel" "root" "nix-ssh" ];
+    settings = {
+      trusted-users = [ "@wheel" "root" "nix-ssh" ];
+      auto-optimise-store = true;
+    };
     package = pkgs.nixUnstable;
     extraOptions =
       let empty_registry = builtins.toFile "empty-flake-registry.json" ''{"flakes":[],"version":2}''; in
