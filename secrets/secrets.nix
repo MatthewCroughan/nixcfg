@@ -23,4 +23,5 @@ in
   "synapse_secrets_yaml.age".publicKeys = allUsers ++ [ systems.matrix ];
   "matthewcroughanHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "matthewcroughanHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
+  "pleroma.age".publicKeys = allUsers ++ [ systems.matrix ];
 }

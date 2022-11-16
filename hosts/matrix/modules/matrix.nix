@@ -24,7 +24,7 @@ in {
 
 # Uncomment this, if you need to play around in the database temporarily as the
 # root user
-#  services.postgresql.authentication = "local all all trust";
+  services.postgresql.authentication = "local all all trust";
 
   services.postgresql.package = pkgs.postgresql_13;
   services.postgresql.enable = true;

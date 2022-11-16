@@ -4,6 +4,7 @@
     ./disks.nix
     ./hardware-configuration.nix
     ./modules/matrix.nix
+    ./modules/pleroma
     ./modules/zram.nix
     ./modules/defenestrate.it/homepage.nix
     users-deploy

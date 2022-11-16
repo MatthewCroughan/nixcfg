@@ -57,13 +57,23 @@
     enableImapSsl = true;
     enablePop3Ssl = true;
     fqdn = "mail.croughan.sh";
-    domains = [ "nix.how" ];
+    domains = [ "nix.how" "defenestrate.it" ];
     certificateScheme = 3;
     loginAccounts = {
+      "admin@defenestrate.it" = {
+        hashedPassword = "$2y$05$Z.G9c0y8Z8obEVgl/FfuWOCytK6wLOEqMQ9DKT/VsbRcDC6u9LghS";
+        catchAll = [ "nix.how" ];
+      };
       "matthew.croughan@nix.how" = {
         hashedPassword = "$2y$05$6Zy8pMTIzF65FIlw1pq1wuJrrrzIZTKnB3ffOrPh.RhNkqPwzkiiy";
         catchAll = [ "nix.how" ];
       };
+    };
+    fullTextSearch = {
+      enable = true;
+      autoIndex = true;
+      indexAttachments = true;
+      enforced = "body";
     };
   };
 }
