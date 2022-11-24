@@ -4,15 +4,17 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Terminus (TTF)";
+      name = "Terminus (TTF) Bold";
       package = pkgs.terminus_font_ttf;
-      size = 9;
+      size = 12;
     };
     settings = {
       enable_audio_bell = false;
       copy_on_select = "yes";
     };
     extraConfig = ''
+      map ctrl+shift+plus change_font_size all +1.5
+      map ctrl+shift+minus change_font_size all -1.5
       allow_remote_control yes
       listen_on unix:@matthew-kitty
       background            #000000
