@@ -1,17 +1,12 @@
-let
-  theme = rec {
-    name = "Tomorrow-Night-Bright";
-    src =  ./. + "/colors/${name}.vim";
-  };
-in
 {
   home-manager.users.matthew = { pkgs, ...}: {
-    xdg.configFile."nvim/colors/Tomorrow-Night-Bright.vim".source = "${theme.src}";
     programs.neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
+        catppuccin-nvim
         (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
         telescope-nvim
+        telescope-manix
         nvim-web-devicons
         bufferline-nvim
         nvim-lspconfig
@@ -27,15 +22,19 @@ in
       extraPackages = with pkgs;
         [
           # git is needed for gitsigns-nvim
-          # ripgrep and fd is needed for telescope-nvim
+          # ripgrep and fd are needed for telescope-nvim
           ripgrep git fd
-
           haskell-language-server
           # ghc, stack and cabal are required to run the language server
           stack
           ghc
           cabal-install
-          rnix-lsp
+          manix
+          nil
+          ## TODO: Add
+          ## https://github.com/nvim-treesitter/nvim-treesitter-context
+          ## https://github.com/ggandor/lightspeed.nvim
+          ## https://github.com/mrcjkb/telescope-manix
         ];
       extraConfig = ''
         " Configure Telescope
@@ -57,12 +56,40 @@ in
         set wrap linebreak
         set number
         set signcolumn=yes:2
-        set termguicolors
         set foldexpr=nvim_treesitter#foldexpr()
 
-        colorscheme ${theme.name}
-
         lua << EOF
+        require("catppuccin").setup({
+         flavour = "mocha",
+         term_colors = true,
+         color_overrides = {
+           latte = {
+            text = "#000000";
+            base = "#E1EEF5",
+           },
+           mocha = {
+            text = "#FFFFFF",
+            base = "#000000",
+           },
+          },
+          highlight_overrides = {
+            latte = function(_)
+              return {
+                NvimTreeNormal = { bg = "#D1E5F0" },
+              }
+            end,
+            mocha = function(mocha)
+              return {
+                TabLineSel = { bg = mocha.pink },
+                NvimTreeNormal = { bg = mocha.none },
+                CmpBorder = { fg = mocha.surface2 },
+                GitSignsChange = { fg = mocha.blue },
+              }
+            end,
+          },
+        })
+        vim.cmd.colorscheme "catppuccin"
+
         local actions = require('telescope.actions')
         require('gitsigns').setup()
         require('telescope').setup {
@@ -104,11 +131,9 @@ in
             eol = "↴",
         }
 
+        -- LSP + nvim-cmp setup
         local lspc = require('lspconfig')
-        lspc.rnix.setup {}
         lspc.hls.setup {}
-
-        -- cmp configuration
         local cmp = require("cmp")
         cmp.setup {
           sources = {
@@ -137,6 +162,14 @@ in
             })
           },
         }
+
+        local servers = { 'nil_ls' }
+        for _, lsp in ipairs(servers) do
+          require('lspconfig')[lsp].setup {
+            capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            on_attach = on_attach,
+          }
+        end
         EOF
       '';
     };
