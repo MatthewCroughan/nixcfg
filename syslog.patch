@@ -1,0 +1,15 @@
+--- a/rebar.config
++++ b/rebar.config
+@@ -8,7 +8,9 @@
+  {platform_define, "^[0-9]+", namespaced_types}
+ ]}.
+
+-{plugins, [pc]}.
++{plugins, [
++  { pc, { git, "git://github.com/blt/port_compiler.git", {tag, "v1.11.0"}}}
++]}.
+
+ {artifacts, ["priv/syslog_drv.so"]}.
+
+
+
