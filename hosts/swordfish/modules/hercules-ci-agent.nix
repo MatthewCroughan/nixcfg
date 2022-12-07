@@ -15,6 +15,14 @@
     };
   };
 
+  services.hercules-ci-agents."nixhow-swordfish" = {
+    settings = {
+      clusterJoinTokenPath = config.age.secrets.nixhowHerculesClusterJoinToken.path;
+      binaryCachesPath = config.age.secrets.nixhowHerculesBinaryCaches.path;
+      secretsJsonPath = config.age.secrets.nixhowHerculesSecrets.path;
+    };
+  };
+
   age.secrets = {
     matthewcroughanHerculesClusterJoinToken = {
       file = ../../../secrets/matthewcroughanHerculesClusterJoinToken.age;
@@ -25,6 +33,21 @@
       file = ../../../secrets/matthewcroughanHerculesBinaryCaches.age;
       group = "hci-matthewcroughan-swordfish";
       owner = "hci-matthewcroughan-swordfish";
+    };
+    nixhowHerculesClusterJoinToken = {
+      file = ../../../secrets/nixhowHerculesClusterJoinToken.age;
+      group = "hci-nixhow-swordfish";
+      owner = "hci-nixhow-swordfish";
+    };
+    nixhowHerculesSecrets = {
+      file = ../../../secrets/nixhowHerculesSecrets.age;
+      group = "hci-nixhow-swordfish";
+      owner = "hci-nixhow-swordfish";
+    };
+    nixhowHerculesBinaryCaches = {
+      file = ../../../secrets/nixhowHerculesBinaryCaches.age;
+      group = "hci-nixhow-swordfish";
+      owner = "hci-nixhow-swordfish";
     };
     tunnelvrHerculesClusterJoinToken = {
       file = ../../../secrets/tunnelvrHerculesClusterJoinToken.age;
