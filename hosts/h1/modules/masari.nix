@@ -1,7 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  masari = (builtins.getFlake "github:matthewcroughan/nixpkgs/ad3282e68cc3c0591e51cdf86065320cbc2afc87").legacyPackages.x86_64-linux.masari;
-in
 {
   services.xmrig = {
     enable = true;
@@ -25,7 +22,7 @@ in
     environment.HOME = "/var/lib/masari";
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${masari}/bin/masarid --non-interactive --db-sync-mode fastest:async:10000";
+      ExecStart = "${pkgs.masari}/bin/masarid --non-interactive --db-sync-mode fastest:async:10000";
       Restart = "always";
       DynamicUser = true;
       StateDirectory = "masari";
