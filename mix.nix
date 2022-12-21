@@ -1,23 +1,22 @@
 {
-  oembed_providers = {
-    buildTool = "mix";
+  meck = {
+    buildTool = "rebar3";
+    fetchHex = {
+      sha256 = "85ccbab053f1db86c7ca240e9fc718170ee5bda03810a6292b5306bf31bae5f5";
+      url = "https://repo.hex.pm/tarballs/meck-0.9.2.tar";
+    };
+    version = "0.9.2";
+  };
+  idna = {
+    buildTool = "rebar3";
     deps = [
-      "glob"
-      "jason"
+      "unicode_util_compat"
     ];
     fetchHex = {
-      sha256 = "9b336ee5f3ca20ee4ed005383c74b154d30d0abeb98e95828855c0e2841ae46b";
-      url = "https://repo.hex.pm/tarballs/oembed_providers-0.1.0.tar";
+      sha256 = "8a63070e9f7d0c62eb9d9fcb360a7de382448200fbbd1b106cc96d3d8099df8d";
+      url = "https://repo.hex.pm/tarballs/idna-6.1.1.tar";
     };
-    version = "0.1.0";
-  };
-  hpax = {
-    buildTool = "mix";
-    fetchHex = {
-      sha256 = "09a75600d9d8bbd064cdd741f21fc06fc1f4cf3d0fcc335e5aa19be1a7235c84";
-      url = "https://repo.hex.pm/tarballs/hpax-0.1.2.tar";
-    };
-    version = "0.1.2";
+    version = "6.1.1";
   };
   cowboy_telemetry = {
     buildTool = "rebar3";
@@ -43,28 +42,18 @@
     };
     version = "2.4.2";
   };
-  phoenix_live_dashboard = {
+  open_api_spex = {
     buildTool = "mix";
     deps = [
-      "ecto"
-      "ecto_psql_extras"
-      "mime"
-      "phoenix_live_view"
-      "telemetry_metrics"
+      "jason"
+      "plug"
+      "poison"
     ];
     fetchHex = {
-      sha256 = "0769470265eb13af01b5001b29cb935f4710d6adaa1ffc18417a570a337a2f0f";
-      url = "https://repo.hex.pm/tarballs/phoenix_live_dashboard-0.6.2.tar";
+      sha256 = "94e9521ad525b3fcf6dc77da7c45f87fdac24756d4de588cb0816b413e7c1844";
+      url = "https://repo.hex.pm/tarballs/open_api_spex-3.10.0.tar";
     };
-    version = "0.6.2";
-  };
-  crypt = {
-    buildTool = "mix";
-    fetchGit = {
-      rev = "f75cd55325e33cbea198fb41fe41871392f8fb76";
-      url = "https://github.com/msantos/crypt.git";
-    };
-    version = "f75cd55325e33cbea198fb41fe41871392f8fb76";
+    version = "3.10.0";
   };
   ex_syslogger = {
     buildTool = "mix";
@@ -90,14 +79,14 @@
     };
     version = "2.9.0";
   };
-  telemetry_poller = {
-    buildTool = "rebar3";
+  phoenix_template = {
+    buildTool = "mix";
     deps = [
-      "telemetry"
+      "phoenix_html"
     ];
     fetchHex = {
-      sha256 = "db91bb424e07f2bb6e73926fcafbfcbcb295f0193e0a00e825e589a0a47e8453";
-      url = "https://repo.hex.pm/tarballs/telemetry_poller-1.0.0.tar";
+      sha256 = "c57bc5044f25f007dc86ab21895688c098a9f846a8dda6bc40e2d0ddc146e38f";
+      url = "https://repo.hex.pm/tarballs/phoenix_template-1.0.0.tar";
     };
     version = "1.0.0";
   };
@@ -112,13 +101,13 @@
     };
     version = "0.14.1";
   };
-  ssl_verify_fun = {
-    buildTool = "mix";
+  glob = {
+    buildTool = "rebar3";
     fetchHex = {
-      sha256 = "cf344f5692c82d2cd7554f5ec8fd961548d4fd09e7d22f5b62482e5aeaebd4b0";
-      url = "https://repo.hex.pm/tarballs/ssl_verify_fun-1.1.6.tar";
+      sha256 = "b4d54d66e7797ce037cdd18f2587fc9932187355340e222cafe125cd333d7a0a";
+      url = "https://repo.hex.pm/tarballs/glob-1.0.0.tar";
     };
-    version = "1.1.6";
+    version = "1.0.0";
   };
   bbcode_pleroma = {
     buildTool = "mix";
@@ -131,18 +120,17 @@
     };
     version = "0.2.0";
   };
-  ueberauth_twitter = {
+  ueberauth_facebook = {
     buildTool = "mix";
     deps = [
-      "httpoison"
-      "oauther"
+      "oauth2"
       "ueberauth"
     ];
     fetchHex = {
-      sha256 = "4b98620341bc91bac90459093bba093c650823b6e2df35b70255c493c17e9227";
-      url = "https://repo.hex.pm/tarballs/ueberauth_twitter-0.4.0.tar";
+      sha256 = "9ec8571f804dd5c06f4e305d70606b39fc0ac8a8f43ed56ebb76012a97d14729";
+      url = "https://repo.hex.pm/tarballs/ueberauth_facebook-0.8.0.tar";
     };
-    version = "0.4.0";
+    version = "0.8.0";
   };
   cowlib = {
     buildTool = "make";
@@ -151,18 +139,6 @@
       url = "https://repo.hex.pm/tarballs/cowlib-2.11.0.tar";
     };
     version = "2.11.0";
-  };
-  ueberauth_google = {
-    buildTool = "mix";
-    deps = [
-      "oauth2"
-      "ueberauth"
-    ];
-    fetchHex = {
-      sha256 = "dc0e8417061c74107a3ba1419943cc930d3403b5c536b3757886964a3a70c333";
-      url = "https://repo.hex.pm/tarballs/ueberauth_google-0.8.0.tar";
-    };
-    version = "0.8.0";
   };
   html_entities = {
     buildTool = "mix";
@@ -183,27 +159,19 @@
     };
     version = "2.0.3";
   };
-  prom_ex = {
+  phoenix_live_view = {
     buildTool = "mix";
     deps = [
-      "ecto"
-      "finch"
       "jason"
-      "oban"
       "phoenix"
-      "phoenix_live_view"
-      "plug"
-      "plug_cowboy"
+      "phoenix_html"
       "telemetry"
-      "telemetry_metrics"
-      "telemetry_metrics_prometheus_core"
-      "telemetry_poller"
     ];
     fetchHex = {
-      sha256 = "39331ee3fe6f9a8587d8208bf9274a253bb80281700e127dd18786cda5e08c37";
-      url = "https://repo.hex.pm/tarballs/prom_ex-1.7.1.tar";
+      sha256 = "63f52a6f9f6983f04e424586ff897c016ecc5e4f8d1e2c22c2887af1c57215d8";
+      url = "https://repo.hex.pm/tarballs/phoenix_live_view-0.17.5.tar";
     };
-    version = "1.7.1";
+    version = "0.17.5";
   };
   floki = {
     buildTool = "mix";
@@ -223,14 +191,6 @@
       url = "https://repo.hex.pm/tarballs/parallel_stream-1.0.6.tar";
     };
     version = "1.0.6";
-  };
-  gettext = {
-    buildTool = "mix";
-    fetchGit = {
-      rev = "72fb2496b6c5280ed911bdc3756890e7f38a4808";
-      url = "https://github.com/tusooa/gettext.git";
-    };
-    version = "72fb2496b6c5280ed911bdc3756890e7f38a4808";
   };
   deep_merge = {
     buildTool = "mix";
@@ -264,16 +224,29 @@
     };
     version = "1.4.0";
   };
-  phoenix_template = {
+  unplug = {
     buildTool = "mix";
     deps = [
-      "phoenix_html"
+      "plug"
     ];
     fetchHex = {
-      sha256 = "c57bc5044f25f007dc86ab21895688c098a9f846a8dda6bc40e2d0ddc146e38f";
-      url = "https://repo.hex.pm/tarballs/phoenix_template-1.0.0.tar";
+      sha256 = "8ec2479de0baa9a6283c04a1cc616c5ca6c5b80b8ff1d857481bb2943368dbbc";
+      url = "https://repo.hex.pm/tarballs/unplug-1.0.0.tar";
     };
     version = "1.0.0";
+  };
+  phoenix_ecto = {
+    buildTool = "mix";
+    deps = [
+      "ecto"
+      "phoenix_html"
+      "plug"
+    ];
+    fetchHex = {
+      sha256 = "13f124cf0a3ce0f1948cf24654c7b9f2347169ff75c1123f44674afee6af3b03";
+      url = "https://repo.hex.pm/tarballs/phoenix_ecto-4.2.1.tar";
+    };
+    version = "4.2.1";
   };
   finch = {
     buildTool = "mix";
@@ -317,56 +290,39 @@
     };
     version = "2.4.1";
   };
-  parse_trans = {
-    buildTool = "rebar3";
-    fetchHex = {
-      sha256 = "16328ab840cc09919bd10dab29e431da3af9e9e7e7e6f0089dd5a2d2820011d8";
-      url = "https://repo.hex.pm/tarballs/parse_trans-3.3.1.tar";
-    };
-    version = "3.3.1";
-  };
-  ueberauth = {
+  tz_world = {
     buildTool = "mix";
     deps = [
-      "plug"
+      "castore"
+      "certifi"
+      "geo"
+      "jason"
     ];
     fetchHex = {
-      sha256 = "d42ace28b870e8072cf30e32e385579c57b9cc96ec74fa1f30f30da9c14f3cc0";
-      url = "https://repo.hex.pm/tarballs/ueberauth-0.6.3.tar";
+      sha256 = "74ae7ef660a70ab35a25af4dfba46b1354fc904eb5da9b2464151cf885fc1a2c";
+      url = "https://repo.hex.pm/tarballs/tz_world-1.2.0.tar";
     };
-    version = "0.6.3";
+    version = "1.2.0";
   };
-  websockex = {
-    buildTool = "mix";
-    fetchHex = {
-      sha256 = "92b7905769c79c6480c02daacaca2ddd49de936d912976a4d3c923723b647bf0";
-      url = "https://repo.hex.pm/tarballs/websockex-0.4.3.tar";
-    };
-    version = "0.4.3";
-  };
-  phoenix_view = {
-    buildTool = "mix";
-    deps = [
-      "phoenix_html"
-      "phoenix_template"
-    ];
-    fetchHex = {
-      sha256 = "e676c3058cdfd878faece9cc791fe2f7c810877fdf002db46ee8c01403b4b801";
-      url = "https://repo.hex.pm/tarballs/phoenix_view-2.0.0.tar";
-    };
-    version = "2.0.0";
-  };
-  ueberauth_facebook = {
+  ueberauth_keycloak_strategy = {
     buildTool = "mix";
     deps = [
       "oauth2"
       "ueberauth"
     ];
     fetchHex = {
-      sha256 = "9ec8571f804dd5c06f4e305d70606b39fc0ac8a8f43ed56ebb76012a97d14729";
-      url = "https://repo.hex.pm/tarballs/ueberauth_facebook-0.8.0.tar";
+      sha256 = "5ed0471a1cbb2ad4c0b371ab9f2a8e413070d9f307a2e55925a613254e7be619";
+      url = "https://repo.hex.pm/tarballs/ueberauth_keycloak_strategy-0.2.0.tar";
     };
-    version = "0.8.0";
+    version = "0.2.0";
+  };
+  mox = {
+    buildTool = "mix";
+    fetchHex = {
+      sha256 = "4b3c7005173f47ff30641ba044eb0fe67287743eec9bd9545e37f3002b0a9f8b";
+      url = "https://repo.hex.pm/tarballs/mox-1.0.0.tar";
+    };
+    version = "1.0.0";
   };
   ecto = {
     buildTool = "mix";
@@ -389,13 +345,13 @@
     };
     version = "1.0.14";
   };
-  mochiweb = {
-    buildTool = "rebar3";
+  inet_cidr = {
+    buildTool = "mix";
     fetchHex = {
-      sha256 = "eb55f1db3e6e960fac4e6db4e2db9ec3602cc9f30b86cd1481d56545c3145d2e";
-      url = "https://repo.hex.pm/tarballs/mochiweb-2.18.0.tar";
+      sha256 = "a05744ab7c221ca8e395c926c3919a821eb512e8f36547c062f62c4ca0cf3d6e";
+      url = "https://repo.hex.pm/tarballs/inet_cidr-1.0.4.tar";
     };
-    version = "2.18.0";
+    version = "1.0.4";
   };
   decimal = {
     buildTool = "mix";
@@ -413,17 +369,25 @@
     };
     version = "1.8.0";
   };
-  web_push_encryption = {
+  ueberauth_google = {
     buildTool = "mix";
     deps = [
-      "httpoison"
-      "jose"
+      "oauth2"
+      "ueberauth"
     ];
     fetchHex = {
-      sha256 = "76d0e7375142dfee67391e7690e89f92578889cbcf2879377900b5620ee4708d";
-      url = "https://repo.hex.pm/tarballs/web_push_encryption-0.3.1.tar";
+      sha256 = "dc0e8417061c74107a3ba1419943cc930d3403b5c536b3757886964a3a70c333";
+      url = "https://repo.hex.pm/tarballs/ueberauth_google-0.8.0.tar";
     };
-    version = "0.3.1";
+    version = "0.8.0";
+  };
+  prometheus_ex = {
+    buildTool = "mix";
+    fetchGit = {
+      rev = "31f7fbe4b71b79ba27efc2a5085746c4011ceb8f";
+      url = "https://gitlab.com/soapbox-pub/elixir-libraries/prometheus.ex.git";
+    };
+    version = "31f7fbe4b71b79ba27efc2a5085746c4011ceb8f";
   };
   earmark_parser = {
     buildTool = "mix";
@@ -433,55 +397,49 @@
     };
     version = "1.4.17";
   };
-  phoenix_swoosh = {
+  plug_cowboy = {
     buildTool = "mix";
     deps = [
-      "finch"
-      "hackney"
-      "phoenix"
-      "phoenix_html"
-      "phoenix_view"
-      "swoosh"
-    ];
-    fetchHex = {
-      sha256 = "f8e4780705c9f254cc853f7a40e25f7198ba4d91102bcfad2226669b69766b35";
-      url = "https://repo.hex.pm/tarballs/phoenix_swoosh-1.1.0.tar";
-    };
-    version = "1.1.0";
-  };
-  phoenix_html = {
-    buildTool = "mix";
-    deps = [
+      "cowboy"
+      "cowboy_telemetry"
       "plug"
     ];
     fetchHex = {
-      sha256 = "1c1219d4b6cb22ac72f12f73dc5fad6c7563104d083f711c3fcd8551a1f4ae11";
-      url = "https://repo.hex.pm/tarballs/phoenix_html-3.2.0.tar";
+      sha256 = "62894ccd601cf9597e2c23911ff12798a8a18d237e9739f58a6b04e4988899fe";
+      url = "https://repo.hex.pm/tarballs/plug_cowboy-2.5.2.tar";
     };
-    version = "3.2.0";
+    version = "2.5.2";
   };
-  prometheus_phoenix = {
+  oembed_providers = {
     buildTool = "mix";
     deps = [
-      "phoenix"
-      "prometheus_ex"
+      "glob"
+      "jason"
     ];
     fetchHex = {
-      sha256 = "c4b527e0b3a9ef1af26bdcfbfad3998f37795b9185d475ca610fe4388fdd3bb5";
-      url = "https://repo.hex.pm/tarballs/prometheus_phoenix-1.3.0.tar";
+      sha256 = "9b336ee5f3ca20ee4ed005383c74b154d30d0abeb98e95828855c0e2841ae46b";
+      url = "https://repo.hex.pm/tarballs/oembed_providers-0.1.0.tar";
     };
-    version = "1.3.0";
+    version = "0.1.0";
   };
-  mock = {
+  crypt = {
+    buildTool = "mix";
+    fetchGit = {
+      rev = "f75cd55325e33cbea198fb41fe41871392f8fb76";
+      url = "https://github.com/msantos/crypt.git";
+    };
+    version = "f75cd55325e33cbea198fb41fe41871392f8fb76";
+  };
+  joken = {
     buildTool = "mix";
     deps = [
-      "meck"
+      "jose"
     ];
     fetchHex = {
-      sha256 = "75b3bbf1466d7e486ea2052a73c6e062c6256fb429d6797999ab02fa32f29e03";
-      url = "https://repo.hex.pm/tarballs/mock-0.3.7.tar";
+      sha256 = "62a979c46f2c81dcb8ddc9150453b60d3757d1ac393c72bb20fc50a7b0827dc6";
+      url = "https://repo.hex.pm/tarballs/joken-2.3.0.tar";
     };
-    version = "0.3.7";
+    version = "2.3.0";
   };
   bunt = {
     buildTool = "mix";
@@ -504,19 +462,13 @@
     };
     version = "0.24.2";
   };
-  phoenix_live_view = {
+  phoenix_pubsub = {
     buildTool = "mix";
-    deps = [
-      "jason"
-      "phoenix"
-      "phoenix_html"
-      "telemetry"
-    ];
     fetchHex = {
-      sha256 = "63f52a6f9f6983f04e424586ff897c016ecc5e4f8d1e2c22c2887af1c57215d8";
-      url = "https://repo.hex.pm/tarballs/phoenix_live_view-0.17.5.tar";
+      sha256 = "ba04e489ef03763bf28a17eb2eaddc2c20c6d217e2150a61e3298b0f4c2012b5";
+      url = "https://repo.hex.pm/tarballs/phoenix_pubsub-2.1.1.tar";
     };
-    version = "0.17.5";
+    version = "2.1.1";
   };
   syslog = {
     buildTool = "rebar3";
@@ -526,45 +478,72 @@
     };
     version = "1.1.0";
   };
-  meck = {
-    buildTool = "rebar3";
-    fetchHex = {
-      sha256 = "85ccbab053f1db86c7ca240e9fc718170ee5bda03810a6292b5306bf31bae5f5";
-      url = "https://repo.hex.pm/tarballs/meck-0.9.2.tar";
-    };
-    version = "0.9.2";
-  };
-  unsafe = {
+  timex = {
     buildTool = "mix";
+    deps = [
+      "combine"
+      "gettext"
+      "tzdata"
+    ];
     fetchHex = {
-      sha256 = "a27e1874f72ee49312e0a9ec2e0b27924214a05e3ddac90e91727bc76f8613d8";
-      url = "https://repo.hex.pm/tarballs/unsafe-1.0.1.tar";
+      sha256 = "3eca56e23bfa4e0848f0b0a29a92fa20af251a975116c6d504966e8a90516dfd";
+      url = "https://repo.hex.pm/tarballs/timex-3.7.5.tar";
     };
-    version = "1.0.1";
+    version = "3.7.5";
   };
-  plug_static_index_html = {
+  phoenix_html = {
     buildTool = "mix";
     deps = [
       "plug"
     ];
     fetchHex = {
-      sha256 = "840123d4d3975585133485ea86af73cb2600afd7f2a976f9f5fd8b3808e636a0";
-      url = "https://repo.hex.pm/tarballs/plug_static_index_html-1.0.0.tar";
+      sha256 = "1c1219d4b6cb22ac72f12f73dc5fad6c7563104d083f711c3fcd8551a1f4ae11";
+      url = "https://repo.hex.pm/tarballs/phoenix_html-3.2.0.tar";
     };
-    version = "1.0.0";
+    version = "3.2.0";
   };
-  plug_cowboy = {
+  oauth2 = {
     buildTool = "mix";
     deps = [
-      "cowboy"
-      "cowboy_telemetry"
-      "plug"
+      "hackney"
     ];
     fetchHex = {
-      sha256 = "62894ccd601cf9597e2c23911ff12798a8a18d237e9739f58a6b04e4988899fe";
-      url = "https://repo.hex.pm/tarballs/plug_cowboy-2.5.2.tar";
+      sha256 = "632e8e8826a45e33ac2ea5ac66dcc019ba6bb5a0d2ba77e342d33e3b7b252c6e";
+      url = "https://repo.hex.pm/tarballs/oauth2-0.9.4.tar";
     };
-    version = "2.5.2";
+    version = "0.9.4";
+  };
+  prometheus = {
+    buildTool = "mix";
+    fetchHex = {
+      sha256 = "1ce1e1002b173c336d61f186b56263346536e76814edd9a142e12aeb2d6c1ad2";
+      url = "https://repo.hex.pm/tarballs/prometheus-4.8.0.tar";
+    };
+    version = "4.8.0";
+  };
+  prometheus_phoenix = {
+    buildTool = "mix";
+    deps = [
+      "phoenix"
+      "prometheus_ex"
+    ];
+    fetchHex = {
+      sha256 = "c4b527e0b3a9ef1af26bdcfbfad3998f37795b9185d475ca610fe4388fdd3bb5";
+      url = "https://repo.hex.pm/tarballs/prometheus_phoenix-1.3.0.tar";
+    };
+    version = "1.3.0";
+  };
+  web_push_encryption = {
+    buildTool = "mix";
+    deps = [
+      "httpoison"
+      "jose"
+    ];
+    fetchHex = {
+      sha256 = "76d0e7375142dfee67391e7690e89f92578889cbcf2879377900b5620ee4708d";
+      url = "https://repo.hex.pm/tarballs/web_push_encryption-0.3.1.tar";
+    };
+    version = "0.3.1";
   };
   certifi = {
     buildTool = "rebar3";
@@ -574,16 +553,17 @@
     };
     version = "2.9.0";
   };
-  unplug = {
+  ueberauth_github = {
     buildTool = "mix";
     deps = [
-      "plug"
+      "oauth2"
+      "ueberauth"
     ];
     fetchHex = {
-      sha256 = "8ec2479de0baa9a6283c04a1cc616c5ca6c5b80b8ff1d857481bb2943368dbbc";
-      url = "https://repo.hex.pm/tarballs/unplug-1.0.0.tar";
+      sha256 = "637067c5500f7b13c18caca3db66d09eba661524e0d0e9518b54151e99484bad";
+      url = "https://repo.hex.pm/tarballs/ueberauth_github-0.7.0.tar";
     };
-    version = "1.0.0";
+    version = "0.7.0";
   };
   file_system = {
     buildTool = "mix";
@@ -592,6 +572,22 @@
       url = "https://repo.hex.pm/tarballs/file_system-0.2.10.tar";
     };
     version = "0.2.10";
+  };
+  websocket_client = {
+    buildTool = "mix";
+    fetchGit = {
+      rev = "9a6f65d05ebf2725d62fb19262b21f1805a59fbf";
+      url = "https://github.com/jeremyong/websocket_client.git";
+    };
+    version = "9a6f65d05ebf2725d62fb19262b21f1805a59fbf";
+  };
+  captcha = {
+    buildTool = "mix";
+    fetchGit = {
+      rev = "e0f16822d578866e186a0974d65ad58cddc1e2ab";
+      url = "https://gitlab.com/soapbox-pub/elixir-libraries/elixir-captcha.git";
+    };
+    version = "e0f16822d578866e186a0974d65ad58cddc1e2ab";
   };
   fast_sanitize = {
     buildTool = "mix";
@@ -605,6 +601,18 @@
     };
     version = "0.2.2";
   };
+  telemetry_metrics_prometheus_core = {
+    buildTool = "mix";
+    deps = [
+      "telemetry"
+      "telemetry_metrics"
+    ];
+    fetchHex = {
+      sha256 = "c98b1c580de637bfeac00db41b9fb91fb4c3548ee3d512a8ed7299172312eaf3";
+      url = "https://repo.hex.pm/tarballs/telemetry_metrics_prometheus_core-1.0.2.tar";
+    };
+    version = "1.0.2";
+  };
   eternal = {
     buildTool = "mix";
     fetchHex = {
@@ -613,16 +621,19 @@
     };
     version = "1.2.2";
   };
-  oauth2 = {
+  majic = {
     buildTool = "mix";
     deps = [
-      "hackney"
+      "elixir_make"
+      "mime"
+      "nimble_pool"
+      "plug"
     ];
     fetchHex = {
-      sha256 = "632e8e8826a45e33ac2ea5ac66dcc019ba6bb5a0d2ba77e342d33e3b7b252c6e";
-      url = "https://repo.hex.pm/tarballs/oauth2-0.9.4.tar";
+      sha256 = "37e50648db5f5c2ff0c9fb46454d034d11596c03683807b9fb3850676ffdaab3";
+      url = "https://repo.hex.pm/tarballs/majic-1.0.0.tar";
     };
-    version = "0.9.4";
+    version = "1.0.0";
   };
   ecto_sql = {
     buildTool = "mix";
@@ -638,6 +649,18 @@
     };
     version = "3.9.0";
   };
+  ueberauth_slack = {
+    buildTool = "mix";
+    deps = [
+      "oauth2"
+      "ueberauth"
+    ];
+    fetchHex = {
+      sha256 = "ec8f6c96e1d41a458a00b5d8cd918c1f387998884fe4636e67dd88b1bd06f928";
+      url = "https://repo.hex.pm/tarballs/ueberauth_slack-0.3.0.tar";
+    };
+    version = "0.3.0";
+  };
   poison = {
     buildTool = "mix";
     fetchHex = {
@@ -646,21 +669,58 @@
     };
     version = "3.1.0";
   };
-  pot = {
-    buildTool = "rebar3";
+  phoenix_live_dashboard = {
+    buildTool = "mix";
+    deps = [
+      "ecto"
+      "ecto_psql_extras"
+      "mime"
+      "phoenix_live_view"
+      "telemetry_metrics"
+    ];
     fetchHex = {
-      sha256 = "81b511b1fa7c3123171c265cb7065a1528cebd7277b0cbc94257c50a8b2e4c17";
-      url = "https://repo.hex.pm/tarballs/pot-1.0.1.tar";
+      sha256 = "0769470265eb13af01b5001b29cb935f4710d6adaa1ffc18417a570a337a2f0f";
+      url = "https://repo.hex.pm/tarballs/phoenix_live_dashboard-0.6.2.tar";
     };
-    version = "1.0.1";
+    version = "0.6.2";
   };
-  poolboy = {
-    buildTool = "rebar3";
+  tesla = {
+    buildTool = "mix";
+    deps = [
+      "castore"
+      "finch"
+      "gun"
+      "hackney"
+      "jason"
+      "mime"
+      "mint"
+      "poison"
+      "telemetry"
+    ];
     fetchHex = {
-      sha256 = "392b007a1693a64540cead79830443abf5762f5d30cf50bc95cb2c1aaafa006b";
-      url = "https://repo.hex.pm/tarballs/poolboy-1.5.2.tar";
+      sha256 = "bb89aa0c9745190930366f6a2ac612cdf2d0e4d7fff449861baa7875afd797b2";
+      url = "https://repo.hex.pm/tarballs/tesla-1.4.4.tar";
     };
-    version = "1.5.2";
+    version = "1.4.4";
+  };
+  swoosh = {
+    buildTool = "mix";
+    deps = [
+      "cowboy"
+      "ex_aws"
+      "finch"
+      "gen_smtp"
+      "hackney"
+      "jason"
+      "mime"
+      "plug_cowboy"
+      "telemetry"
+    ];
+    fetchHex = {
+      sha256 = "af9a22ab2c0d20b266f61acca737fa11a121902de9466a39e91bacdce012101c";
+      url = "https://repo.hex.pm/tarballs/swoosh-1.8.2.tar";
+    };
+    version = "1.8.2";
   };
   mimerl = {
     buildTool = "rebar3";
@@ -670,48 +730,39 @@
     };
     version = "1.2.0";
   };
-  telemetry_metrics_prometheus_core = {
+  metrics = {
+    buildTool = "rebar3";
+    fetchHex = {
+      sha256 = "25f094dea2cda98213cecc3aeff09e940299d950904393b2a29d191c346a8486";
+      url = "https://repo.hex.pm/tarballs/metrics-1.0.1.tar";
+    };
+    version = "1.0.1";
+  };
+  phoenix = {
     buildTool = "mix";
     deps = [
+      "castore"
+      "jason"
+      "phoenix_pubsub"
+      "phoenix_view"
+      "plug"
+      "plug_cowboy"
+      "plug_crypto"
       "telemetry"
-      "telemetry_metrics"
     ];
     fetchHex = {
-      sha256 = "c98b1c580de637bfeac00db41b9fb91fb4c3548ee3d512a8ed7299172312eaf3";
-      url = "https://repo.hex.pm/tarballs/telemetry_metrics_prometheus_core-1.0.2.tar";
+      sha256 = "0a1d96bbc10747fd83525370d691953cdb6f3ccbac61aa01b4acb012474b047d";
+      url = "https://repo.hex.pm/tarballs/phoenix-1.6.15.tar";
     };
-    version = "1.0.2";
+    version = "1.6.15";
   };
-  httpoison = {
-    buildTool = "mix";
-    deps = [
-      "hackney"
-    ];
+  poolboy = {
+    buildTool = "rebar3";
     fetchHex = {
-      sha256 = "6b85dea15820b7804ef607ff78406ab449dd78bed923a49c7160e1886e987a3d";
-      url = "https://repo.hex.pm/tarballs/httpoison-1.8.0.tar";
+      sha256 = "392b007a1693a64540cead79830443abf5762f5d30cf50bc95cb2c1aaafa006b";
+      url = "https://repo.hex.pm/tarballs/poolboy-1.5.2.tar";
     };
-    version = "1.8.0";
-  };
-  http_signatures = {
-    buildTool = "mix";
-    fetchHex = {
-      sha256 = "ca7ebc1b61542b163644c8c3b1f0e0f41037d35f2395940d3c6c7deceab41fd8";
-      url = "https://repo.hex.pm/tarballs/http_signatures-0.1.1.tar";
-    };
-    version = "0.1.1";
-  };
-  prometheus_ecto = {
-    buildTool = "mix";
-    deps = [
-      "ecto"
-      "prometheus_ex"
-    ];
-    fetchHex = {
-      sha256 = "3dd4da1812b8e0dbee81ea58bb3b62ed7588f2eae0c9e97e434c46807ff82311";
-      url = "https://repo.hex.pm/tarballs/prometheus_ecto-1.4.3.tar";
-    };
-    version = "1.4.3";
+    version = "1.5.2";
   };
   cachex = {
     buildTool = "mix";
@@ -727,52 +778,81 @@
     };
     version = "3.3.0";
   };
-  phoenix_pubsub = {
+  mogrify = {
     buildTool = "mix";
     fetchHex = {
-      sha256 = "ba04e489ef03763bf28a17eb2eaddc2c20c6d217e2150a61e3298b0f4c2012b5";
-      url = "https://repo.hex.pm/tarballs/phoenix_pubsub-2.1.1.tar";
+      sha256 = "a26f107c4987477769f272bd0f7e3ac4b7b75b11ba597fd001b877beffa9c068";
+      url = "https://repo.hex.pm/tarballs/mogrify-0.9.1.tar";
     };
-    version = "2.1.1";
+    version = "0.9.1";
   };
-  ueberauth_microsoft = {
+  prom_ex = {
     buildTool = "mix";
     deps = [
-      "oauth2"
-      "ueberauth"
+      "ecto"
+      "finch"
+      "jason"
+      "oban"
+      "phoenix"
+      "phoenix_live_view"
+      "plug"
+      "plug_cowboy"
+      "telemetry"
+      "telemetry_metrics"
+      "telemetry_metrics_prometheus_core"
+      "telemetry_poller"
     ];
     fetchHex = {
-      sha256 = "1c0be9c218e93c426e32c416421e9d41ea59fdf1e3b24310ed5be41df46ddcc1";
-      url = "https://repo.hex.pm/tarballs/ueberauth_microsoft-0.4.0.tar";
+      sha256 = "39331ee3fe6f9a8587d8208bf9274a253bb80281700e127dd18786cda5e08c37";
+      url = "https://repo.hex.pm/tarballs/prom_ex-1.7.1.tar";
     };
-    version = "0.4.0";
+    version = "1.7.1";
   };
-  idna = {
+  trailing_format_plug = {
+    buildTool = "mix";
+    deps = [
+      "plug"
+    ];
+    fetchHex = {
+      sha256 = "64b877f912cf7273bed03379936df39894149e35137ac9509117e59866e10e45";
+      url = "https://repo.hex.pm/tarballs/trailing_format_plug-0.0.7.tar";
+    };
+    version = "0.0.7";
+  };
+  unsafe = {
+    buildTool = "mix";
+    fetchHex = {
+      sha256 = "a27e1874f72ee49312e0a9ec2e0b27924214a05e3ddac90e91727bc76f8613d8";
+      url = "https://repo.hex.pm/tarballs/unsafe-1.0.1.tar";
+    };
+    version = "1.0.1";
+  };
+  geo = {
+    buildTool = "mix";
+    deps = [
+      "jason"
+    ];
+    fetchHex = {
+      sha256 = "0ddf3f681993d32c397e5ef346e7b4b6f36f39ed138502429832fa4000ebb9d5";
+      url = "https://repo.hex.pm/tarballs/geo-3.4.3.tar";
+    };
+    version = "3.4.3";
+  };
+  oauther = {
+    buildTool = "mix";
+    fetchHex = {
+      sha256 = "82b399607f0ca9d01c640438b34d74ebd9e4acd716508f868e864537ecdb1f76";
+      url = "https://repo.hex.pm/tarballs/oauther-1.3.0.tar";
+    };
+    version = "1.3.0";
+  };
+  unicode_util_compat = {
     buildTool = "rebar3";
-    deps = [
-      "unicode_util_compat"
-    ];
     fetchHex = {
-      sha256 = "8a63070e9f7d0c62eb9d9fcb360a7de382448200fbbd1b106cc96d3d8099df8d";
-      url = "https://repo.hex.pm/tarballs/idna-6.1.1.tar";
+      sha256 = "bc84380c9ab48177092f43ac89e4dfa2c6d62b40b8bd132b1059ecc7232f9a78";
+      url = "https://repo.hex.pm/tarballs/unicode_util_compat-0.7.0.tar";
     };
-    version = "6.1.1";
-  };
-  plug_crypto = {
-    buildTool = "mix";
-    fetchHex = {
-      sha256 = "8f77d13aeb32bfd9e654cb68f0af517b371fb34c56c9f2b58fe3df1235c1251a";
-      url = "https://repo.hex.pm/tarballs/plug_crypto-1.2.3.tar";
-    };
-    version = "1.2.3";
-  };
-  jose = {
-    buildTool = "mix";
-    fetchHex = {
-      sha256 = "59da64010c69aad6cde2f5b9248b896b84472e99bd18f246085b7b9fe435dcdb";
-      url = "https://repo.hex.pm/tarballs/jose-1.11.1.tar";
-    };
-    version = "1.11.1";
+    version = "0.7.0";
   };
   connection = {
     buildTool = "mix";
@@ -794,40 +874,39 @@
     };
     version = "2.0.5";
   };
-  tesla = {
+  prometheus_ecto = {
     buildTool = "mix";
     deps = [
-      "castore"
-      "finch"
-      "gun"
-      "hackney"
-      "jason"
-      "mime"
-      "mint"
-      "poison"
-      "telemetry"
+      "ecto"
+      "prometheus_ex"
     ];
     fetchHex = {
-      sha256 = "bb89aa0c9745190930366f6a2ac612cdf2d0e4d7fff449861baa7875afd797b2";
-      url = "https://repo.hex.pm/tarballs/tesla-1.4.4.tar";
+      sha256 = "3dd4da1812b8e0dbee81ea58bb3b62ed7588f2eae0c9e97e434c46807ff82311";
+      url = "https://repo.hex.pm/tarballs/prometheus_ecto-1.4.3.tar";
     };
-    version = "1.4.4";
+    version = "1.4.3";
   };
-  metrics = {
-    buildTool = "rebar3";
+  geospatial = {
+    buildTool = "mix";
+    deps = [
+      "geo"
+      "hackney"
+      "tesla"
+      "tz_world"
+    ];
     fetchHex = {
-      sha256 = "25f094dea2cda98213cecc3aeff09e940299d950904393b2a29d191c346a8486";
-      url = "https://repo.hex.pm/tarballs/metrics-1.0.1.tar";
+      sha256 = "c6c9f57df647cabbda71825bbba8465645002922a0c2e6410dc50279dbc95265";
+      url = "https://repo.hex.pm/tarballs/geospatial-0.2.0.tar";
     };
-    version = "1.0.1";
+    version = "0.2.0";
   };
   castore = {
     buildTool = "mix";
     fetchHex = {
-      sha256 = "deb5b9ab02400561b6f5708f3e7660fc35ca2d51bfc6a940d2f513f89c2975fc";
-      url = "https://repo.hex.pm/tarballs/castore-0.1.18.tar";
+      sha256 = "a2c3e46d62b7f3aa2e6f88541c21d7400381e53704394462b9fd4f06f6d42bb6";
+      url = "https://repo.hex.pm/tarballs/castore-0.1.19.tar";
     };
-    version = "0.1.18";
+    version = "0.1.19";
   };
   benchee = {
     buildTool = "mix";
@@ -860,21 +939,13 @@
     };
     version = "2.3.0";
   };
-  captcha = {
-    buildTool = "mix";
-    fetchGit = {
-      rev = "e0f16822d578866e186a0974d65ad58cddc1e2ab";
-      url = "https://gitlab.com/soapbox-pub/elixir-libraries/elixir-captcha.git";
-    };
-    version = "e0f16822d578866e186a0974d65ad58cddc1e2ab";
-  };
-  inet_cidr = {
-    buildTool = "mix";
+  parse_trans = {
+    buildTool = "rebar3";
     fetchHex = {
-      sha256 = "a05744ab7c221ca8e395c926c3919a821eb512e8f36547c062f62c4ca0cf3d6e";
-      url = "https://repo.hex.pm/tarballs/inet_cidr-1.0.4.tar";
+      sha256 = "16328ab840cc09919bd10dab29e431da3af9e9e7e7e6f0089dd5a2d2820011d8";
+      url = "https://repo.hex.pm/tarballs/parse_trans-3.3.1.tar";
     };
-    version = "1.0.4";
+    version = "3.3.1";
   };
   calendar = {
     buildTool = "mix";
@@ -895,33 +966,36 @@
     };
     version = "0.6.2";
   };
-  ueberauth_slack = {
+  ueberauth = {
+    buildTool = "mix";
+    deps = [
+      "plug"
+    ];
+    fetchHex = {
+      sha256 = "d42ace28b870e8072cf30e32e385579c57b9cc96ec74fa1f30f30da9c14f3cc0";
+      url = "https://repo.hex.pm/tarballs/ueberauth-0.6.3.tar";
+    };
+    version = "0.6.3";
+  };
+  ueberauth_microsoft = {
     buildTool = "mix";
     deps = [
       "oauth2"
       "ueberauth"
     ];
     fetchHex = {
-      sha256 = "ec8f6c96e1d41a458a00b5d8cd918c1f387998884fe4636e67dd88b1bd06f928";
-      url = "https://repo.hex.pm/tarballs/ueberauth_slack-0.3.0.tar";
+      sha256 = "1c0be9c218e93c426e32c416421e9d41ea59fdf1e3b24310ed5be41df46ddcc1";
+      url = "https://repo.hex.pm/tarballs/ueberauth_microsoft-0.4.0.tar";
     };
-    version = "0.3.0";
+    version = "0.4.0";
   };
-  websocket_client = {
-    buildTool = "mix";
-    fetchGit = {
-      rev = "9a6f65d05ebf2725d62fb19262b21f1805a59fbf";
-      url = "https://github.com/jeremyong/websocket_client.git";
-    };
-    version = "9a6f65d05ebf2725d62fb19262b21f1805a59fbf";
-  };
-  mogrify = {
+  jose = {
     buildTool = "mix";
     fetchHex = {
-      sha256 = "a26f107c4987477769f272bd0f7e3ac4b7b75b11ba597fd001b877beffa9c068";
-      url = "https://repo.hex.pm/tarballs/mogrify-0.9.1.tar";
+      sha256 = "59da64010c69aad6cde2f5b9248b896b84472e99bd18f246085b7b9fe435dcdb";
+      url = "https://repo.hex.pm/tarballs/jose-1.11.1.tar";
     };
-    version = "0.9.1";
+    version = "1.11.1";
   };
   ecto_psql_extras = {
     buildTool = "mix";
@@ -936,17 +1010,13 @@
     };
     version = "0.7.4";
   };
-  ueberauth_keycloak_strategy = {
+  gettext = {
     buildTool = "mix";
-    deps = [
-      "oauth2"
-      "ueberauth"
-    ];
-    fetchHex = {
-      sha256 = "5ed0471a1cbb2ad4c0b371ab9f2a8e413070d9f307a2e55925a613254e7be619";
-      url = "https://repo.hex.pm/tarballs/ueberauth_keycloak_strategy-0.2.0.tar";
+    fetchGit = {
+      rev = "72fb2496b6c5280ed911bdc3756890e7f38a4808";
+      url = "https://github.com/tusooa/gettext.git";
     };
-    version = "0.2.0";
+    version = "72fb2496b6c5280ed911bdc3756890e7f38a4808";
   };
   ex_aws_s3 = {
     buildTool = "mix";
@@ -959,6 +1029,17 @@
       url = "https://repo.hex.pm/tarballs/ex_aws_s3-2.2.0.tar";
     };
     version = "2.2.0";
+  };
+  telemetry_metrics = {
+    buildTool = "mix";
+    deps = [
+      "telemetry"
+    ];
+    fetchHex = {
+      sha256 = "315d9163a1d4660aedc3fee73f33f1d355dcc76c5c3ab3d59e76e3edf80eef1f";
+      url = "https://repo.hex.pm/tarballs/telemetry_metrics-0.6.1.tar";
+    };
+    version = "0.6.1";
   };
   credo = {
     buildTool = "mix";
@@ -993,13 +1074,24 @@
     };
     version = "2.7.0";
   };
-  prometheus = {
+  plug_static_index_html = {
+    buildTool = "mix";
+    deps = [
+      "plug"
+    ];
+    fetchHex = {
+      sha256 = "840123d4d3975585133485ea86af73cb2600afd7f2a976f9f5fd8b3808e636a0";
+      url = "https://repo.hex.pm/tarballs/plug_static_index_html-1.0.0.tar";
+    };
+    version = "1.0.0";
+  };
+  websockex = {
     buildTool = "mix";
     fetchHex = {
-      sha256 = "1ce1e1002b173c336d61f186b56263346536e76814edd9a142e12aeb2d6c1ad2";
-      url = "https://repo.hex.pm/tarballs/prometheus-4.8.0.tar";
+      sha256 = "92b7905769c79c6480c02daacaca2ddd49de936d912976a4d3c923723b647bf0";
+      url = "https://repo.hex.pm/tarballs/websockex-0.4.3.tar";
     };
-    version = "4.8.0";
+    version = "0.4.3";
   };
   jumper = {
     buildTool = "mix";
@@ -1025,16 +1117,16 @@
     };
     version = "0.2.6";
   };
-  makeup = {
+  icalendar = {
     buildTool = "mix";
     deps = [
-      "nimble_parsec"
+      "timex"
     ];
     fetchHex = {
-      sha256 = "d5a830bc42c9800ce07dd97fa94669dfb93d3bf5fcf6ea7a0c67b2e0e4a7f26c";
-      url = "https://repo.hex.pm/tarballs/makeup-1.0.5.tar";
+      sha256 = "5d0afff5d0143c5bd43f18ae32a777bf0fb9a724543ab05229a460d368f0a5e7";
+      url = "https://repo.hex.pm/tarballs/icalendar-1.1.2.tar";
     };
-    version = "1.0.5";
+    version = "1.1.2";
   };
   mint = {
     buildTool = "mix";
@@ -1048,15 +1140,6 @@
     };
     version = "1.4.2";
   };
-  prometheus_phx = {
-    buildTool = "mix";
-    fetchGit = {
-      allRefs = true;
-      rev = "9cd8f248c9381ffedc799905050abce194a97514";
-      url = "https://gitlab.com/soapbox-pub/elixir-libraries/prometheus-phx.git";
-    };
-    version = "9cd8f248c9381ffedc799905050abce194a97514";
-  };
   earmark = {
     buildTool = "mix";
     deps = [
@@ -1068,13 +1151,21 @@
     };
     version = "1.4.18";
   };
-  oauther = {
+  mime = {
     buildTool = "mix";
     fetchHex = {
-      sha256 = "82b399607f0ca9d01c640438b34d74ebd9e4acd716508f868e864537ecdb1f76";
-      url = "https://repo.hex.pm/tarballs/oauther-1.3.0.tar";
+      sha256 = "3676436d3d1f7b81b5a2d2bd8405f412c677558c81b1c92be58c00562bb59095";
+      url = "https://repo.hex.pm/tarballs/mime-2.0.3.tar";
     };
-    version = "1.3.0";
+    version = "2.0.3";
+  };
+  remote_ip = {
+    buildTool = "mix";
+    fetchGit = {
+      rev = "b647d0deecaa3acb140854fe4bda5b7e1dc6d1c8";
+      url = "https://gitlab.com/soapbox-pub/elixir-libraries/remote_ip.git";
+    };
+    version = "b647d0deecaa3acb140854fe4bda5b7e1dc6d1c8";
   };
   hackney = {
     buildTool = "rebar3";
@@ -1109,19 +1200,6 @@
     };
     version = "0.7.3";
   };
-  prometheus_plugs = {
-    buildTool = "mix";
-    deps = [
-      "accept"
-      "plug"
-      "prometheus_ex"
-    ];
-    fetchHex = {
-      sha256 = "25933d48f8af3a5941dd7b621c889749894d8a1082a6ff7c67cc99dec26377c5";
-      url = "https://repo.hex.pm/tarballs/prometheus_plugs-1.1.5.tar";
-    };
-    version = "1.1.5";
-  };
   postgrex = {
     buildTool = "mix";
     deps = [
@@ -1147,31 +1225,24 @@
     };
     version = "0.1.1";
   };
-  glob = {
-    buildTool = "rebar3";
+  gen_stage = {
+    buildTool = "mix";
     fetchHex = {
-      sha256 = "b4d54d66e7797ce037cdd18f2587fc9932187355340e222cafe125cd333d7a0a";
-      url = "https://repo.hex.pm/tarballs/glob-1.0.0.tar";
+      sha256 = "d0c66f1c87faa301c1a85a809a3ee9097a4264b2edf7644bf5c123237ef732bf";
+      url = "https://repo.hex.pm/tarballs/gen_stage-0.14.3.tar";
     };
-    version = "1.0.0";
+    version = "0.14.3";
   };
-  phoenix = {
+  mock = {
     buildTool = "mix";
     deps = [
-      "castore"
-      "jason"
-      "phoenix_pubsub"
-      "phoenix_view"
-      "plug"
-      "plug_cowboy"
-      "plug_crypto"
-      "telemetry"
+      "meck"
     ];
     fetchHex = {
-      sha256 = "0a1d96bbc10747fd83525370d691953cdb6f3ccbac61aa01b4acb012474b047d";
-      url = "https://repo.hex.pm/tarballs/phoenix-1.6.15.tar";
+      sha256 = "75b3bbf1466d7e486ea2052a73c6e062c6256fb429d6797999ab02fa32f29e03";
+      url = "https://repo.hex.pm/tarballs/mock-0.3.7.tar";
     };
-    version = "1.6.15";
+    version = "0.3.7";
   };
   esshd = {
     buildTool = "mix";
@@ -1189,6 +1260,22 @@
     };
     version = "0.2.1";
   };
+  phoenix_swoosh = {
+    buildTool = "mix";
+    deps = [
+      "finch"
+      "hackney"
+      "phoenix"
+      "phoenix_html"
+      "phoenix_view"
+      "swoosh"
+    ];
+    fetchHex = {
+      sha256 = "f8e4780705c9f254cc853f7a40e25f7198ba4d91102bcfad2226669b69766b35";
+      url = "https://repo.hex.pm/tarballs/phoenix_swoosh-1.1.0.tar";
+    };
+    version = "1.1.0";
+  };
   ex_const = {
     buildTool = "mix";
     fetchHex = {
@@ -1197,27 +1284,24 @@
     };
     version = "0.2.4";
   };
-  remote_ip = {
-    buildTool = "mix";
-    fetchGit = {
-      rev = "b647d0deecaa3acb140854fe4bda5b7e1dc6d1c8";
-      url = "https://gitlab.com/soapbox-pub/elixir-libraries/remote_ip.git";
-    };
-    version = "b647d0deecaa3acb140854fe4bda5b7e1dc6d1c8";
-  };
-  oban = {
+  makeup = {
     buildTool = "mix";
     deps = [
-      "ecto_sql"
-      "jason"
-      "postgrex"
-      "telemetry"
+      "nimble_parsec"
     ];
     fetchHex = {
-      sha256 = "c0ce48be26598d0d1439e4867ac32fdc89fa7511fb0a7e61c44decafa2e36633";
-      url = "https://repo.hex.pm/tarballs/oban-2.4.3.tar";
+      sha256 = "d5a830bc42c9800ce07dd97fa94669dfb93d3bf5fcf6ea7a0c67b2e0e4a7f26c";
+      url = "https://repo.hex.pm/tarballs/makeup-1.0.5.tar";
     };
-    version = "2.4.3";
+    version = "1.0.5";
+  };
+  prometheus_phx = {
+    buildTool = "mix";
+    fetchGit = {
+      rev = "9cd8f248c9381ffedc799905050abce194a97514";
+      url = "https://gitlab.com/soapbox-pub/elixir-libraries/prometheus-phx.git";
+    };
+    version = "9cd8f248c9381ffedc799905050abce194a97514";
   };
   covertool = {
     buildTool = "rebar3";
@@ -1227,36 +1311,28 @@
     };
     version = "2.0.4";
   };
-  telemetry_metrics = {
+  phoenix_view = {
     buildTool = "mix";
     deps = [
-      "telemetry"
+      "phoenix_html"
+      "phoenix_template"
     ];
     fetchHex = {
-      sha256 = "315d9163a1d4660aedc3fee73f33f1d355dcc76c5c3ab3d59e76e3edf80eef1f";
-      url = "https://repo.hex.pm/tarballs/telemetry_metrics-0.6.1.tar";
+      sha256 = "e676c3058cdfd878faece9cc791fe2f7c810877fdf002db46ee8c01403b4b801";
+      url = "https://repo.hex.pm/tarballs/phoenix_view-2.0.0.tar";
     };
-    version = "0.6.1";
+    version = "2.0.0";
   };
-  ueberauth_github = {
-    buildTool = "mix";
+  gun = {
+    buildTool = "make";
     deps = [
-      "oauth2"
-      "ueberauth"
+      "cowlib"
     ];
     fetchHex = {
-      sha256 = "637067c5500f7b13c18caca3db66d09eba661524e0d0e9518b54151e99484bad";
-      url = "https://repo.hex.pm/tarballs/ueberauth_github-0.7.0.tar";
+      sha256 = "7c489a32dedccb77b6e82d1f3c5a7dadfbfa004ec14e322cdb5e579c438632d2";
+      url = "https://repo.hex.pm/tarballs/gun-2.0.0-rc.2.tar";
     };
-    version = "0.7.0";
-  };
-  unicode_util_compat = {
-    buildTool = "rebar3";
-    fetchHex = {
-      sha256 = "bc84380c9ab48177092f43ac89e4dfa2c6d62b40b8bd132b1059ecc7232f9a78";
-      url = "https://repo.hex.pm/tarballs/unicode_util_compat-0.7.0.tar";
-    };
-    version = "0.7.0";
+    version = "2.0.0-rc.2";
   };
   plug = {
     buildTool = "mix";
@@ -1279,27 +1355,34 @@
     };
     version = "0.10.0";
   };
-  prometheus_ex = {
-    buildTool = "mix";
-    fetchGit = {
-      rev = "31f7fbe4b71b79ba27efc2a5085746c4011ceb8f";
-      url = "https://gitlab.com/soapbox-pub/elixir-libraries/prometheus.ex.git";
+  pot = {
+    buildTool = "rebar3";
+    fetchHex = {
+      sha256 = "81b511b1fa7c3123171c265cb7065a1528cebd7277b0cbc94257c50a8b2e4c17";
+      url = "https://repo.hex.pm/tarballs/pot-1.0.1.tar";
     };
-    version = "31f7fbe4b71b79ba27efc2a5085746c4011ceb8f";
+    version = "1.0.1";
   };
-  majic = {
+  ueberauth_twitter = {
     buildTool = "mix";
     deps = [
-      "elixir_make"
-      "mime"
-      "nimble_pool"
-      "plug"
+      "httpoison"
+      "oauther"
+      "ueberauth"
     ];
     fetchHex = {
-      sha256 = "37e50648db5f5c2ff0c9fb46454d034d11596c03683807b9fb3850676ffdaab3";
-      url = "https://repo.hex.pm/tarballs/majic-1.0.0.tar";
+      sha256 = "4b98620341bc91bac90459093bba093c650823b6e2df35b70255c493c17e9227";
+      url = "https://repo.hex.pm/tarballs/ueberauth_twitter-0.4.0.tar";
     };
-    version = "1.0.0";
+    version = "0.4.0";
+  };
+  http_signatures = {
+    buildTool = "mix";
+    fetchHex = {
+      sha256 = "ca7ebc1b61542b163644c8c3b1f0e0f41037d35f2395940d3c6c7deceab41fd8";
+      url = "https://repo.hex.pm/tarballs/http_signatures-0.1.1.tar";
+    };
+    version = "0.1.1";
   };
   sleeplocks = {
     buildTool = "rebar3";
@@ -1317,26 +1400,21 @@
     };
     version = "0.5.0";
   };
-  linkify = {
+  hpax = {
     buildTool = "mix";
     fetchHex = {
-      sha256 = "fb66be139fdf1656ecb31f78a93592724d1b78d960a1b3598bd661013ea0e3c7";
-      url = "https://repo.hex.pm/tarballs/linkify-0.5.2.tar";
+      sha256 = "09a75600d9d8bbd064cdd741f21fc06fc1f4cf3d0fcc335e5aa19be1a7235c84";
+      url = "https://repo.hex.pm/tarballs/hpax-0.1.2.tar";
     };
-    version = "0.5.2";
+    version = "0.1.2";
   };
-  open_api_spex = {
-    buildTool = "mix";
-    deps = [
-      "jason"
-      "plug"
-      "poison"
-    ];
+  mochiweb = {
+    buildTool = "rebar3";
     fetchHex = {
-      sha256 = "94e9521ad525b3fcf6dc77da7c45f87fdac24756d4de588cb0816b413e7c1844";
-      url = "https://repo.hex.pm/tarballs/open_api_spex-3.10.0.tar";
+      sha256 = "eb55f1db3e6e960fac4e6db4e2db9ec3602cc9f30b86cd1481d56545c3145d2e";
+      url = "https://repo.hex.pm/tarballs/mochiweb-2.18.0.tar";
     };
-    version = "3.10.0";
+    version = "2.18.0";
   };
   accept = {
     buildTool = "rebar3";
@@ -1346,27 +1424,21 @@
     };
     version = "0.3.5";
   };
-  gun = {
-    buildTool = "make";
-    deps = [
-      "cowlib"
-    ];
-    fetchHex = {
-      sha256 = "7c489a32dedccb77b6e82d1f3c5a7dadfbfa004ec14e322cdb5e579c438632d2";
-      url = "https://repo.hex.pm/tarballs/gun-2.0.0-rc.2.tar";
-    };
-    version = "2.0.0-rc.2";
-  };
-  trailing_format_plug = {
+  gen_state_machine = {
     buildTool = "mix";
-    deps = [
-      "plug"
-    ];
     fetchHex = {
-      sha256 = "64b877f912cf7273bed03379936df39894149e35137ac9509117e59866e10e45";
-      url = "https://repo.hex.pm/tarballs/trailing_format_plug-0.0.7.tar";
+      sha256 = "9ac15ec6e66acac994cc442dcc2c6f9796cf380ec4b08267223014be1c728a95";
+      url = "https://repo.hex.pm/tarballs/gen_state_machine-2.0.5.tar";
     };
-    version = "0.0.7";
+    version = "2.0.5";
+  };
+  recon = {
+    buildTool = "mix";
+    fetchHex = {
+      sha256 = "430ffa60685ac1efdfb1fe4c97b8767c92d0d92e6e7c3e8621559ba77598678a";
+      url = "https://repo.hex.pm/tarballs/recon-2.5.1.tar";
+    };
+    version = "2.5.1";
   };
   tzdata = {
     buildTool = "mix";
@@ -1379,16 +1451,13 @@
     };
     version = "1.0.5";
   };
-  joken = {
+  ssl_verify_fun = {
     buildTool = "mix";
-    deps = [
-      "jose"
-    ];
     fetchHex = {
-      sha256 = "62a979c46f2c81dcb8ddc9150453b60d3757d1ac393c72bb20fc50a7b0827dc6";
-      url = "https://repo.hex.pm/tarballs/joken-2.3.0.tar";
+      sha256 = "cf344f5692c82d2cd7554f5ec8fd961548d4fd09e7d22f5b62482e5aeaebd4b0";
+      url = "https://repo.hex.pm/tarballs/ssl_verify_fun-1.1.6.tar";
     };
-    version = "2.3.0";
+    version = "1.1.6";
   };
   base62 = {
     buildTool = "mix";
@@ -1401,18 +1470,18 @@
     };
     version = "1.2.2";
   };
-  timex = {
+  prometheus_plugs = {
     buildTool = "mix";
     deps = [
-      "combine"
-      "gettext"
-      "tzdata"
+      "accept"
+      "plug"
+      "prometheus_ex"
     ];
     fetchHex = {
-      sha256 = "3eca56e23bfa4e0848f0b0a29a92fa20af251a975116c6d504966e8a90516dfd";
-      url = "https://repo.hex.pm/tarballs/timex-3.7.5.tar";
+      sha256 = "25933d48f8af3a5941dd7b621c889749894d8a1082a6ff7c67cc99dec26377c5";
+      url = "https://repo.hex.pm/tarballs/prometheus_plugs-1.1.5.tar";
     };
-    version = "3.7.5";
+    version = "1.1.5";
   };
   flake_id = {
     buildTool = "mix";
@@ -1437,13 +1506,16 @@
     };
     version = "0.1.1";
   };
-  mime = {
+  httpoison = {
     buildTool = "mix";
+    deps = [
+      "hackney"
+    ];
     fetchHex = {
-      sha256 = "3676436d3d1f7b81b5a2d2bd8405f412c677558c81b1c92be58c00562bb59095";
-      url = "https://repo.hex.pm/tarballs/mime-2.0.3.tar";
+      sha256 = "6b85dea15820b7804ef607ff78406ab449dd78bed923a49c7160e1886e987a3d";
+      url = "https://repo.hex.pm/tarballs/httpoison-1.8.0.tar";
     };
-    version = "2.0.3";
+    version = "1.8.0";
   };
   ex_aws = {
     buildTool = "mix";
@@ -1458,53 +1530,46 @@
     };
     version = "2.1.9";
   };
-  mox = {
+  linkify = {
     buildTool = "mix";
     fetchHex = {
-      sha256 = "4b3c7005173f47ff30641ba044eb0fe67287743eec9bd9545e37f3002b0a9f8b";
-      url = "https://repo.hex.pm/tarballs/mox-1.0.0.tar";
+      sha256 = "fb66be139fdf1656ecb31f78a93592724d1b78d960a1b3598bd661013ea0e3c7";
+      url = "https://repo.hex.pm/tarballs/linkify-0.5.2.tar";
     };
-    version = "1.0.0";
+    version = "0.5.2";
   };
-  swoosh = {
+  plug_crypto = {
+    buildTool = "mix";
+    fetchHex = {
+      sha256 = "8f77d13aeb32bfd9e654cb68f0af517b371fb34c56c9f2b58fe3df1235c1251a";
+      url = "https://repo.hex.pm/tarballs/plug_crypto-1.2.3.tar";
+    };
+    version = "1.2.3";
+  };
+  oban = {
     buildTool = "mix";
     deps = [
-      "cowboy"
-      "ex_aws"
-      "finch"
-      "gen_smtp"
-      "hackney"
+      "ecto_sql"
       "jason"
-      "mime"
-      "plug_cowboy"
+      "postgrex"
       "telemetry"
     ];
     fetchHex = {
-      sha256 = "af9a22ab2c0d20b266f61acca737fa11a121902de9466a39e91bacdce012101c";
-      url = "https://repo.hex.pm/tarballs/swoosh-1.8.2.tar";
+      sha256 = "202a90f2aed0130b7d750bdbfea8090c8321bce255bade10fd3699733565add0";
+      url = "https://repo.hex.pm/tarballs/oban-2.10.1.tar";
     };
-    version = "1.8.2";
+    version = "2.10.1";
   };
-  phoenix_ecto = {
-    buildTool = "mix";
+  telemetry_poller = {
+    buildTool = "rebar3";
     deps = [
-      "ecto"
-      "phoenix_html"
-      "plug"
+      "telemetry"
     ];
     fetchHex = {
-      sha256 = "13f124cf0a3ce0f1948cf24654c7b9f2347169ff75c1123f44674afee6af3b03";
-      url = "https://repo.hex.pm/tarballs/phoenix_ecto-4.2.1.tar";
+      sha256 = "db91bb424e07f2bb6e73926fcafbfcbcb295f0193e0a00e825e589a0a47e8453";
+      url = "https://repo.hex.pm/tarballs/telemetry_poller-1.0.0.tar";
     };
-    version = "4.2.1";
-  };
-  recon = {
-    buildTool = "mix";
-    fetchHex = {
-      sha256 = "430ffa60685ac1efdfb1fe4c97b8767c92d0d92e6e7c3e8621559ba77598678a";
-      url = "https://repo.hex.pm/tarballs/recon-2.5.1.tar";
-    };
-    version = "2.5.1";
+    version = "1.0.0";
   };
 }
 

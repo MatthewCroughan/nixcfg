@@ -2,13 +2,13 @@
 { fetchFromGitLab }:
 
 rec {
-  version = "13c61e59e7e71f7d7dc2cfce5f65904fb118ca21";
+  version = "2eaa1976ceeb971a6c09354b94875463375d8de5";
   src = fetchFromGitLab {
     domain = "gitlab.com";
     owner = "soapbox-pub";
     repo = "rebased";
-    rev = "13c61e59e7e71f7d7dc2cfce5f65904fb118ca21";
-    sha256 = "00g02ndxb9fq29j1nz9nknqnrm4cqfnizlpraas7n3cxqaxqzyfj";
+    rev = "2eaa1976ceeb971a6c09354b94875463375d8de5";
+    sha256 = "150zlagyyw8wam6hisdr3sv7d6y0j9180dickpf56y2klv1y541q";
   };
 }
 

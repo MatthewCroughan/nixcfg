@@ -2,6 +2,16 @@
 
 let
   mixnix = callPackage ./mixnix/mix2nix.nix {};
+  commonMimeConfig = writeText "config.exs" ''
+    use Mix.Config
+    config :mime, :types, %{
+      "application/activity+json" => ["activity+json"],
+      "application/jrd+json" => ["jrd+json"],
+      "application/ld+json" => ["activity+json"],
+      "application/xml" => ["xml"],
+      "application/xrd+xml" => ["xrd+xml"]
+    }
+  '';
 
   pc_1_11_0 = beamPackages.buildHex {
     name = "pc";
@@ -10,7 +20,7 @@ let
   };
 
 in mixnix.mkPureMixPackage rec {
-  name = "pleroma";
+  name = "rebased";
   inherit (callPackage ./source.nix {}) src version;
 
   beamDeps = [];
@@ -96,11 +106,13 @@ in mixnix.mkPureMixPackage rec {
       buildInputs = [ libxcrypt ];
       postInstall = "mv $out/lib/erlang/lib/crypt-${version}/priv/{source,crypt}.so";
     };
+
     majic = { ... }: {
-      #patchPhase = ''
-      #  sed 's/erlang.now/erlang.time/g' -i lib/majic/server.ex
-      #'';
       buildInputs = [ file ];
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
     };
 
     http_signatures = { ... }: {
@@ -118,20 +130,184 @@ in mixnix.mkPureMixPackage rec {
     };
 
     mime = { ... }: {
-      patchPhase = let
-        cfgFile = writeText "config.exs" ''
-          use Mix.Config
-          config :mime, :types, %{
-            "application/activity+json" => ["activity+json"],
-            "application/jrd+json" => ["jrd+json"],
-            "application/ld+json" => ["activity+json"],
-            "application/xml" => ["xml"],
-            "application/xrd+xml" => ["xrd+xml"]
-          }
-        '';
-      in ''
+      patchPhase = ''
         mkdir config
-        cp ${cfgFile} config/config.exs
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    remote_ip = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    prom_ex = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    phoenix_live_dashboard = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    phoenix_swoosh = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    phoenix_live_view = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    phoenix = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth_slack = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth_google = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth_facebook = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth_github = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth_twitter = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth_microsoft = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth_keycloak_strategy = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    ueberauth = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    swoosh = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    unplug = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    phoenix_ecto = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    tesla = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    geospatial = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    plug_cowboy = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    open_api_spex = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    phoenix_html = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    fast_sanitize = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    cors_plug = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
+      '';
+    };
+
+    plug = { ... }: {
+      patchPhase = ''
+        mkdir config
+        cp ${commonMimeConfig} config/config.exs
       '';
     };
 
