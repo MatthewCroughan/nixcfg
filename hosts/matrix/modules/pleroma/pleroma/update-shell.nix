@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import (fetchTarball "https://github.com/nixos/nixpkgs/archive/nixos-21.05.tar.gz") {};
 
 let
   mix2nix = callPackage (fetchGit {

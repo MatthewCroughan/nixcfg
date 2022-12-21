@@ -4,11 +4,11 @@ set -xe
 
 cd $(dirname $0)
 
-DOMAIN="git.pleroma.social"
-OWNER="pleroma"
-REPO="pleroma"
+DOMAIN="gitlab.com"
+OWNER="soapbox-pub"
+REPO="rebased"
 #REV="$(curl "https://$DOMAIN/api/v4/projects/$OWNER%2F$REPO/repository/tags" | jq -r '.[0] | .name')"
-REV=f40ccce7e9ad2e9f917fddd798138866c83e514a
+REV=2eaa1976ceeb971a6c09354b94875463375d8de5
 OUT="$(nix-prefetch-url --unpack --print-path "https://$DOMAIN/api/v4/projects/$OWNER%2F$REPO/repository/archive.tar.gz?sha=$REV")"
 HASH="$(echo "$OUT" | head -n1)"
 src="$(echo "$OUT" | tail -n1)"

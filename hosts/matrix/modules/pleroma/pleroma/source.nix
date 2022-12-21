@@ -2,13 +2,13 @@
 { fetchFromGitLab }:
 
 rec {
-  version = "f40ccce7e9ad2e9f917fddd798138866c83e514a";
+  version = "2eaa1976ceeb971a6c09354b94875463375d8de5";
   src = fetchFromGitLab {
-    domain = "git.pleroma.social";
-    owner = "pleroma";
-    repo = "pleroma";
-    rev = "f40ccce7e9ad2e9f917fddd798138866c83e514a";
-    sha256 = "0fli5aqhljrvz2b72dikgllh4wzp6p0kscj748qh0llh31n0vcjc";
+    domain = "gitlab.com";
+    owner = "soapbox-pub";
+    repo = "rebased";
+    rev = "2eaa1976ceeb971a6c09354b94875463375d8de5";
+    sha256 = "150zlagyyw8wam6hisdr3sv7d6y0j9180dickpf56y2klv1y541q";
   };
 }
 

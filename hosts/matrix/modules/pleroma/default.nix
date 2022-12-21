@@ -25,7 +25,7 @@
     pleroma = {
       package = pkgs.callPackage ./pleroma {};
       enable = true;
-      configs = [(builtins.readFile ./pleroma.exs)];
+      configs = [(pkgs.callPackage ./pleroma.exs.nix {})];
       secretConfigFile = config.age.secrets.pleroma.path;
     };
 
