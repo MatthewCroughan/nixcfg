@@ -36,6 +36,12 @@ in
   };
 
   boot = {
+    # Needed for basic iptables dnat and port forwarding
+    kernelModules = [
+      "iptable_nat"
+      "iptable_filter"
+      "xt_nat"
+    ];
     # https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
     kernel.sysctl = {
       # https://en.wikipedia.org/wiki/SYN_cookies
@@ -87,7 +93,14 @@ in
       internalInterfaces = [ internalInterface ];
       internalIPs = [ "192.168.3.0/24" ];
     };
-    firewall.allowPing = false;
+    firewall = {
+      allowPing = false;
+      extraCommands = ''
+        iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 1337 -j DNAT --to-destination 192.168.3.100:22
+        iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 443 -j DNAT --to-destination 192.168.3.100:22
+        iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.3.100:22
+      '';
+    };
     useDHCP = false;
     hostName = "nixSense";
     domain = "lan.croughan.sh";
