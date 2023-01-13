@@ -11,6 +11,7 @@
         bufferline-nvim
         nvim-lspconfig
         vim-nix
+        csv-vim
         nvim-compe
         vim-oscyank
         indent-blankline-nvim
