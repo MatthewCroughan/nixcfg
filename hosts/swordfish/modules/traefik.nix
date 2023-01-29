@@ -24,7 +24,7 @@
       };
       http = {
         services = {
-          crater.loadBalancer.servers = [ { url = "http://127.0.0.1:8070"; } ];
+          crater.loadBalancer.servers = [ { url = "http://127.0.0.1:8040"; } ];
           crater-nixinator.loadBalancer.servers = [ { url = "http://127.0.0.1:8060"; } ];
           crater-nixhow.loadBalancer.servers = [ { url = "http://127.0.0.1:8050"; } ];
           jellyfin.loadBalancer.servers = [ { url = "http://127.0.0.1:8096"; } ];
