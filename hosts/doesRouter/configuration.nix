@@ -126,6 +126,10 @@ in
     dnsmasq = {
       enable = true;
       servers = [ "1.1.1.1" "9.9.9.9" ];
+      extraConfig = ''
+        bind-interfaces
+        interface = ${internalInterface}
+      '';
     };
     dhcpd4 = {
       enable = true;
