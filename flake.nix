@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs2205.url = "github:nixos/nixpkgs/nixos-22.05";
+    nixpkgs2211.url = "github:nixos/nixpkgs/nixos-22.11";
     nixinate.url = "github:matthewcroughan/nixinate";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
@@ -15,8 +15,8 @@
     };
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
     simple-nixos-mailserver = {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-22.05";
-      inputs.nixpkgs-22_05.follows = "nixpkgs2205";
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-22.11";
+      inputs.nixpkgs-22_11.follows = "nixpkgs2211";
     };
     impermanence.url = "github:nix-community/impermanence";
   };
@@ -26,7 +26,7 @@
     , nixinate
     , home-manager
     , nixpkgs
-    , nixpkgs2205
+    , nixpkgs2211
     , agenix
     , nixos-hardware
     , utils
@@ -74,7 +74,7 @@
           ];
           specialArgs = { inherit inputs; };
         };
-        mail = nixpkgs2205.lib.nixosSystem {
+        mail = nixpkgs2211.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/mail/configuration.nix
