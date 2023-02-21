@@ -8,6 +8,13 @@
     };
   };
 
+  services.hercules-ci-agents."nixifiedai-swordfish" = {
+    settings = {
+      clusterJoinTokenPath = config.age.secrets.nixifiedAiHerculesClusterJoinToken.path;
+      binaryCachesPath = config.age.secrets.nixifiedAiHerculesBinaryCaches.path;
+    };
+  };
+
   services.hercules-ci-agents."matthewcroughan-swordfish" = {
     settings = {
       clusterJoinTokenPath = config.age.secrets.matthewcroughanHerculesClusterJoinToken.path;
@@ -58,6 +65,16 @@
       file = ../../../secrets/tunnelvrHerculesBinaryCaches.age;
       group = "hci-tunnelvr-swordfish";
       owner = "hci-tunnelvr-swordfish";
+    };
+    nixifiedAiHerculesClusterJoinToken = {
+      file = ../../../secrets/nixifiedAiHerculesClusterJoinToken.age;
+      group = "hci-nixifiedai-swordfish";
+      owner = "hci-nixifiedai-swordfish";
+    };
+    nixifiedAiHerculesBinaryCaches = {
+      file = ../../../secrets/nixifiedAiHerculesBinaryCaches.age;
+      group = "hci-nixifiedai-swordfish";
+      owner = "hci-nixifiedai-swordfish";
     };
   };
 

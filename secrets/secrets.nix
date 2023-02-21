@@ -26,5 +26,7 @@ in
   "nixhowHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "nixhowHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "nixhowHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
+  "nixifiedAiHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
+  "nixifiedAiHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "pleroma.age".publicKeys = allUsers ++ [ systems.matrix ];
 }
