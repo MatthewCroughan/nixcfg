@@ -36,6 +36,7 @@
           ## https://github.com/nvim-treesitter/nvim-treesitter-context
           ## https://github.com/ggandor/lightspeed.nvim
           ## https://github.com/mrcjkb/telescope-manix
+          ## Make injections for bash and stuff work
         ];
       extraConfig = ''
         " Configure Telescope
