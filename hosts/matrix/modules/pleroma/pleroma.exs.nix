@@ -4,8 +4,8 @@ let
     buildInputs = [ pkgs.unzip ];
     src = pkgs.fetchurl {
       name = "soapbox.zip";
-      url = "https://gitlab.com/soapbox-pub/soapbox/-/jobs/3507849252/artifacts/download?file_type=archive";
-      sha256 = "sha256-tCgquIxGRoBZLy1VEG0S/ZgUVqH1C0z0Nbt4dj2fNw0=";
+      url = "https://gitlab.com/soapbox-pub/soapbox/-/jobs/artifacts/v3.2.0/download?job=build-production";
+      sha256 = "sha256-AdW6JK7JkIKLZ8X+N9STeOHqmGNUdhcXyC9jsQPTa9o=";
     };
   }
   ''
