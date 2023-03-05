@@ -12,6 +12,7 @@
     settings = {
       clusterJoinTokenPath = config.age.secrets.nixifiedAiHerculesClusterJoinToken.path;
       binaryCachesPath = config.age.secrets.nixifiedAiHerculesBinaryCaches.path;
+      secretsJsonPath = config.age.secrets.nixifiedAiHerculesSecrets.path;
     };
   };
 
@@ -73,6 +74,11 @@
     };
     nixifiedAiHerculesBinaryCaches = {
       file = ../../../secrets/nixifiedAiHerculesBinaryCaches.age;
+      group = "hci-nixifiedai-swordfish";
+      owner = "hci-nixifiedai-swordfish";
+    };
+    nixifiedAiHerculesSecrets = {
+      file = ../../../secrets/nixifiedAiHerculesSecrets.age;
       group = "hci-nixifiedai-swordfish";
       owner = "hci-nixifiedai-swordfish";
     };
