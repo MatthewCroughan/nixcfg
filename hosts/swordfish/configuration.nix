@@ -46,7 +46,7 @@
       enable = true;
       write = true;
       keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID/cN0FylBSgpzt5uWXUiMYkLVFgkPbs/QHZDyg5LVgX root@goatlap"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN+IsrZFgqDo7DIJh4TfZ5OqdA+4XEjSZqJFNQGS1teb"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB2hSitdOmLziKfsJBeph5T5iUrSjRSCleJuYY8812Mh pasha@newtoncrosby"
       ];
     };
