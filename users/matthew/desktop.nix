@@ -9,8 +9,6 @@
   ];
   home = {
     packages = with pkgs; [
-      # bypass unfree, without unfreePredicate, etc
-#      (parsec-bin.overrideAttrs (_:{ meta.license = null; }))
       logseq
       quasselClient
       alsa-utils
