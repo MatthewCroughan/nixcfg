@@ -133,6 +133,12 @@
     inputs.agenix.defaultPackage.x86_64-linux
   ];
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 90;
+  };
+
   system.stateVersion = "22.11";
 }
 
