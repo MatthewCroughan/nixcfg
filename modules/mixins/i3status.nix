@@ -12,9 +12,8 @@
           }
           {
             block = "memory";
-            display_type = "memory";
-            format_mem = "{mem_used_percents}";
-            format_swap = "{swap_used_percents}";
+            format = " $icon $mem_used_percents ";
+            format_alt = " $icon $swap_used_percents ";
             theme_overrides = {
               idle_bg = "#00223f";
             };
@@ -22,7 +21,7 @@
           {
             block = "cpu";
             interval = 1;
-            format = "{barchart} {utilization} {frequency}";
+            format = " $barchart $utilization $frequency ";
           }
           {
             block = "sound";
@@ -32,13 +31,13 @@
           }
           {
             block = "battery";
-            format = "{percentage} {time}";
-            device = "BAT0";
+            device = "BAT1";
+            format = " $icon $percentage $time $power ";
           }
           {
             block = "net";
-            format = "{ssid} {signal_strength} {ip} {speed_down;K*b} {speed_up;K*b}";
-            interval = 5;
+            format = " $icon $ssid $signal_strength $ip ↓$speed_down ↑$speed_up ";
+            interval = 2;
             theme_overrides = {
               idle_bg = "#00223f";
             };
@@ -46,8 +45,7 @@
           {
             block = "time";
             interval = 1;
-            format = "%F %T";
-            icons_format = " ";
+            format = " $timestamp.datetime(f:'%F %T') ";
           }
         ];
         theme = "space-villain";
