@@ -14,7 +14,6 @@
     mixins-common
     profiles-tailscale
     profiles-fail2ban
-    profiles-avahi
     editor-nvim
   ];
 
