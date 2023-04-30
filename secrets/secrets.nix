@@ -21,8 +21,8 @@ in
   "tunnelvrHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "coturn_static_auth.age".publicKeys = allUsers ++ [ systems.matrix ];
   "synapse_secrets_yaml.age".publicKeys = allUsers ++ [ systems.matrix ];
-  "matthewcroughanHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
-  "matthewcroughanHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
+  "matthewcroughanHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish systems.h1 ];
+  "matthewcroughanHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish systems.h1 ];
   "nixhowHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "nixhowHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "nixhowHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
@@ -30,4 +30,5 @@ in
   "nixifiedAiHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "nixifiedAiHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "pleroma.age".publicKeys = allUsers ++ [ systems.matrix ];
+  "aarch64CommunityBuilderKey".publicKeys = allUsers;
 }
