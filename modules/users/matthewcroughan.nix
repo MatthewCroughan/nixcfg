@@ -7,6 +7,7 @@ in
   users.users.matthew = {
     isNormalUser = true;
     extraGroups = [
+      "lp"
       "wheel"
       "dialout"
     ];
