@@ -79,6 +79,12 @@
               command nix "$@";;
           esac
         }
+        encryptFile() {
+          cat $1 | ${lib.getExe pkgs.openssl} enc -aes256 -pbkdf2 -base64
+        }
+        decryptFile() {
+          cat $1 | ${lib.getExe pkgs.openssl} aes-256-cbc -d -pbkdf2 -a
+        }
       '';
       shellAliases = {
         gr = "cd $(git rev-parse --show-toplevel)";
