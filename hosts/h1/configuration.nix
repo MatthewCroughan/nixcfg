@@ -7,7 +7,7 @@
     ./modules/hercules-ci-agent.nix
     users-deploy
     users-matthewcroughan
-    profiles-avahi
+    profiles-wireless
     profiles-tailscale
     profiles-fail2ban
     mixins-openssh
