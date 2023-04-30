@@ -46,6 +46,7 @@
   };
 
   networking = {
+    wireless.enable = true;
     hostName = "h1";
   };
 
