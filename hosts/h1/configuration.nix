@@ -4,6 +4,7 @@
     ./disks.nix
     ./hardware-configuration.nix
     ./modules/masari.nix
+    ./modules/hercules-ci-agent.nix
     users-deploy
     users-matthewcroughan
     profiles-avahi
