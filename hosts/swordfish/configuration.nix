@@ -52,7 +52,7 @@
     };
   };
 
-  hardware.usbWwan.enable = true;
+#  hardware.usbWwan.enable = true;
 
   # Set the metric of the usbWwan adapter I have plugged in to 1025. This means
   # I can get seamless failover, since the default ethernet route will be
