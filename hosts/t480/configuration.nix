@@ -3,6 +3,7 @@
   imports = with inputs.self.nixosModules; [
     ./disks.nix
     ./hardware-configuration.nix
+    ./kernel.nix
     users-matthewcroughan
     profiles-tailscale
     profiles-sway

@@ -285,15 +285,16 @@
     "kernel-clr": {
       "flake": false,
       "locked": {
-        "lastModified": 1679711997,
-        "narHash": "sha256-4ZhSt9G8bTZJ0vUY0aoofj5UaAxP1Pd7HVzWJJtqut0=",
+        "lastModified": 1682831111,
+        "narHash": "sha256-K+u4TYbxwSNPZU4JZWfsLWdglns8c/0U3ADAf6WNyGw=",
         "owner": "clearlinux-pkgs",
         "repo": "linux",
-        "rev": "d8bf8c837518564db8aefacf37a560ba9dfda0b3",
+        "rev": "a74727b0f8d920d41f312c53258ffedd450b9b33",
         "type": "github"
       },
       "original": {
         "owner": "clearlinux-pkgs",
+        "ref": "6.2.13-1304",
         "repo": "linux",
         "type": "github"
       }
