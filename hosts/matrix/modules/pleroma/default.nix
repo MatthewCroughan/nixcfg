@@ -17,13 +17,14 @@
     };
     pleroma = {
       requires = [ "pleroma-db-alter.service" ];
-      path = [ pkgs.exiftool ];
+      path = [ pkgs.exiftool pkgs.gawk ];
     };
   };
 
   services = {
     pleroma = {
-      package = pkgs.callPackage ./pleroma {};
+#      package = pkgs.callPackage ./pleroma {};
+      package = (builtins.getFlake "github:nixos/nixpkgs/78c4d33c16092e535bc4ba1284ba49e3e138483a").legacyPackages.x86_64-linux.pleroma;
       enable = true;
       configs = [(pkgs.callPackage ./pleroma.exs.nix {})];
       secretConfigFile = config.age.secrets.pleroma.path;
