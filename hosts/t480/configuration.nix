@@ -22,6 +22,14 @@
     editor-nvim
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      sway-unwrapped = super.sway-unwrapped.override { stdenv = super.withCFlags [ "-funroll-loops" "-O3" "-march=x86-64-v3" ] super.llvmPackages_15.stdenv; };
+      kitty = super.kitty.override { stdenv = super.withCFlags [ "-funroll-loops" "-O3" "-march=x86-64-v3" ] super.llvmPackages_15.stdenv; };
+      nixUnstable = super.nixUnstable.override { stdenv = super.withCFlags [ "-funroll-loops" "-O3" "-march=x86-64-v3" ] super.llvmPackages_15.stdenv; };
+    })
+  ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
