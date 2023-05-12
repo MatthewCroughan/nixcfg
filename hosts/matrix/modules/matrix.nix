@@ -103,6 +103,11 @@ in {
         enableACME = true;
         forceSSL = true;
 
+        locations."/synapse-admin".root = pkgs.linkFarm "synapse-admin-routing" [{
+          name = "synapse-admin";
+          path = "${pkgs.synapse-admin}";
+        }];
+
         # Or do a redirect instead of the 404, or whatever is appropriate for you.
         # But do not put a Matrix Web client here! See the Element web section below.
         locations."/".extraConfig = ''
@@ -111,6 +116,9 @@ in {
 
         # forward all Matrix API calls to the synapse Matrix homeserver
         locations."/_matrix" = {
+          proxyPass = "http://[::1]:8008"; # without a trailing /
+        };
+        locations."/_synapse" = {
           proxyPass = "http://[::1]:8008"; # without a trailing /
         };
       };
