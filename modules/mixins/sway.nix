@@ -71,7 +71,6 @@ in
             { always = true; command = "${pkgs.mako}/bin/mako --default-timeout 3000"; }
             { always = true; command = "touch $SWAYSOCK.wob && tail -n0 -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob"; }
             { always = true; command = "${pkgs.flashfocus}/bin/flashfocus"; }
-            { always = true; command = "${pkgs.autotiling-rs}/bin/autotiling-rs"; }
             { command = "exec ${idlecmd}"; always = true; }
           ];
           modifier = "Mod4";
