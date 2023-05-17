@@ -29,6 +29,9 @@ in
   "nixifiedAiHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "nixifiedAiHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish ];
   "nixifiedAiHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish ];
+  "stardustXrHerculesBinaryCaches.age".publicKeys = allUsers ++ [ systems.swordfish systems.h1 ];
+  "stardustXrHerculesClusterJoinToken.age".publicKeys = allUsers ++ [ systems.swordfish systems.h1 ];
+  "stardustXrHerculesSecrets.age".publicKeys = allUsers ++ [ systems.swordfish systems.h1 ];
   "pleroma.age".publicKeys = allUsers ++ [ systems.matrix ];
   "aarch64CommunityBuilderKey".publicKeys = allUsers;
 }
