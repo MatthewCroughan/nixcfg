@@ -72,6 +72,8 @@
 
   services = {
     udev.extraRules = ''
+      # Nreal Air Glasses
+      SUBSYSTEMS=="usb", ATTRS{idVendor}=="3318", ATTRS{idProduct}=="0424", GROUP="input", MODE="0666"
       # Gamecube Controller Adapter
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"
       # Xiaomi Mi 9 Lite
