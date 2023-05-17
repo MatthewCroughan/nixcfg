@@ -1,5 +1,6 @@
 { pkgs, config, lib, ... }:
 {
+  services.zfs.autoScrub.enable = true;
   networking.hostId = "235f593c";
   boot = {
     # Setup ZFS requirements
