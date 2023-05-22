@@ -10,6 +10,7 @@
     ./modules/vaultwarden.nix
     ./modules/traefik.nix
     ./modules/masariBots.nix
+    ./modules/ipfs.nix
     users-deploy
     users-matthewcroughan
     profiles-fail2ban
