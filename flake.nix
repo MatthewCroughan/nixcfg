@@ -4,7 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs2211.url = "github:nixos/nixpkgs/nixos-22.11";
-    nixinate.url = "github:matthewcroughan/nixinate";
+    nixinate = {
+      url = "github:matthewcroughan/nixinate";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager";
     firefox.url = "github:colemickens/flake-firefox-nightly";

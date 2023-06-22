@@ -1,5 +1,6 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
+  pkgs = import (builtins.getFlake "github:nixos/nixpkgs/d4a9ff82fc18723219b60c66fb2ccb0734c460eb") { system = "x86_64-linux"; };
   source = pkgs.fetchFromGitHub {
     owner = "MatthewCroughan";
     repo = "TediCross";

@@ -10,7 +10,7 @@
       CF_API_EMAIL = "cloudflare@croughan.sh";
     };
     serviceConfig = {
-      EnvironmentFile = config.age.secrets.cloudflare_api_key.path;
+      EnvironmentFile = [ config.age.secrets.cloudflare_api_key.path ];
     };
   };
 
