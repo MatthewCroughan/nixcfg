@@ -3,23 +3,32 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs2211.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs2305.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     nixinate = {
       url = "github:matthewcroughan/nixinate";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    home-manager.url = "github:nix-community/home-manager";
-    firefox.url = "github:colemickens/flake-firefox-nightly";
-    agenix.url = "github:ryantm/agenix";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    firefox = {
+      url = "github:colemickens/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     robotnix.url = "github:danielfullmer/robotnix";
     utils = {
       url = "github:gytis-ivaskevicius/flake-utils-plus";
     };
     hercules-ci-agent.url = "github:hercules-ci/hercules-ci-agent";
     simple-nixos-mailserver = {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-22.11";
-      inputs.nixpkgs-22_11.follows = "nixpkgs2211";
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-23.05";
+      inputs.nixpkgs-23_05.follows = "nixpkgs2305";
     };
     impermanence.url = "github:nix-community/impermanence";
   };
@@ -29,7 +38,7 @@
     , nixinate
     , home-manager
     , nixpkgs
-    , nixpkgs2211
+    , nixpkgs2305
     , agenix
     , nixos-hardware
     , utils
@@ -63,6 +72,7 @@
         swordfish = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            utils.nixosModules.autoGenFromInputs
             ./hosts/swordfish/configuration.nix
             home-manager.nixosModules.home-manager
             agenix.nixosModules.age
@@ -78,7 +88,7 @@
           ];
           specialArgs = { inherit inputs; };
         };
-        mail = nixpkgs2211.lib.nixosSystem {
+        mail = nixpkgs2305.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/mail/configuration.nix
@@ -86,7 +96,7 @@
           ];
           specialArgs = { inherit inputs; };
         };
-        doesRouter = nixpkgs2211.lib.nixosSystem {
+        doesRouter = nixpkgs2305.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/doesRouter/configuration.nix
@@ -108,6 +118,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/h1/configuration.nix
+            utils.nixosModules.autoGenFromInputs
             home-manager.nixosModules.home-manager
             agenix.nixosModules.age
             hercules-ci-agent.nixosModules.multi-agent-service
