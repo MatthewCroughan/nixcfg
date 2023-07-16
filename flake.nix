@@ -22,7 +22,6 @@
       inputs.nixpkgs-22_11.follows = "nixpkgs2211";
     };
     impermanence.url = "github:nix-community/impermanence";
-    kernel-clr = { url = "github:clearlinux-pkgs/linux/6.2.13-1304"; flake = false; };
   };
 
   outputs =
