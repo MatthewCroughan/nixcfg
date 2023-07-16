@@ -14,7 +14,6 @@
     profiles-avahi
     mixins-obs
     mixins-v4l2loopback
-    mixins-gfx-intel
     mixins-common
     mixins-i3status
     mixins-fonts
