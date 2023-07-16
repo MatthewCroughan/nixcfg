@@ -13,6 +13,7 @@
     mixins-openssh
     mixins-common
     mixins-gc
+    mixins-zram
     editor-nvim
   ];
 

@@ -5,13 +5,13 @@
     ./hardware-configuration.nix
     ./modules/matrix.nix
     ./modules/pleroma
-    ./modules/zram.nix
     ./modules/defenestrate.it/homepage.nix
     users-deploy
     users-matthewcroughan
     mixins-openssh
     mixins-common
     mixins-gc
+    mixins-zram
     profiles-fail2ban
   ];
 

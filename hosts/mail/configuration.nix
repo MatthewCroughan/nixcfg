@@ -9,6 +9,7 @@
     mixins-openssh
     mixins-common
     mixins-gc
+    mixins-zram
     profiles-fail2ban
   ];
 

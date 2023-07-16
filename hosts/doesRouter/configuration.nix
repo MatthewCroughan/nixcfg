@@ -16,6 +16,7 @@ in
     mixins-openssh
     mixins-common
     mixins-gc
+    mixins-zram
   ];
 
   home-manager = {

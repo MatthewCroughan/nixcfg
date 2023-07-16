@@ -12,6 +12,7 @@
     users-matthewcroughan
     mixins-openssh
     mixins-common
+    mixins-zram
     profiles-tailscale
     profiles-fail2ban
     editor-nvim

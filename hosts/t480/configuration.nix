@@ -18,6 +18,7 @@
     mixins-fonts
     mixins-bluetooth
     mixins-vaapi-intel-hybrid-codec
+    mixins-zram
     editor-nvim
   ];
 
@@ -143,12 +144,6 @@
     git
     inputs.agenix.defaultPackage.x86_64-linux
   ];
-
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 90;
-  };
 
   system.stateVersion = "22.11";
 }
