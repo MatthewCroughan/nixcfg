@@ -25,6 +25,7 @@
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub = {
+    configurationLimit = 10;
     enable = true;
     version = 2;
   };
