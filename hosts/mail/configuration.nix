@@ -17,7 +17,7 @@
     nixinate = {
       host = "mail.croughan.sh";
       sshUser = "deploy";
-      buildOn = "remote";
+      buildOn = "local";
     };
   };
 
