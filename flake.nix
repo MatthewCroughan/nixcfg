@@ -7,7 +7,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixinate = {
       url = "github:matthewcroughan/nixinate";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs2305";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -31,10 +31,12 @@
       inputs.nixpkgs-23_05.follows = "nixpkgs2305";
     };
     impermanence.url = "github:nix-community/impermanence";
+    potreecommitter.url = "git+ssh://git@github.com/MatthewCroughan/PotreeCommitter.git";
   };
 
   outputs =
     { self
+    , potreecommitter
     , nixinate
     , home-manager
     , nixpkgs
@@ -102,6 +104,7 @@
             ./hosts/doesRouter/configuration.nix
             "${nixpkgs}/nixos/modules/profiles/hardened.nix"
             home-manager.nixosModules.home-manager
+            agenix.nixosModules.age
             impermanence.nixosModule
           ];
           specialArgs = { inherit inputs; };
@@ -118,6 +121,7 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/h1/configuration.nix
+            potreecommitter.nixosModules.potreecommitter
             utils.nixosModules.autoGenFromInputs
             home-manager.nixosModules.home-manager
             agenix.nixosModules.age

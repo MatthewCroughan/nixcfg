@@ -10,6 +10,7 @@ in
     ./disks.nix
     ./persist.nix
     ./hardware-configuration.nix
+    ./traefik.nix
     users-deploy
     users-matthewcroughan
     profiles-fail2ban
@@ -97,9 +98,11 @@ in
     firewall = {
       allowPing = false;
       extraCommands = ''
+        # vm
         iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 1337 -j DNAT --to-destination 192.168.3.100:22
-        iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 443 -j DNAT --to-destination 192.168.3.100:22
-        iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 80 -j DNAT --to-destination 192.168.3.100:22
+
+        # h1
+        iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 6969 -j DNAT --to-destination 192.168.3.99:22
       '';
     };
     useDHCP = false;

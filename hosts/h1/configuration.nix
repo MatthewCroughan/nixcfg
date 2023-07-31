@@ -65,6 +65,16 @@
   networking = {
     wireless.enable = true;
     hostName = "h1";
+    nameservers = [ "127.0.0.53" "1.1.1.1" "8.8.8.8" ];
+    defaultGateway.address = "192.168.3.1";
+    interfaces.enp4s0 = {
+      useDHCP = false;
+      ipv4.addresses = [
+        { address = "192.168.3.99";
+          prefixLength = 24;
+        }
+      ];
+    };
   };
 
   time.timeZone = "Europe/London";

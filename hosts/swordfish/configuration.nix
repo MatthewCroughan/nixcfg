@@ -69,6 +69,16 @@
 
   networking = {
     hostName = "swordfish";
+    nameservers = [ "127.0.0.53" "1.1.1.1" "8.8.8.8" ];
+    defaultGateway.address = "192.168.3.1";
+    interfaces.enp5s0 = {
+      useDHCP = false;
+      ipv4.addresses = [
+        { address = "192.168.3.98";
+          prefixLength = 24;
+        }
+      ];
+    };
   };
 
   systemd.enableUnifiedCgroupHierarchy = true;
