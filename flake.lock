@@ -240,11 +240,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690978085,
-        "narHash": "sha256-05FYAiKYini/uuz08tVB7YAS27cz2/4mqYMRTGvkXgo=",
+        "lastModified": 1691556880,
+        "narHash": "sha256-QNLXnmHXR8dhRWYzR4Xwctsuz3R8FWig4tiUJJbLxeQ=",
         "owner": "colemickens",
         "repo": "flake-firefox-nightly",
-        "rev": "097d437d1d679b5d2b61c47b5ca58a3b02d89fc8",
+        "rev": "31d0bdff50f6299853d1e938a33940e42c2a37bd",
         "type": "github"
       },
       "original": {
@@ -503,11 +503,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690790567,
-        "narHash": "sha256-fymHCZFy+qjrNh+EZDHYEEtbZw1TvjtxtCBPBSWU7CM=",
+        "lastModified": 1691506824,
+        "narHash": "sha256-Z2Ms7036CCEAfCmDBDy+sFauO6/7fx2UN3aoPCpp4tA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "729ab77f9e998e0989fa30140ecc91e738bc0cb1",
+        "rev": "7b8d43fbaf8450c30caaed5eab876897d0af891b",
         "type": "github"
       },
       "original": {
@@ -711,11 +711,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1690640159,
-        "narHash": "sha256-5DZUYnkeMOsVb/eqPYb9zns5YsnQXRJRC8Xx/nPMcno=",
+        "lastModified": 1691472822,
+        "narHash": "sha256-XVfYZ2oB3lNPVq6sHCY9WkdQ8lHoIDzzbpg8bB6oBxA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e6ab46982debeab9831236869539a507f670a129",
+        "rev": "41c7605718399dcfa53dd7083793b6ae3bc969ff",
         "type": "github"
       },
       "original": {
@@ -825,11 +825,11 @@
         "dream2nix": "dream2nix"
       },
       "locked": {
-        "lastModified": 1690563440,
-        "narHash": "sha256-mPPUYamfiVzfPtpN8iMbcXn6HMoVoA48w/bMAdUqI1k=",
+        "lastModified": 1691260457,
+        "narHash": "sha256-EJqi6jVw70F50akmbToLX4vLYyYFXR65Vw9HdynXjsY=",
         "owner": "matthewcroughan",
         "repo": "potree",
-        "rev": "eed293473ced078f5259c20b359676c3431f826c",
+        "rev": "d8cd31fc62eacb0647150d9d3946f3acd7d10598",
         "type": "github"
       },
       "original": {
@@ -846,11 +846,11 @@
         "potree": "potree"
       },
       "locked": {
-        "lastModified": 1690567962,
-        "narHash": "sha256-cPyBFetmI8ap9LNXEeQCFW9qXNikoL/hrgxakaDLrwo=",
+        "lastModified": 1691260494,
+        "narHash": "sha256-o6G1hSKAm9V3YPzCtELMslfHRHq2cRxhITx+QK4FsZM=",
         "ref": "refs/heads/master",
-        "rev": "cc2a2dd6765649e9deadcf83e78182b4c2546c69",
-        "revCount": 10,
+        "rev": "0cf0c403b8630fbbc98f40c5aaecf31db314026b",
+        "revCount": 11,
         "type": "git",
         "url": "ssh://git@github.com/MatthewCroughan/PotreeCommitter.git"
       },
