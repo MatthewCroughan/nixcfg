@@ -24,6 +24,7 @@
 
   nixpkgs.overlays = [
     (self: super: {
+      mpv-unwrapped = super.mpv-unwrapped.override { ffmpeg_5 = super.ffmpeg_5-full; }; # Allows MPV to open /dev/video*
       sway-unwrapped = super.sway-unwrapped.override { stdenv = super.withCFlags [ "-funroll-loops" "-O3" "-march=x86-64-v3" ] super.llvmPackages_15.stdenv; };
       kitty = super.kitty.override { stdenv = super.withCFlags [ "-funroll-loops" "-O3" "-march=x86-64-v3" ] super.llvmPackages_15.stdenv; };
       nixUnstable = super.nixUnstable.override { stdenv = super.withCFlags [ "-funroll-loops" "-O3" "-march=x86-64-v3" ] super.llvmPackages_15.stdenv; };
