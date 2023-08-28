@@ -618,15 +618,15 @@
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
-        "lastModified": 1691953666,
-        "narHash": "sha256-HxgMSgoM19OnDb4h47nrxI2lRGsDo+4Y4JEHeCoWB+Q=",
-        "ref": "refs/heads/master",
-        "rev": "65e8abac80cc06f9f05147b51908a47549e9342e",
+        "lastModified": 1689005785,
+        "narHash": "sha256-gxJmO6Y6L+iEgIhBlyOLlruQQqixERkWkByYSH4LaTg=",
+        "rev": "6ff67e40b495e79aa6b2dc9356f1e9ade3b77bca",
         "shallow": true,
         "type": "git",
         "url": "https://git.privatevoid.net/max/nix-super"
       },
       "original": {
+        "rev": "6ff67e40b495e79aa6b2dc9356f1e9ade3b77bca",
         "shallow": true,
         "type": "git",
         "url": "https://git.privatevoid.net/max/nix-super"
