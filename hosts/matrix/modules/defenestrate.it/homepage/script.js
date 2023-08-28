@@ -87,7 +87,7 @@ function killThisYearAlready() {
       ease: Power4.easeIn });
 
     setTimeout(function () {
-      self.location = "https://gamecu.be";
+      self.location = "https://nix.how";
       console.log('done');
     }, 500);
   }, 1500);

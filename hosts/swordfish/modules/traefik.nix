@@ -31,37 +31,37 @@
         };
         routers = {
           jellyfin-insecure = {
-            rule = "Host(`jellyfin.gamecu.be`)";
+            rule = "Host(`jellyfin.croughan.sh`)";
             entryPoints = [ "web" ];
             service = "jellyfin";
             middlewares = "redirect-to-https";
           };
           jellyfin = {
-            rule = "Host(`jellyfin.gamecu.be`)";
+            rule = "Host(`jellyfin.croughan.sh`)";
             entryPoints = [ "websecure" ];
             service = "jellyfin";
             tls.certresolver = "letsencrypt";
           };
           crater-insecure = {
-            rule = "Host(`crater.gamecu.be`)";
+            rule = "Host(`crater.croughan.sh`)";
             entryPoints = [ "web" ];
             service = "crater";
             middlewares = "redirect-to-https";
           };
           crater = {
-            rule = "Host(`crater.gamecu.be`)";
+            rule = "Host(`crater.croughan.sh`)";
             entryPoints = [ "websecure" ];
             service = "crater";
             tls.certresolver = "letsencrypt";
           };
           crater-nixinator-insecure = {
-            rule = "Host(`crater.nixinator.gamecu.be`)";
+            rule = "Host(`crater.nixinator.croughan.sh`)";
             entryPoints = [ "web" ];
             service = "crater-nixinator";
             middlewares = "redirect-to-https";
           };
           crater-nixinator = {
-            rule = "Host(`crater.nixinator.gamecu.be`)";
+            rule = "Host(`crater.nixinator.croughan.sh`)";
             entryPoints = [ "websecure" ];
             service = "crater-nixinator";
             tls.certresolver = "letsencrypt";
