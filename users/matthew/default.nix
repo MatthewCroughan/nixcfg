@@ -58,7 +58,7 @@
           fi
         }
 
-        export EDITOR=vim
+        export EDITOR=nvim
 
         mach-shell() {
           pypiApps=$(for arg; do printf '.%s' "$arg"; done)
