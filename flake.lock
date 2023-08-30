@@ -911,11 +911,11 @@
         "dream2nix": "dream2nix"
       },
       "locked": {
-        "lastModified": 1691260457,
-        "narHash": "sha256-EJqi6jVw70F50akmbToLX4vLYyYFXR65Vw9HdynXjsY=",
+        "lastModified": 1693414353,
+        "narHash": "sha256-fsnEN7GZNy9Qz7goeFiT8/fJmTFUclK1VS0Rdl+3raE=",
         "owner": "matthewcroughan",
         "repo": "potree",
-        "rev": "d8cd31fc62eacb0647150d9d3946f3acd7d10598",
+        "rev": "b61e4347519f007079a79e66c93f7f46e4c702bf",
         "type": "github"
       },
       "original": {
@@ -932,11 +932,11 @@
         "potree": "potree"
       },
       "locked": {
-        "lastModified": 1691260494,
-        "narHash": "sha256-o6G1hSKAm9V3YPzCtELMslfHRHq2cRxhITx+QK4FsZM=",
+        "lastModified": 1693414376,
+        "narHash": "sha256-m1ngPGxMGABQQIS1Vun274axJQj17YKSrpyraqQYPkk=",
         "ref": "refs/heads/master",
-        "rev": "0cf0c403b8630fbbc98f40c5aaecf31db314026b",
-        "revCount": 11,
+        "rev": "e2743c456c8049ba549907339c2b6d1d61b1b714",
+        "revCount": 12,
         "type": "git",
         "url": "ssh://git@github.com/MatthewCroughan/PotreeCommitter.git"
       },
