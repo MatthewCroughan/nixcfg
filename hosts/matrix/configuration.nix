@@ -27,7 +27,6 @@
   boot.loader.grub = {
     configurationLimit = 10;
     enable = true;
-    version = 2;
   };
 
   networking = {

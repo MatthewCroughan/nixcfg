@@ -58,7 +58,7 @@
     enablePop3Ssl = true;
     fqdn = "mail.croughan.sh";
     domains = [ "nix.how" "defenestrate.it" ];
-    certificateScheme = 3;
+    certificateScheme = "acme-nginx";
     loginAccounts = {
       "admin@defenestrate.it" = {
         hashedPassword = "$2y$05$Z.G9c0y8Z8obEVgl/FfuWOCytK6wLOEqMQ9DKT/VsbRcDC6u9LghS";

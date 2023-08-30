@@ -2,8 +2,10 @@
 {
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = lib.mkForce "no";
+    };
     openFirewall = lib.mkForce true;
-    permitRootLogin = lib.mkForce "no";
   };
 }
