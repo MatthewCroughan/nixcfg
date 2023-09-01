@@ -86,6 +86,7 @@
   time.timeZone = "Europe/London";
 
   boot = {
+    tmp.useTmpfs = true;
     binfmt.emulatedSystems = [ "aarch64-linux" "armv7l-linux" "armv6l-linux" "riscv64-linux" ];
     loader = {
       grub = {
