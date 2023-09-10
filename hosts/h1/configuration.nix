@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
 #    ./modules/masari.nix
     ./modules/hercules-ci-agent.nix
+    ./modules/vfio.nix
     users-deploy
     users-matthewcroughan
     profiles-wireless
