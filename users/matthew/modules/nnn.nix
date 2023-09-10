@@ -9,7 +9,7 @@
       package = pkgs.nnn.override ({ withNerdIcons = true; });
       extraPackages = with pkgs; [
         bat
-        exa
+        eza
         fzf
         imv
         mediainfo
