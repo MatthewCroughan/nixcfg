@@ -50,6 +50,7 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKu/WO2l+jDK1uPr77S74XPNLWE5JD5iqlilq9UMXBBY root@goatlap"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB2hSitdOmLziKfsJBeph5T5iUrSjRSCleJuYY8812Mh pasha@newtoncrosby"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOq9gQxVP6k8TNYgkBR+oasyEIooP3QTPmWSkyvywic6 root@t480"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJRGo4DFyjy4qaQK+UyTECRURVVNs2ZqyVRfGAqc6t0a matthew@t480"
       ];
     };
   };
