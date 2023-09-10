@@ -129,6 +129,12 @@
 
   hardware = {
     opengl.enable = true;
+    opengl.extraPackages = with pkgs; [
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+      vulkan-tools
+    ];
     trackpoint = {
       enable = true;
       sensitivity = 255;
