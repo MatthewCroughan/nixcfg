@@ -98,6 +98,9 @@ in
     firewall = {
       allowPing = false;
       extraCommands = ''
+        # chris
+        iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 4242 -j DNAT --to-destination 192.168.3.42:22
+
         # vm
         iptables -t nat -A PREROUTING -i ${externalInterface} -p tcp -m tcp --dport 1337 -j DNAT --to-destination 192.168.3.100:22
 
