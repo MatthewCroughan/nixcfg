@@ -153,6 +153,6 @@
     inputs.agenix.packages.x86_64-linux.default
   ];
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.11";
 }
 
