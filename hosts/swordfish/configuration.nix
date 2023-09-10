@@ -6,13 +6,13 @@
     ./modules/hercules-ci-agent.nix
     ./modules/jellyfin.nix
     ./modules/traefik.nix
-    ./modules/libvirtd.nix
     ./modules/crater.nix
     users-deploy
     users-matthewcroughan
     mixins-openssh
     mixins-common
     mixins-zram
+    profiles-libvirtd
     profiles-tailscale
     profiles-fail2ban
     editor-nvim

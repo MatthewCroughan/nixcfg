@@ -10,6 +10,7 @@
     profiles-wireless
     profiles-tailscale
     profiles-fail2ban
+    profiles-libvirtd
     mixins-openssh
     mixins-common
     mixins-gc
