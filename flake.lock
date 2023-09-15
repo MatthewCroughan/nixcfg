@@ -932,11 +932,11 @@
         "potree": "potree"
       },
       "locked": {
-        "lastModified": 1693414376,
-        "narHash": "sha256-m1ngPGxMGABQQIS1Vun274axJQj17YKSrpyraqQYPkk=",
+        "lastModified": 1694777689,
+        "narHash": "sha256-VYI66mUjziL8Z4BEV+X/cZZZfNMs4pdwOcjIrGP6qrI=",
         "ref": "refs/heads/master",
-        "rev": "e2743c456c8049ba549907339c2b6d1d61b1b714",
-        "revCount": 12,
+        "rev": "c1cef060011f1dd33565340bec3c64f007b5b61f",
+        "revCount": 13,
         "type": "git",
         "url": "ssh://git@github.com/MatthewCroughan/PotreeCommitter.git"
       },
