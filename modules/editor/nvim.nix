@@ -4,7 +4,7 @@
       enable = true;
       plugins = with pkgs.vimPlugins; [
         catppuccin-nvim
-        (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+        (nvim-treesitter.withAllGrammars)
         telescope-nvim
         telescope-manix
         nvim-web-devicons
@@ -115,7 +115,7 @@
             show_buffer_close_icons = false
           }
         }
-        require("indent_blankline").setup {
+        require("ibl").setup {
           options = {
             space_char_blankline = " ",
             show_current_context = true,
