@@ -82,7 +82,6 @@
   time.timeZone = "Europe/London";
 
   boot = {
-    tmp.useTmpfs = true;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {

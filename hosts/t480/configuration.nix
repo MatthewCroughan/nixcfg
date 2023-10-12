@@ -97,7 +97,6 @@
   };
 
   boot = {
-    tmp.useTmpfs = true;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [
       "i915.modeset=1"
