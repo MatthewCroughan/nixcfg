@@ -87,6 +87,21 @@
         decryptFile() {
           cat $1 | ${lib.getExe pkgs.openssl} aes-256-cbc -d -pbkdf2 -a
         }
+        makeScrollingVideo() {
+          # https://stackoverflow.com/questions/54728728/create-a-vertical-video-scroll-based-on-an-image-using-ffmpeg
+          # https://stackoverflow.com/questions/56288245/how-to-scroll-an-image-vertically-using-ffmpeg-and-detect-the-end-of-image-eoi
+          TMPFILE="$(mktemp -u).png"
+
+          cleanup() {
+            rm -rf "$TMPFILE"
+          }
+          trap cleanup 0
+          set -x
+          ${pkgs.puppeteer-cli}/bin/puppeteer screenshot --viewport 1920x1080 --wait-until "networkidle2" "$1" > "$TMPFILE"
+          ${lib.getExe pkgs.ffmpeg} -r 1 -loop 1 -t 61 -i "$TMPFILE" -filter_complex "color=white:s=1920x1080, fps=fps=30[bg];[bg][0]overlay=y=-'min(t*60, H)':shortest=1[video]" -preset ultrafast -map [video] "$2"
+          #${lib.getExe pkgs.ffmpeg} -f lavfi -i color=s=1920x1080 -loop 1 -t 0.08 -i "$TMPFILE" -filter_complex "[1:v]scale=1920:-2,setpts=if(eq(N\,0)\,0\,1+1/0.01/TB),fps=25[fg]; [0:v][fg]overlay=y=-'t*h*0.02':eof_action=endall[v]" -map "[v]" "$2"
+          set +x
+        }
       '';
       shellAliases = {
         gr = "cd $(git rev-parse --show-toplevel)";
